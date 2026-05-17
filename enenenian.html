@@ -1,0 +1,1023 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="VBScript入门">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-vbscript-janv-2002/enenenian.html">
+      
+      
+        <link rel="prev" href="anhueuoheng.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>6. 文本文件 - VBScript入门</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "VBScript入门";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="VBScript入门" class="md-header__button md-logo" aria-label="VBScript入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VBScript入门
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. 文本文件
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-vbscript-janv-2002" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="VBScript入门" class="md-nav__button md-logo" aria-label="VBScript入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VBScript入门
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-vbscript-janv-2002" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ianie.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vbscript-hiinghangiaen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. VBSCRIPT 执行上下文
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vbscript-ianhengihu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. VBScript 编程基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uouhui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 错误处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anhueuoheng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 函数和过程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 文本文件
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="enenenian.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 文本文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. 创建与使用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. 错误情况
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-impots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3. 使用文本文件的 IMPOTS 应用程序
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="refheading1880532734444"></a>
+<a id="toc535044826"></a></p>
+<h1 id="6">6. <span style="color: #365f91">文本文件</span></h1>
+<p>文本文件是一种包含多行文本的文件。让我们通过示例来了解此类文件的创建和使用。</p>
+<p><a id="refheading1880732734444"></a>
+<a id="toc535044827"></a></p>
+<h2 id="61">6.1. <span style="color: #4f81bd">创建与使用</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002060000017953659E14.png" width="518" height="377" style="display:inline-block; margin:4px;width:13.705cm;height:9.975cm;" class="odt-zoomable" data-zoom-src="images/10000000000002060000017953659E14.png" /></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>C:\&gt;cscript fic1.vbs
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>C:\&gt;dir
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>FIC1     VBS           352  01/07/02   7:07 fic1.vbs
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>TESTFILE TXT            25  01/07/02   7:07 testfile.txt
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>C:\&gt;more testfile.txt
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>这是另一个测试。
+</code></pre></div></td></tr></table></div>
+</div></td></tr></table>
+
+<p>评论</p>
+<ul>
+  <li>第 7 行使用 <i>CreateObject(&quot;Scripting.FileSystemObject&quot;)</i> 函数创建了一个类型为 &quot;<i>Scripting.FileSystemObject</i>&quot; 的文件对象。此类对象允许访问系统上的任何文件，而不仅仅是文本文件。
+  </li>
+  <li>第 9 行创建了一个“TextStream”对象。该对象的创建与 testfile<i>.txt</i> 文件的创建相关联。该文件并非通过 <i>c:\dir1\dir2\....\testfile.txt</i> 这样的绝对路径指定，而是通过相对路径 <i>testfile.txt</i> 指定。因此，该文件将创建在执行该文件的命令所在的目录中。
+  </li>
+  <li>Windows 文件系统并不区分文本文件或非文本文件的概念，它仅识别文件本身。因此，是否将该文件视为文本文件，完全取决于使用该文件的程序。
+  </li>
+  <li>第 9 行创建了一个对象，因此使用了 <i>SET</i> 命令进行赋值。创建文本文件对象涉及创建两个对象：
+    <ul>
+      <li>创建一个 <i>Scripting.FileSystemObject</i>（第 7 行）
+      </li>
+      <li>随后使用 <i>Scripting.FileSystemObject </i>的 <i>OpenTextFile</i> 方法创建一个<i>“TextStream</i>”对象（文本文件）<i>，</i>该方法接受以下参数：
+        <ul>
+          <li>待处理文件的名称（必填）
+          </li>
+          <li>文件访问模式。这是一个整数，有三种可能的值：
+            <ul>
+              <li>1：只读模式
+              </li>
+              <li>2：写入模式。如果文件尚不存在，且第三个参数存在且值为 true，则创建该文件；否则不创建。如果文件已存在，则覆盖原文件。
+              </li>
+              <li>8：追加模式，即写入文件末尾。如果文件尚不存在，且第三个参数存在并设置为 true，则创建该文件；否则不创建。
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>第 11 行使用创建的 TextStream 对象的 <i>WriteLine</i> 方法写入一行文本。
+  </li>
+  <li>第 13 行“关闭”了文件。此后将无法再向该文件写入或从中读取数据。
+  </li>
+  <li>第 16 行创建了一个新的“TextStream”对象，使用与之前相同的文件，但这次采用“追加”模式。将要写入的行将追加到现有行之后。
+  </li>
+  <li>第 18 行写入两行新内容，请注意 vbCRLF 常量是文本文件的行尾标记。
+  </li>
+  <li>第 20 行再次关闭文件
+  </li>
+  <li>第 23 行以“读取”模式重新打开该文件：我们将读取文件内容。 
+  </li>
+  <li>第 27 行使用 <i>TextStream</i> 对象的 <i>ReadLine</i> 方法读取一行文本。文件首次“打开”时，光标位于文本的第一行。一旦该行被 <i>ReadLine</i> 方法读取，光标便会移至第二行。因此，<i>ReadLine</i> 方法不仅读取当前行，还会自动“移动”到下一行。
+  </li>
+  <li>要读取所有文本行，必须在循环中反复调用 <i>ReadLine</i> 方法。当 <i>TextStream</i> 对象的 <i>AtEndOfStream</i> 属性被设置为 <i>true</i> 时，该循环（第 26 行）即告结束。这意味着文件中已无更多行可读。
+  </li>
+</ul>
+
+<p><a id="refheading1880932734444"></a>
+<a id="toc535044828"></a></p>
+<h2 id="62">6.2. <span style="color: #4f81bd">错误情况</span></h2>
+<p>有两种常见的错误情况：</p>
+<ul>
+  <li>尝试以读取方式打开不存在的文件
+  </li>
+  <li>在调用 <i>OpenTextFile</i> 方法时，将第三个参数设置为 false，却尝试打开一个不存在的文件进行写入或追加操作。
+  </li>
+</ul>
+
+<p>以下程序演示了如何检测这些错误：</p>
+<p><strong>程序</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">&#39; creating &amp; filling a text file</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">objFichier</span><span class="p">,</span><span class="nv">MyFile</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kd">Const</span><span class="w"> </span><span class="no">ForReading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ForWriting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">ForAppending</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">codeErreur</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">&#39; create a file object</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">Set</span><span class="w"> </span><span class="n">objFichier</span><span class="o">=</span><span class="nb">CreateObject</span><span class="p">(</span><span class="s2">&quot;Scripting.FileSystemObject&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1">&#39; open a text file that should exist in read-only mode</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">Resume</span><span class="w"> </span><span class="k">Next</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="k">Set</span><span class="w"> </span><span class="n">MyFile</span><span class="o">=</span><span class="w"> </span><span class="n">objFichier</span><span class="p">.</span><span class="n">OpenTextFile</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ForReading</span><span class="p">)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">codeErreur</span><span class="o">=</span><span class="nb">err</span><span class="p">.</span><span class="n">number</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">GoTo</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="k">If</span><span class="w"> </span><span class="n">codeErreur</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="c1">&#39; file does not exist</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Le fichier [abcd] n&#39;existe pas&quot;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="k">Else</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="c1">&#39; close the text file</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="n">MyFile</span><span class="p">.</span><span class="n">Close</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="k">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="c1">&#39; open a text file that must be writable</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">Resume</span><span class="w"> </span><span class="k">Next</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="k">Set</span><span class="w"> </span><span class="n">MyFile</span><span class="o">=</span><span class="w"> </span><span class="n">objFichier</span><span class="p">.</span><span class="n">OpenTextFile</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ForWriting</span><span class="p">,</span><span class="w"> </span><span class="no">False</span><span class="p">)</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="n">codeErreur</span><span class="o">=</span><span class="nb">err</span><span class="p">.</span><span class="n">number</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">GoTo</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="k">If</span><span class="w"> </span><span class="n">codeErreur</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Le fichier [abcd] n&#39;existe pas&quot;</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="k">Else</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="c1">&#39; close the text file</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">    </span><span class="n">MyFile</span><span class="p">.</span><span class="n">Close</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="k">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="c1">&#39; open a text file that should exist as an addition</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">Resume</span><span class="w"> </span><span class="k">Next</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="k">Set</span><span class="w"> </span><span class="n">MyFile</span><span class="o">=</span><span class="w"> </span><span class="n">objFichier</span><span class="p">.</span><span class="n">OpenTextFile</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ForAppending</span><span class="p">,</span><span class="w"> </span><span class="no">False</span><span class="p">)</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="n">codeErreur</span><span class="o">=</span><span class="nb">err</span><span class="p">.</span><span class="n">number</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">GoTo</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="k">If</span><span class="w"> </span><span class="n">codeErreur</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Le fichier [abcd] n&#39;existe pas&quot;</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="k">Else</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">    </span><span class="c1">&#39; close the text file</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">    </span><span class="n">MyFile</span><span class="p">.</span><span class="n">Close</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="k">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="c1">&#39; end</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">0</span>
+</code></pre></div>
+<p><strong>结果</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>C:\&gt;dir
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>FIC1     VBS           964  07/01/02   7:54 fic1.vbs
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>TESTFILE TXT             0  07/01/02   8:18 testfile.txt
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>FIC2     VBS         1 252  07/01/02   8:23 fic2.vbs
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>3 fichier(s)              2 216 octets
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>2 répertoire(s)        4 007.11 Mo libre
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>C:\&gt;cscript fic2.vbs
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>Le fichier [abcd] n&#39;existe pas
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>Le fichier [abcd] n&#39;existe pas
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>Le fichier [abcd] n&#39;existe pas
+</code></pre></div></td></tr></table></div>
+<p><a id="refheading1881132734444"></a>
+<a id="toc535044829"></a></p>
+<h2 id="63-impots">6.3. <span style="color: #4f81bd">使用文本文件的 IMPOTS 应用程序</span></h2>
+<p>我们回到税款计算应用程序，假设计算税款所需的数据位于名为 <em>data.txt</em> 的文本文件中：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>12620 13190 15640 24740 31810 39970 48360 55790 92970 127860 151250 172040 195000 0
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>0 0,05 0,1 0,15 0,2 0,25 0,3 0,35 0,4 0,45 0,5 0,55 0,6 0,65
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>0 631 1290,5 2072,5 3309,5 4900 6898,5 9316,5 12106 16754,5 23147,5 30710 39312 49062
+</code></pre></div>
+<p>这三行分别包含应用程序中 limit、coeffR 和 coeffN 数组的数据。得益于应用程序的模块化设计，主要修改集中在负责构建这三个数组的 <strong>getData</strong> 过程。新程序如下：</p>
+<p><strong>程序</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">&#39; calculating a taxpayer&#39;s tax liability</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">&#39; the program must be called with three parameters: married children salary</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">&#39; married: character Y if married, N if unmarried</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">&#39; children: number of children</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">&#39; salary: annual salary without cents</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">&#39; mandatory variable declaration</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">erreur</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1">&#39; retrieve arguments and check their validity</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">marie</span><span class="p">,</span><span class="w"> </span><span class="nv">enfants</span><span class="p">,</span><span class="w"> </span><span class="nv">salaire</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">erreur</span><span class="o">=</span><span class="n">getArguments</span><span class="p">(</span><span class="n">marie</span><span class="p">,</span><span class="n">enfants</span><span class="p">,</span><span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1">&#39; mistake?</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="k">If</span><span class="w"> </span><span class="n">erreur</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="n">erreur</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="n">erreur</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c1">&#39; retrieve the data needed to calculate taxes</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">limites</span><span class="p">,</span><span class="w"> </span><span class="nv">coeffR</span><span class="p">,</span><span class="w"> </span><span class="nv">coeffN</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="n">erreur</span><span class="o">=</span><span class="n">getData</span><span class="p">(</span><span class="n">limites</span><span class="p">,</span><span class="n">coeffR</span><span class="p">,</span><span class="n">coeffN</span><span class="p">)</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="c1">&#39; mistake?</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="k">If</span><span class="w"> </span><span class="n">erreur</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="n">erreur</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">5</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="c1">&#39; the result is displayed</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;impôt=&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">calculerImpot</span><span class="p">(</span><span class="n">marie</span><span class="p">,</span><span class="n">enfants</span><span class="p">,</span><span class="n">salaire</span><span class="p">,</span><span class="n">limites</span><span class="p">,</span><span class="n">coeffR</span><span class="p">,</span><span class="n">coeffN</span><span class="p">)</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="c1">&#39; leave without error</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="c1">&#39; ------------ functions and procedures</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="c1">&#39; ----------- getArguments</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="kd">Function</span><span class="w"> </span><span class="nf">getArguments</span><span class="p">(</span><span class="k">byref</span><span class="w"> </span><span class="n">marie</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">enfants</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">    </span><span class="c1">&#39; must retrieve three values passed as arguments to the main program</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">    </span><span class="c1">&#39; an argument is passed to the program without spaces in front and behind it</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">    </span><span class="c1">&#39; use regular expressions to check data validity</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="w">    </span><span class="c1">&#39; returns an error array variant with 2 values</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="w">    </span><span class="c1">&#39; error(0): error code, 0 if no error</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="w">    </span><span class="c1">&#39; error(1): error message if error otherwise empty string</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="w">    </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">syntaxe</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="w">    </span><span class="n">syntaxe</span><span class="o">=</span><span class="w"> </span><span class="n">_</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="w">    </span><span class="s2">&quot;Syntaxe : pg marié enfants salaire&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">_</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a><span class="w">    </span><span class="s2">&quot;marié : caractère O si marié, N si non marié&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">_</span>
+<a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a><span class="w">    </span><span class="s2">&quot;enfants : nombre d&#39;enfants (entier &gt;=0)&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">_</span>
+<a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a><span class="w">    </span><span class="s2">&quot;salaire : salaire annuel sans les centimes (entier &gt;=0)&quot;</span>
+<a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>
+<a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a><span class="w">    </span><span class="c1">&#39; we check that there are 3 arguments</span>
+<a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a><span class="w">    </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">nbArguments</span>
+<a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a><span class="w">    </span><span class="n">nbArguments</span><span class="o">=</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">.</span><span class="n">count</span>
+<a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="n">nbArguments</span><span class="o">&lt;&gt;</span><span class="mi">3</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a><span class="w">        </span><span class="c1">&#39; error msg</span>
+<a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a><span class="w">        </span><span class="n">getArguments</span><span class="o">=</span><span class="w"> </span><span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">syntaxe</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;erreur : nombre d&#39;arguments incorrect&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a><span class="w">        </span><span class="c1">&#39; end</span>
+<a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a><span class="w">        </span><span class="k">Exit</span><span class="w"> </span><span class="kd">Function</span>
+<a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a><span class="w">    </span><span class="nf">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>
+<a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a><span class="w">    </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">modele</span><span class="p">,</span><span class="w"> </span><span class="nv">correspondances</span>
+<a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a><span class="w">    </span><span class="k">Set</span><span class="w"> </span><span class="n">modele</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="nb">regexp</span>
+<a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>
+<a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a><span class="w">    </span><span class="c1">&#39; marital status must be among the characters oOnN</span>
+<a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a><span class="w">    </span><span class="n">modele</span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;^[oOnN]$&quot;</span>
+<a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a><span class="w">    </span><span class="k">Set</span><span class="w"> </span><span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a><span class="w">        </span><span class="c1">&#39; error msg</span>
+<a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a><span class="w">        </span><span class="n">getArguments</span><span class="o">=</span><span class="nb">array</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">syntaxe</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;erreur : argument marie incorrect&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a><span class="w">        </span><span class="c1">&#39; we leave</span>
+<a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a><span class="w">        </span><span class="k">Exit</span><span class="w"> </span><span class="kd">Function</span>
+<a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a><span class="w">    </span><span class="nf">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a><span class="w">    </span><span class="c1">&#39; the value</span>
+<a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="nb">lcase</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;o&quot;</span><span class="k">Then</span>
+<a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a><span class="w">        </span><span class="n">marie</span><span class="o">=</span><span class="no">true</span>
+<a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a><span class="w">    </span><span class="k">Else</span>
+<a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a><span class="w">        </span><span class="n">marie</span><span class="o">=</span><span class="no">false</span>
+<a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a>
+<a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a><span class="w">    </span><span class="c1">&#39; children must be an integer &gt;=0</span>
+<a id="__codelineno-4-78" name="__codelineno-4-78" href="#__codelineno-4-78"></a><span class="w">    </span><span class="n">modele</span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;^\d{1,2}$&quot;</span>
+<a id="__codelineno-4-79" name="__codelineno-4-79" href="#__codelineno-4-79"></a><span class="w">    </span><span class="k">Set</span><span class="w"> </span><span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-4-80" name="__codelineno-4-80" href="#__codelineno-4-80"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-4-81" name="__codelineno-4-81" href="#__codelineno-4-81"></a><span class="w">        </span><span class="c1">&#39; error</span>
+<a id="__codelineno-4-82" name="__codelineno-4-82" href="#__codelineno-4-82"></a><span class="w">        </span><span class="n">getArguments</span><span class="o">=</span><span class="w"> </span><span class="nb">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">syntaxe</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;erreur : argument enfants incorrect&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-83" name="__codelineno-4-83" href="#__codelineno-4-83"></a><span class="w">        </span><span class="c1">&#39; we leave</span>
+<a id="__codelineno-4-84" name="__codelineno-4-84" href="#__codelineno-4-84"></a><span class="w">        </span><span class="k">Exit</span><span class="w"> </span><span class="kd">Function</span>
+<a id="__codelineno-4-85" name="__codelineno-4-85" href="#__codelineno-4-85"></a><span class="w">    </span><span class="nf">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-4-86" name="__codelineno-4-86" href="#__codelineno-4-86"></a><span class="w">    </span><span class="c1">&#39; the value</span>
+<a id="__codelineno-4-87" name="__codelineno-4-87" href="#__codelineno-4-87"></a><span class="w">    </span><span class="n">enfants</span><span class="o">=</span><span class="nb">cint</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-4-88" name="__codelineno-4-88" href="#__codelineno-4-88"></a>
+<a id="__codelineno-4-89" name="__codelineno-4-89" href="#__codelineno-4-89"></a><span class="w">    </span><span class="c1">&#39; salary must be an integer &gt;=0</span>
+<a id="__codelineno-4-90" name="__codelineno-4-90" href="#__codelineno-4-90"></a><span class="w">    </span><span class="n">modele</span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;^\d{1,9}$&quot;</span>
+<a id="__codelineno-4-91" name="__codelineno-4-91" href="#__codelineno-4-91"></a><span class="w">    </span><span class="k">Set</span><span class="w"> </span><span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-4-92" name="__codelineno-4-92" href="#__codelineno-4-92"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-4-93" name="__codelineno-4-93" href="#__codelineno-4-93"></a><span class="w">        </span><span class="c1">&#39; error</span>
+<a id="__codelineno-4-94" name="__codelineno-4-94" href="#__codelineno-4-94"></a><span class="w">        </span><span class="n">getArguments</span><span class="o">=</span><span class="w"> </span><span class="nb">array</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">syntaxe</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;erreur : argument salaire incorrect&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-95" name="__codelineno-4-95" href="#__codelineno-4-95"></a><span class="w">        </span><span class="c1">&#39; we leave</span>
+<a id="__codelineno-4-96" name="__codelineno-4-96" href="#__codelineno-4-96"></a><span class="w">        </span><span class="k">Exit</span><span class="w"> </span><span class="kd">Function</span>
+<a id="__codelineno-4-97" name="__codelineno-4-97" href="#__codelineno-4-97"></a><span class="w">    </span><span class="nf">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-4-98" name="__codelineno-4-98" href="#__codelineno-4-98"></a><span class="w">    </span><span class="c1">&#39; the value</span>
+<a id="__codelineno-4-99" name="__codelineno-4-99" href="#__codelineno-4-99"></a><span class="w">    </span><span class="n">salaire</span><span class="o">=</span><span class="nb">clng</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-4-100" name="__codelineno-4-100" href="#__codelineno-4-100"></a>
+<a id="__codelineno-4-101" name="__codelineno-4-101" href="#__codelineno-4-101"></a><span class="w">    </span><span class="c1">&#39; finished without error</span>
+<a id="__codelineno-4-102" name="__codelineno-4-102" href="#__codelineno-4-102"></a><span class="w">    </span><span class="n">getArguments</span><span class="o">=</span><span class="nb">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-103" name="__codelineno-4-103" href="#__codelineno-4-103"></a><span class="k">End</span><span class="w"> </span><span class="k">Function</span>
+<a id="__codelineno-4-104" name="__codelineno-4-104" href="#__codelineno-4-104"></a>
+<a id="__codelineno-4-105" name="__codelineno-4-105" href="#__codelineno-4-105"></a><span class="c1">&#39; ----------- getData</span>
+<a id="__codelineno-4-106" name="__codelineno-4-106" href="#__codelineno-4-106"></a><span class="kd">Function</span><span class="w"> </span><span class="nf">getData</span><span class="p">(</span><span class="k">byref</span><span class="w"> </span><span class="n">limites</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">coeffR</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">coeffN</span><span class="p">)</span>
+<a id="__codelineno-4-107" name="__codelineno-4-107" href="#__codelineno-4-107"></a><span class="w">    </span><span class="c1">&#39; the data of the three limit tables, coeffR, coeffN are in a text file</span>
+<a id="__codelineno-4-108" name="__codelineno-4-108" href="#__codelineno-4-108"></a><span class="w">    </span><span class="c1">&#39; called data.txt. Each array occupies a line in the form val1 val2 ... valn</span>
+<a id="__codelineno-4-109" name="__codelineno-4-109" href="#__codelineno-4-109"></a><span class="w">    </span><span class="c1">&#39; we find, in limit order, coeffR, coeffN</span>
+<a id="__codelineno-4-110" name="__codelineno-4-110" href="#__codelineno-4-110"></a>
+<a id="__codelineno-4-111" name="__codelineno-4-111" href="#__codelineno-4-111"></a><span class="w">    </span><span class="c1">&#39; renders a 2-element array error variant to handle possible errors</span>
+<a id="__codelineno-4-112" name="__codelineno-4-112" href="#__codelineno-4-112"></a><span class="w">    </span><span class="c1">&#39; error(0): 0 if no error, an integer &gt;0 otherwise</span>
+<a id="__codelineno-4-113" name="__codelineno-4-113" href="#__codelineno-4-113"></a><span class="w">    </span><span class="c1">&#39; error(1): error message if error</span>
+<a id="__codelineno-4-114" name="__codelineno-4-114" href="#__codelineno-4-114"></a>
+<a id="__codelineno-4-115" name="__codelineno-4-115" href="#__codelineno-4-115"></a><span class="w">    </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">objFichier</span><span class="p">,</span><span class="nv">MyFile</span><span class="p">,</span><span class="nv">codeErreur</span>
+<a id="__codelineno-4-116" name="__codelineno-4-116" href="#__codelineno-4-116"></a><span class="w">    </span><span class="kd">Const</span><span class="w"> </span><span class="no">ForReading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dataFileName</span><span class="o">=</span><span class="s2">&quot;data.txt&quot;</span>
+<a id="__codelineno-4-117" name="__codelineno-4-117" href="#__codelineno-4-117"></a>
+<a id="__codelineno-4-118" name="__codelineno-4-118" href="#__codelineno-4-118"></a><span class="w">    </span><span class="c1">&#39; create a file object</span>
+<a id="__codelineno-4-119" name="__codelineno-4-119" href="#__codelineno-4-119"></a><span class="w">    </span><span class="k">Set</span><span class="w"> </span><span class="n">objFichier</span><span class="o">=</span><span class="nb">CreateObject</span><span class="p">(</span><span class="s2">&quot;Scripting.FileSystemObject&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-120" name="__codelineno-4-120" href="#__codelineno-4-120"></a><span class="w">    </span><span class="c1">&#39; open the data.txt file in read mode</span>
+<a id="__codelineno-4-121" name="__codelineno-4-121" href="#__codelineno-4-121"></a><span class="w">    </span><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">Resume</span><span class="w"> </span><span class="k">Next</span>
+<a id="__codelineno-4-122" name="__codelineno-4-122" href="#__codelineno-4-122"></a><span class="w">    </span><span class="k">Set</span><span class="w"> </span><span class="n">MyFile</span><span class="o">=</span><span class="w"> </span><span class="n">objFichier</span><span class="p">.</span><span class="n">OpenTextFile</span><span class="p">(</span><span class="n">dataFileName</span><span class="p">,</span><span class="w"> </span><span class="n">ForReading</span><span class="p">)</span>
+<a id="__codelineno-4-123" name="__codelineno-4-123" href="#__codelineno-4-123"></a><span class="w">    </span><span class="c1">&#39; mistake?</span>
+<a id="__codelineno-4-124" name="__codelineno-4-124" href="#__codelineno-4-124"></a><span class="w">    </span><span class="n">codeErreur</span><span class="o">=</span><span class="nb">err</span><span class="p">.</span><span class="n">number</span>
+<a id="__codelineno-4-125" name="__codelineno-4-125" href="#__codelineno-4-125"></a><span class="w">    </span><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">GoTo</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-4-126" name="__codelineno-4-126" href="#__codelineno-4-126"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="n">codeErreur</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-4-127" name="__codelineno-4-127" href="#__codelineno-4-127"></a><span class="w">        </span><span class="c1">&#39; there has been an error - it is noted</span>
+<a id="__codelineno-4-128" name="__codelineno-4-128" href="#__codelineno-4-128"></a><span class="w">        </span><span class="n">getData</span><span class="o">=</span><span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Impossible d&#39;ouvrir le fichier des données [&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">dataFileName</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;] en lecture&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-129" name="__codelineno-4-129" href="#__codelineno-4-129"></a><span class="w">        </span><span class="c1">&#39; we&#39;re back</span>
+<a id="__codelineno-4-130" name="__codelineno-4-130" href="#__codelineno-4-130"></a><span class="w">        </span><span class="k">Exit</span><span class="w"> </span><span class="kd">Function</span>
+<a id="__codelineno-4-131" name="__codelineno-4-131" href="#__codelineno-4-131"></a><span class="w">    </span><span class="nf">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-4-132" name="__codelineno-4-132" href="#__codelineno-4-132"></a>
+<a id="__codelineno-4-133" name="__codelineno-4-133" href="#__codelineno-4-133"></a><span class="w">    </span><span class="c1">&#39; we now assume that the content is correct and do no verification</span>
+<a id="__codelineno-4-134" name="__codelineno-4-134" href="#__codelineno-4-134"></a><span class="w">    </span><span class="c1">&#39; read the 3 lines</span>
+<a id="__codelineno-4-135" name="__codelineno-4-135" href="#__codelineno-4-135"></a>
+<a id="__codelineno-4-136" name="__codelineno-4-136" href="#__codelineno-4-136"></a><span class="w">    </span><span class="c1">&#39; limits</span>
+<a id="__codelineno-4-137" name="__codelineno-4-137" href="#__codelineno-4-137"></a><span class="w">    </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">ligne</span><span class="p">,</span><span class="w"> </span><span class="nv">i</span>
+<a id="__codelineno-4-138" name="__codelineno-4-138" href="#__codelineno-4-138"></a><span class="w">    </span><span class="n">ligne</span><span class="o">=</span><span class="n">MyFile</span><span class="p">.</span><span class="n">ReadLine</span>
+<a id="__codelineno-4-139" name="__codelineno-4-139" href="#__codelineno-4-139"></a><span class="w">    </span><span class="n">getDataFromLine</span><span class="w"> </span><span class="n">ligne</span><span class="p">,</span><span class="n">limites</span>
+<a id="__codelineno-4-140" name="__codelineno-4-140" href="#__codelineno-4-140"></a>
+<a id="__codelineno-4-141" name="__codelineno-4-141" href="#__codelineno-4-141"></a><span class="w">    </span><span class="c1">&#39; coeffR</span>
+<a id="__codelineno-4-142" name="__codelineno-4-142" href="#__codelineno-4-142"></a><span class="w">    </span><span class="n">ligne</span><span class="o">=</span><span class="n">MyFile</span><span class="p">.</span><span class="n">ReadLine</span>
+<a id="__codelineno-4-143" name="__codelineno-4-143" href="#__codelineno-4-143"></a><span class="w">    </span><span class="n">getDataFromLine</span><span class="w"> </span><span class="n">ligne</span><span class="p">,</span><span class="n">coeffR</span>
+<a id="__codelineno-4-144" name="__codelineno-4-144" href="#__codelineno-4-144"></a>
+<a id="__codelineno-4-145" name="__codelineno-4-145" href="#__codelineno-4-145"></a>
+<a id="__codelineno-4-146" name="__codelineno-4-146" href="#__codelineno-4-146"></a><span class="w">    </span><span class="c1">&#39; coeffN</span>
+<a id="__codelineno-4-147" name="__codelineno-4-147" href="#__codelineno-4-147"></a><span class="w">    </span><span class="n">ligne</span><span class="o">=</span><span class="n">MyFile</span><span class="p">.</span><span class="n">ReadLine</span>
+<a id="__codelineno-4-148" name="__codelineno-4-148" href="#__codelineno-4-148"></a><span class="w">    </span><span class="n">coeffN</span><span class="o">=</span><span class="nb">split</span><span class="p">(</span><span class="n">ligne</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<a id="__codelineno-4-149" name="__codelineno-4-149" href="#__codelineno-4-149"></a><span class="w">    </span><span class="n">getDataFromLine</span><span class="w"> </span><span class="n">ligne</span><span class="p">,</span><span class="n">coeffN</span>
+<a id="__codelineno-4-150" name="__codelineno-4-150" href="#__codelineno-4-150"></a>
+<a id="__codelineno-4-151" name="__codelineno-4-151" href="#__codelineno-4-151"></a><span class="w">    </span><span class="c1">&#39; close the file</span>
+<a id="__codelineno-4-152" name="__codelineno-4-152" href="#__codelineno-4-152"></a><span class="w">    </span><span class="n">MyFile</span><span class="p">.</span><span class="n">close</span>
+<a id="__codelineno-4-153" name="__codelineno-4-153" href="#__codelineno-4-153"></a>
+<a id="__codelineno-4-154" name="__codelineno-4-154" href="#__codelineno-4-154"></a><span class="w">    </span><span class="c1">&#39; finished without error</span>
+<a id="__codelineno-4-155" name="__codelineno-4-155" href="#__codelineno-4-155"></a><span class="w">    </span><span class="n">getData</span><span class="o">=</span><span class="nb">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-156" name="__codelineno-4-156" href="#__codelineno-4-156"></a><span class="k">End</span><span class="w"> </span><span class="k">Function</span>
+<a id="__codelineno-4-157" name="__codelineno-4-157" href="#__codelineno-4-157"></a>
+<a id="__codelineno-4-158" name="__codelineno-4-158" href="#__codelineno-4-158"></a><span class="c1">&#39; ----------- getDataFromLine</span>
+<a id="__codelineno-4-159" name="__codelineno-4-159" href="#__codelineno-4-159"></a><span class="kd">Sub</span><span class="w"> </span><span class="nf">getDataFromLine</span><span class="p">(</span><span class="k">byref</span><span class="w"> </span><span class="n">ligne</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">tableau</span><span class="p">)</span>
+<a id="__codelineno-4-160" name="__codelineno-4-160" href="#__codelineno-4-160"></a><span class="w">    </span><span class="c1">&#39; places the numerical values contained in line</span>
+<a id="__codelineno-4-161" name="__codelineno-4-161" href="#__codelineno-4-161"></a><span class="w">    </span><span class="c1">&#39; these are separated by one or more spaces</span>
+<a id="__codelineno-4-162" name="__codelineno-4-162" href="#__codelineno-4-162"></a>
+<a id="__codelineno-4-163" name="__codelineno-4-163" href="#__codelineno-4-163"></a><span class="w">    </span><span class="c1">&#39; initially the table is empty</span>
+<a id="__codelineno-4-164" name="__codelineno-4-164" href="#__codelineno-4-164"></a><span class="w">    </span><span class="n">tableau</span><span class="o">=</span><span class="nb">array</span><span class="p">()</span>
+<a id="__codelineno-4-165" name="__codelineno-4-165" href="#__codelineno-4-165"></a><span class="w">    </span><span class="c1">&#39; we define a model for the</span>
+<a id="__codelineno-4-166" name="__codelineno-4-166" href="#__codelineno-4-166"></a><span class="w">    </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">modele</span><span class="p">,</span><span class="w"> </span><span class="nv">correspondances</span>
+<a id="__codelineno-4-167" name="__codelineno-4-167" href="#__codelineno-4-167"></a><span class="w">    </span><span class="k">Set</span><span class="w"> </span><span class="n">modele</span><span class="o">=</span><span class="w"> </span><span class="k">New</span><span class="w"> </span><span class="nb">RegExP</span>
+<a id="__codelineno-4-168" name="__codelineno-4-168" href="#__codelineno-4-168"></a><span class="w">    </span><span class="k">With</span><span class="w"> </span><span class="n">modele</span>
+<a id="__codelineno-4-169" name="__codelineno-4-169" href="#__codelineno-4-169"></a><span class="w">        </span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;\d+,\d+|\d+&quot;</span><span class="w">    </span><span class="c1">&#39; 140.5 or 140</span>
+<a id="__codelineno-4-170" name="__codelineno-4-170" href="#__codelineno-4-170"></a><span class="w">        </span><span class="p">.</span><span class="k">global</span><span class="o">=</span><span class="no">true</span><span class="w">              </span><span class="c1">&#39; all values</span>
+<a id="__codelineno-4-171" name="__codelineno-4-171" href="#__codelineno-4-171"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">With</span>
+<a id="__codelineno-4-172" name="__codelineno-4-172" href="#__codelineno-4-172"></a>
+<a id="__codelineno-4-173" name="__codelineno-4-173" href="#__codelineno-4-173"></a><span class="w">    </span><span class="c1">&#39; we analyze the line</span>
+<a id="__codelineno-4-174" name="__codelineno-4-174" href="#__codelineno-4-174"></a><span class="w">    </span><span class="k">Set</span><span class="w"> </span><span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+<a id="__codelineno-4-175" name="__codelineno-4-175" href="#__codelineno-4-175"></a><span class="w">    </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">i</span>
+<a id="__codelineno-4-176" name="__codelineno-4-176" href="#__codelineno-4-176"></a><span class="w">    </span><span class="k">For</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">To</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-4-177" name="__codelineno-4-177" href="#__codelineno-4-177"></a><span class="w">        </span><span class="c1">&#39; resize the table</span>
+<a id="__codelineno-4-178" name="__codelineno-4-178" href="#__codelineno-4-178"></a><span class="w">        </span><span class="k">ReDim</span><span class="w"> </span><span class="n">Preserve</span><span class="w"> </span><span class="n">tableau</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-4-179" name="__codelineno-4-179" href="#__codelineno-4-179"></a><span class="w">        </span><span class="c1">&#39; assign a value to the new element</span>
+<a id="__codelineno-4-180" name="__codelineno-4-180" href="#__codelineno-4-180"></a><span class="w">        </span><span class="n">tableau</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">=</span><span class="nb">cdbl</span><span class="p">(</span><span class="n">correspondances</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-4-181" name="__codelineno-4-181" href="#__codelineno-4-181"></a><span class="w">    </span><span class="k">Next</span>
+<a id="__codelineno-4-182" name="__codelineno-4-182" href="#__codelineno-4-182"></a>
+<a id="__codelineno-4-183" name="__codelineno-4-183" href="#__codelineno-4-183"></a><span class="w">    </span><span class="c1">&#39;end</span>
+<a id="__codelineno-4-184" name="__codelineno-4-184" href="#__codelineno-4-184"></a><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
+<a id="__codelineno-4-185" name="__codelineno-4-185" href="#__codelineno-4-185"></a>
+<a id="__codelineno-4-186" name="__codelineno-4-186" href="#__codelineno-4-186"></a>
+<a id="__codelineno-4-187" name="__codelineno-4-187" href="#__codelineno-4-187"></a>
+<a id="__codelineno-4-188" name="__codelineno-4-188" href="#__codelineno-4-188"></a>
+<a id="__codelineno-4-189" name="__codelineno-4-189" href="#__codelineno-4-189"></a><span class="c1">&#39; ----------- calculerImpot</span>
+<a id="__codelineno-4-190" name="__codelineno-4-190" href="#__codelineno-4-190"></a><span class="kd">Function</span><span class="w"> </span><span class="nf">calculerImpot</span><span class="p">(</span><span class="k">byval</span><span class="w"> </span><span class="n">marie</span><span class="p">,</span><span class="k">ByVal</span><span class="w"> </span><span class="n">enfants</span><span class="p">,</span><span class="k">ByVal</span><span class="w"> </span><span class="n">salaire</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">limites</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">coeffR</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">coeffN</span><span class="p">)</span>
+<a id="__codelineno-4-191" name="__codelineno-4-191" href="#__codelineno-4-191"></a>
+<a id="__codelineno-4-192" name="__codelineno-4-192" href="#__codelineno-4-192"></a><span class="w">    </span><span class="c1">&#39; the number of shares is calculated</span>
+<a id="__codelineno-4-193" name="__codelineno-4-193" href="#__codelineno-4-193"></a><span class="w">    </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">nbParts</span>
+<a id="__codelineno-4-194" name="__codelineno-4-194" href="#__codelineno-4-194"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="n">marie</span><span class="o">=</span><span class="no">true</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-4-195" name="__codelineno-4-195" href="#__codelineno-4-195"></a><span class="w">        </span><span class="n">nbParts</span><span class="o">=</span><span class="p">(</span><span class="n">enfants</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span>
+<a id="__codelineno-4-196" name="__codelineno-4-196" href="#__codelineno-4-196"></a><span class="w">    </span><span class="k">Else</span>
+<a id="__codelineno-4-197" name="__codelineno-4-197" href="#__codelineno-4-197"></a><span class="w">        </span><span class="n">nbParts</span><span class="o">=</span><span class="p">(</span><span class="n">enfants</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-4-198" name="__codelineno-4-198" href="#__codelineno-4-198"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-4-199" name="__codelineno-4-199" href="#__codelineno-4-199"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="n">enfants</span><span class="o">&gt;=</span><span class="mi">3</span><span class="w"> </span><span class="k">Then</span><span class="w"> </span><span class="n">nbParts</span><span class="o">=</span><span class="n">nbParts</span><span class="o">+</span><span class="mf">0.5</span>
+<a id="__codelineno-4-200" name="__codelineno-4-200" href="#__codelineno-4-200"></a>
+<a id="__codelineno-4-201" name="__codelineno-4-201" href="#__codelineno-4-201"></a><span class="w">    </span><span class="c1">&#39; we calculate the family quotient and taxable income</span>
+<a id="__codelineno-4-202" name="__codelineno-4-202" href="#__codelineno-4-202"></a><span class="w">    </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">revenu</span><span class="p">,</span><span class="w"> </span><span class="nv">qf</span>
+<a id="__codelineno-4-203" name="__codelineno-4-203" href="#__codelineno-4-203"></a><span class="w">    </span><span class="n">revenu</span><span class="o">=</span><span class="mf">0.72</span><span class="o">*</span><span class="n">salaire</span>
+<a id="__codelineno-4-204" name="__codelineno-4-204" href="#__codelineno-4-204"></a><span class="w">    </span><span class="n">qf</span><span class="o">=</span><span class="n">revenu</span><span class="o">/</span><span class="n">nbParts</span>
+<a id="__codelineno-4-205" name="__codelineno-4-205" href="#__codelineno-4-205"></a>
+<a id="__codelineno-4-206" name="__codelineno-4-206" href="#__codelineno-4-206"></a><span class="w">    </span><span class="c1">&#39; tax calculation</span>
+<a id="__codelineno-4-207" name="__codelineno-4-207" href="#__codelineno-4-207"></a><span class="w">    </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">impot</span>
+<a id="__codelineno-4-208" name="__codelineno-4-208" href="#__codelineno-4-208"></a><span class="w">    </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<a id="__codelineno-4-209" name="__codelineno-4-209" href="#__codelineno-4-209"></a><span class="w">    </span><span class="k">Do</span><span class="w"> </span><span class="k">While</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="nb">ubound</span><span class="p">(</span><span class="n">limites</span><span class="p">)</span><span class="w"> </span><span class="ow">And</span><span class="w"> </span><span class="n">qf</span><span class="o">&gt;</span><span class="n">limites</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-4-210" name="__codelineno-4-210" href="#__codelineno-4-210"></a><span class="w">        </span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-4-211" name="__codelineno-4-211" href="#__codelineno-4-211"></a><span class="w">    </span><span class="k">Loop</span>
+<a id="__codelineno-4-212" name="__codelineno-4-212" href="#__codelineno-4-212"></a><span class="w">    </span><span class="n">calculerImpot</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">revenu</span><span class="o">*</span><span class="n">coeffr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="n">nbParts</span><span class="o">*</span><span class="n">coeffn</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<a id="__codelineno-4-213" name="__codelineno-4-213" href="#__codelineno-4-213"></a><span class="k">End</span><span class="w"> </span><span class="k">Function</span>
+</code></pre></div>
+<p>注释：</p>
+<ul>
+  <li>在文本文件 <b>data.txt </b>中，值之间可能由一个或多个空格分隔，这使得无法使用 split 函数从行中提取值。因此必须使用正则表达式
+  </li>
+  <li><b>getData</b> 函数除了返回三个限值数组 coeffR 和 coeffN 之外，还会返回一个结果，用于指示是否发生错误。该结果是一个包含两个元素的 Variant 数组。第一个元素是错误代码（无错误时为 0），第二个元素是发生错误时的错误消息。
+  </li>
+  <li><i>getData</i> 函数不会对 data.txt 文件中找到的值进行验证。在实际应用中，它应该进行验证。
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 <strong>Serge Tahé</strong> 编写，根据
+<em>知识共享 署名-非商业性使用-
+ShareAlike 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

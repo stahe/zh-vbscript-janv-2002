@@ -1,0 +1,885 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="VBScript入门">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-vbscript-janv-2002/vbscript-hiinghangiaen.html">
+      
+      
+        <link rel="prev" href="ianie.html">
+      
+      
+        <link rel="next" href="vbscript-ianhengihu.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>2. VBSCRIPT 执行上下文 - VBScript入门</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "VBScript入门";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2-vbscript" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="VBScript入门" class="md-header__button md-logo" aria-label="VBScript入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VBScript入门
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. VBSCRIPT 执行上下文
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-vbscript-janv-2002" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="VBScript入门" class="md-nav__button md-logo" aria-label="VBScript入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VBScript入门
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-vbscript-janv-2002" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ianie.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. VBSCRIPT 执行上下文
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="vbscript-hiinghangiaen.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. VBSCRIPT 执行上下文
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. 简介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-wsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. WSH 容器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-wsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. WSH 脚本的结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-wscript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. WSCRIPT 对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-internet-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Internet Explorer 容器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-wsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6. WSH 帮助
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vbscript-ianhengihu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. VBScript 编程基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uouhui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 错误处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anhueuoheng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 函数和过程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enenenian.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 文本文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="refheading1870932734444"></a>
+<a id="toc523634254"></a>
+<a id="toc535044778"></a></p>
+<h1 id="2-vbscript">2. <span style="color: #365f91"><strong>VBSCRIPT 执行上下文</strong></span></h1>
+<p><a id="refheading1871132734444"></a>
+<a id="toc535044779"></a></p>
+<h2 id="21">2.1. <span style="color: #4f81bd">简介</span></h2>
+<p><em>VBScript</em> 程序并非直接在 Windows 中运行，而是运行在一个容器内，该容器为其提供执行上下文以及若干特定对象。此外，VBScript 程序还可以使用 Windows 系统提供的对象，即所谓的 ActiveX 对象。</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000073E00000323F1B79BD8.png" width="605" height="262" style="display:inline-block; margin:4px;width:16.002cm;height:6.93cm;" class="odt-zoomable" data-zoom-src="images/100000000000073E00000323F1B79BD8.png" /></td></tr></table>
+
+<p>在本文档中，我们将使用两个容器：<em>Windows Scripting Host（</em>通常简称为 WSH）和 <em>Internet Explorer</em> 浏览器（下文有时简称为 IE）。此外还有许多其他容器。例如，MS-Office 应用程序就是一种名为 VBA（Visual Basic for Applications）的 VB 变体的容器。 此外，还有许多 Windows 应用程序允许用户突破应用程序本身的限制，通过开发可在应用程序内部运行并利用其特定对象的程序来实现这一目标。</p>
+<p>VBScript 程序运行的容器起着至关重要的作用：</p>
+<ul>
+<li>不同容器向 VBScript 程序提供的对象各不相同。例如，WSH 为 VBS 程序提供了一个名为 <em>WScript</em> 的对象，该对象允许访问主机上的网络共享和打印机等资源。而 IE 则为 VBS 程序提供了一个名为 <em>Document</em> 的对象，该对象代表正在查看的整个 HTML 文档。 VBS 程序随后可以操作该文档。而 Excel 则为 VBA 程序提供代表工作簿、工作表、图表等的对象——实际上，就是 Excel 处理的所有对象。</li>
+<li>虽然容器中的对象赋予了 VBScript 程序强大的功能，但有时也会限制其某些功能。例如，出于安全原因，在 IE 浏览器中运行的 VBScript 程序无法访问主机上的磁盘。</li>
+</ul>
+<p>因此，在讨论 VBScript 编程时，必须明确程序正在哪个容器中运行。</p>
+<p>在 Windows 系统中，VBScript 并非 WSH 或 IE 容器中唯一可用的语言。例如，您还可以使用 JScript（即 JavaScript）、PerlScript（即 Perl）、Python 等。乍看之下，这些语言中的许多似乎都优于 VBScript。然而，VBScript 具有一些显著优势：</p>
+<ul>
+<li>VB及其变体VBScript和VBA在Windows系统中非常普及。掌握这门语言似乎必不可少。</li>
+<li>程序的强大之处在于可用的对象，而非语言本身。其中许多对象是由容器提供的，而非语言本身。</li>
+</ul>
+<p>VBScript的一个缺点是无法移植到Windows以外的系统（如Unix）上。而其竞争对手——JavaScript、Perl和Python——则可以。如果您需要在异构系统上工作，在不同系统中使用同一门语言可能会带来好处，甚至必不可少。</p>
+<p><a id="refheading1871332734444"></a>
+<a id="toc535044780"></a></p>
+<h2 id="22-wsh">2.2. <span style="color: #4f81bd">WSH 容器</span></h2>
+<p>WSH（Windows 脚本宿主）容器允许用各种语言（如 VBScript、JavaScript、PerlScript、Python 等）编写的程序在 Windows 环境中运行。要在 WSH 中使用某种语言，必须遵循一项标准。任何符合该标准的语言都可以在 WSH 中执行。可以预见，在 WSH 中运行的语言列表可能会不断扩展。 容器为所执行的程序提供对象，这些对象赋予了程序真正的强大功能。由于所有语言都使用同一组对象，这往往会模糊语言之间的差异。因此，选择一种语言而非另一种，往往取决于个人偏好，而非性能因素。</p>
+<p>WSH 中的程序通过两个可执行文件运行：<em>wscript.exe</em> 和 <em>cscript.exe</em>。<em>wscript.exe</em> 通常位于 Windows 安装目录中，通常称为 <em>%windir%</em>：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\ &gt;echo %windir%</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\WINDOWS</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\&gt;dir c:\windows\wscript.exe</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">WSCRIPT  EXE       123 280  19/09/01  11:54 wscript.exe</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">L&#x27;exécutable </span><span style="font-style:italic">cscript.exe</span><span style="color:#000000"> se trouve lui sous </span><span style="font-style:italic">%windir%\command</span><span style="color:#000000"> :</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\&gt;dir c:\windows\cscript.* /s</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Répertoire de C:\WINDOWS\COMMAND</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">CSCRIPT  EXE       102 450  26/06/01  17:49 cscript.exe</span></span>
+</code></pre></div>
+
+<p><em>wscript</em> 中的“w”代表 <em>Windows，cscript 中的“c”代表控制台</em>。脚本既可以使用 wscript 也可以使用 cscript 运行。两者的区别在于消息在屏幕上的显示方式：</p>
+<ul>
+<li>wscript 会在窗口中显示</li>
+<li>cscript 直接在屏幕上显示</li>
+</ul>
+<p>以下是一个<em>名为 hello.vbs 的</em>脚本，它会在屏幕上显示<em>“hello”</em>：</p>
+<p><img src="images/10000000000000AD00000019ADCAAFD4.png" width="173" height="25" style="width:4.577cm;height:0.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000AD00000019ADCAAFD4.png" /></p>
+<p>让我们打开一个 DOS 窗口，并依次使用 <em>wscript</em> 和 <em>cscript</em> 运行它：</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">DOS&gt;</span>wscript coucou.vbs</span></span>
+</code></pre></div>
+
+<p><img src="images/100000000000009C000000638302BD50.png" width="156" height="99" style="width:4.128cm;height:2.619cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000009C000000638302BD50.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>DOS&gt;cscript coucou.vbs
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Microsoft (R) Windows Script Host Version 5.6
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Copyright (C) Microsoft Corporation 1996-2001. Tous droits réservés.
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>coucou
+</code></pre></div>
+<p>上文清晰展示了这两种模式的区别。在本文档中，我们将几乎完全使用 <em>cscript</em> 控制台模式。该模式适用于所谓的“批处理”应用程序，即无需用户通过键盘进行交互的应用程序。请注意先前结果中的两点：</p>
+<ol>
+<li>我们假设可执行文件 wscript.exe 和 cscript.exe 均位于计算机的“PATH”环境变量中，因此只需输入其名称即可启动。如果并非如此，我们本应在此处写入：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">c</span><span class="p">:</span><span class="o">\</span><span class="n">windows</span><span class="o">\</span><span class="n">wscript</span><span class="w"> </span><span class="n">coucou</span><span class="p">.</span><span class="n">vbs</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">c</span><span class="p">:</span><span class="o">\</span><span class="n">windows</span><span class="o">\</span><span class="n">command</span><span class="o">\</span><span class="n">cscript</span><span class="w"> </span><span class="n">coucou</span><span class="p">.</span><span class="n">vbs</span>
+</code></pre></div>
+<ol>
+<li>请注意，本示例及本文档其余部分所使用的 WSH 版本均为 5.6。</li>
+</ol>
+<ol start="2">
+  <li>该脚本的源文件扩展名为 <i>.vbs</i>。这是 <i>VBScript</i> 脚本的扩展名；<i>JavaScript</i> 脚本则使用 <i>.js</i> 扩展名。
+  </li>
+</ol>
+
+<p><em>cscript</em> 程序具有多种启动选项，可通过不带参数运行 <em>cscript</em> 来查看：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">cscript</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">Microsoft</span><span class="w"> </span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="n">Windows</span><span class="w"> </span><span class="n">Script</span><span class="w"> </span><span class="n">Host</span><span class="w"> </span><span class="n">Version</span><span class="w"> </span><span class="mf">5.6</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">Copyright</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">Corporation</span><span class="w"> </span><span class="mi">1996</span><span class="o">-</span><span class="mf">2001.</span><span class="w"> </span><span class="n">Tous</span><span class="w"> </span><span class="n">droits</span><span class="w"> </span><span class="n">r</span><span class="err">éservés.</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">Utilisation</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">CScript</span><span class="w"> </span><span class="n">scriptname</span><span class="p">.</span><span class="n">extension</span><span class="w"> </span><span class="err">[option...] [arguments...]</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">Options</span><span class="p">:</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="o">//</span><span class="n">B</span><span class="w">         </span><span class="n">batch</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Supprime</span><span class="w"> </span><span class="n">l</span><span class="c1">&#39;display of script prompts and errors</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="o">//</span><span class="n">D</span><span class="w">         </span><span class="n">Activer</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">d</span><span class="err">ébogage</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="o">//</span><span class="n">E</span><span class="p">:</span><span class="n">engine</span><span class="w">  </span><span class="n">Utiliser</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">moteur</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">l</span><span class="c1">&#39;script execution</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="o">//</span><span class="n">H</span><span class="p">:</span><span class="n">CScript</span><span class="w"> </span><span class="n">Remplace</span><span class="w"> </span><span class="n">l</span><span class="c1">&#39;default script execution environment by CScript.exe</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="o">//</span><span class="n">H</span><span class="p">:</span><span class="n">WScript</span><span class="w"> </span><span class="n">tRemplace</span><span class="w"> </span><span class="n">l</span><span class="c1">&#39;default script execution environment via WScript.exe (default)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="o">//</span><span class="n">I</span><span class="w">         </span><span class="n">Mode</span><span class="w"> </span><span class="n">interactif</span><span class="w"> </span><span class="p">(</span><span class="n">par</span><span class="w"> </span><span class="n">d</span><span class="err">éfaut, contraire de l&#39;option //B)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="o">//</span><span class="n">Job</span><span class="w"> </span><span class="p">:</span><span class="n">xxxx</span><span class="w">    </span><span class="n">Ex</span><span class="err">écuter une tâche WSF</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="o">//</span><span class="n">Logo</span><span class="w">      </span><span class="n">Afficher</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">logo</span><span class="w"> </span><span class="p">(</span><span class="n">default</span><span class="p">)</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="o">//</span><span class="n">Nologo</span><span class="w">    </span><span class="n">Emp</span><span class="err">êcher l&#39;logo display: no banner displayed during runtime</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="o">//</span><span class="n">S</span><span class="w">         </span><span class="n">Enregistrer</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">ligne</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">commande</span><span class="w"> </span><span class="n">actuelles</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">cet</span><span class="w"> </span><span class="n">utilisateur</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="o">//</span><span class="n">T</span><span class="p">:</span><span class="n">nn</span><span class="w">      </span><span class="n">Dur</span><span class="err">ée d&#39;execution in seconds: maximum time allowed for script execution</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="o">//</span><span class="n">X</span><span class="w">         </span><span class="n">Ex</span><span class="err">écuter un script dans le débogueur</span>
+</code></pre></div></td></tr></table></div>
+<p><em>//nologo</em> 参数可抑制显示 WSH 标题栏：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>C:\&gt;cscript //nologo coucou.vbs
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>coucou
+</code></pre></div></td></tr></table></div>
+<p><a id="refheading1871532734444"></a>
+<a id="toc535044781"></a></p>
+<h2 id="23-wsh">2.3. <span style="color: #4f81bd">WSH 脚本的结构</span></h2>
+<p>我们刚刚看到了我们的第一个脚本：<em>hello.vbs</em></p>
+<p><img src="images/10000000000000AD00000019ADCAAFD4.png" width="173" height="25" style="width:4.577cm;height:0.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000AD00000019ADCAAFD4.png" /></p>
+<p>我们提到过<em>，.vbs</em> 文件扩展名表示这是一个 <em>VBScript</em> 脚本。但这并非强制要求。我们也可以将脚本放在一个扩展名为 <em>.wsf</em> 的文件中，形式如下，且更为复杂：</p>
+<p><img src="images/10000000000000EC000000445ACF69C7.png" width="236" height="68" style="width:6.244cm;height:1.799cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000EC000000445ACF69C7.png" /></p>
+<p>运行此脚本将产生以下输出：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>C:\&gt;cscript //nologo coucou2.wsf
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>coucou
+</code></pre></div></td></tr></table></div>
+<p>WSH 脚本可以混合使用多种语言：</p>
+<p><img src="images/1000000000000149000000C80D41B3C1.png" width="329" height="200" style="width:8.705cm;height:5.292cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000149000000C80D41B3C1.png" /></p>
+<p>运行此脚本将产生以下结果：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>C:\&gt;cscript //nologo coucou3.wsf
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>coucou (vbscript)
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>coucou (javascript)
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>coucou (perlscript)
+</code></pre></div></td></tr></table></div>
+<p>我们将注意以下几点：</p>
+<ol>
+  <li>WSH 容器并不局限于特定语言。一个 WSH 脚本可以在扩展名为 .wsf 的文件中混合使用多种语言
+  </li>
+  <li>该脚本随后被封装在 &lt;job id=&quot;...&quot;&gt; ... &lt;/job&gt; 标签内
+  </li>
+  <li>在应用程序（即作业）中，不同代码段所使用的语言通过 &lt;script language=&quot;....&quot;&gt; .... &lt;/script&gt; 进行标记
+  </li>
+  <li>这种标记语言有一个名称：XML，即 eXtended Markup Language（扩展标记语言）的缩写。XML 本身并不定义任何标签，而是定义了组织标签的规则。因此，我们应说 WSH 脚本中使用的标记语言遵循 XML 标准。
+  </li>
+</ol>
+
+<p>今后，我们将仅在 .vbs 文件中使用 VBScript。</p>
+<p><a id="refheading1871732734444"></a>
+<a id="toc535044782"></a></p>
+<h2 id="24-wscript">2.4. <span style="color: #4f81bd">WSCRIPT 对象</span></h2>
+<p>WSH 容器为执行的脚本提供了一个名为 <em>wscript</em> 的对象。对象具有属性和<strong>方法</strong>：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000252000000DFD101E0DF.png" width="297" height="111" style="display:inline-block; margin:4px;width:7.858cm;height:2.949cm;" class="odt-zoomable" data-zoom-src="images/1000000000000252000000DFD101E0DF.png" /></td></tr></table>
+
+<p>一个 <em>Obj</em> 对象具有若干属性，这些属性决定了其状态。因此，一个<em>温度计</em>对象可能具有一个 <em>temperature</em> 属性。该属性是温度计状态的一个方面。另一个方面可能是它所能承受的最高温度 <em>Tmax</em>。</p>
+<p><em>Obj</em> 对象可能具有方法 <em>Mj</em>，允许外部代理：</p>
+<ul>
+  <li>确定其状态
+  </li>
+  <li>改变其状态
+  </li>
+</ul>
+
+<p>因此，如果我们的温度计是电子的，它可能有一个 <em>turnOn</em> 方法来开启它，另一个 <em>turnOff</em> 方法来关闭它，以及另一个 <em>display</em> 方法，在达到平衡温度时显示该温度。在编程术语中，方法是一种可以接受参数并返回结果的函数。</p>
+<p>在 VBScript 中，Obj 对象的 Pi 属性写为 <em>Obj.Pi</em>，Mj 方法写为 <em>Obj.Mj</em>。WSH 中的 wscript 对象是一个重要的对象，因为它为脚本提供了多种方法。例如，其 <em>echo</em> 方法允许你显示一条消息。该方法的语法如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">argn</span>
+</code></pre></div>
+<p>参数 <em>arg1、arg2、...、argn</em> 的值随后将显示在窗口中（通过 wscript 执行时）或屏幕上（通过 DOS 下的 cscript 执行时）。</p>
+<p><a id="refheading1871932734444"></a>
+<a id="toc535044783"></a></p>
+<h2 id="25-internet-explorer">2.5. <span style="color: #4f81bd">Internet Explorer 容器</span></h2>
+<p>我们之前提到过，Internet Explorer 可以作为 VBScript 的容器。让我们通过一个简单的示例来说明这一点。下面是一个名为 <em>coucou2.htm</em> 的 HTML（超文本标记语言）页面，其中不包含任何 VBScript。</p>
+<p>21</p>
+<p><img src="images/100000000000014400000074F8C78C12.png" width="324" height="116" style="width:8.573cm;height:3.069cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000014400000074F8C78C12.png" /></p>
+<p>直接在 Internet Explorer 中加载该页面（<em>文件/打开</em>）会得到以下结果：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000038F00000188C838B150.png" width="456" height="196" style="display:inline-block; margin:4px;width:12.053cm;height:5.186cm;" class="odt-zoomable" data-zoom-src="images/100000000000038F00000188C838B150.png" /></td></tr></table>
+
+<p><em>coucou2.htm</em> 文件的内容向我们展示了 HTML 是一种标记语言。了解 HTML 意味着要掌握这些标签。它们的主要目的是告诉浏览器如何显示文档。HTML 虽未严格遵循 XML 标准，但与之相似。</p>
+<p>在 <em>coucou2.htm</em> 中，有两条分别标记为 1 和 2 的信息。我们也在生成的显示中包含了它们。标签 <em>&lt;title&gt;...&lt;/title&gt;</em> 导致信息 1 显示在浏览器的标题栏中，而标签 <em>&lt;body&gt;..&lt;/body&gt;</em> 导致信息 2 显示在浏览器的文档区域中。</p>
+<p>我们不再深入探讨 HTML。现在，让我们通过添加一段 VBScript 来修改 <em>coucou2.htm</em> 文件，并将它重命名为 <em>coucou1.htm</em>：</p>
+<p><img src="images/1000000000000289000000920A3BF436.png" width="604" height="136" style="width:15.981cm;height:3.595cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000289000000920A3BF436.png" /></p>
+<p>该 VBScript 被放置在 <em>&lt;head&gt;...&lt;/head&gt;</em> 标签内。它本可以放置在其他位置。当页面首次加载时，它会显示“hello”。这里，浏览器必须是 Internet Explorer，因为只有该浏览器是 VBScript 的默认运行环境。最终显示效果如下：</p>
+<p><img src="images/10000000000000C2000000765F603384.png" width="194" height="118" style="width:5.133cm;height:3.122cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000C2000000765F603384.png" /></p>
+<p>随后是页面的正常显示：</p>
+<p><img src="images/10000000000001B80000009CC27983F3.png" width="440" height="156" style="width:11.642cm;height:4.128cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001B80000009CC27983F3.png" /></p>
+<p>执行的脚本如下：</p>
+<p><img src="images/10000000000000D70000002DC732857C.png" width="215" height="45" style="width:5.689cm;height:1.191cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000D70000002DC732857C.png" /></p>
+<p>虽然 WSH 容器为脚本提供了一个名为 <em>wscript</em> 的对象，允许通过其 <em>echo</em> 方法进行输出，但 IE 则为脚本提供了一个 <em>window</em> 对象，允许通过 <em>alert</em> 方法进行输出。因此，要在 WSH 中显示“hello”，我们需要编写 <em>wscript.echo &quot;hello&quot;</em>；而在 IE 中，则需编写 <em>window.alert &quot;hello&quot;</em>。我们还可以在此演示，实际上在 IE 容器中可以使用多种语言。 我们将重新审视之前在 WSH 中展示的示例，该示例<em>位于名为 hello3.htm</em> 的页面中：</p>
+<p><img src="images/10000000000002A40000011AA4BEDFB1.png" width="604" height="252" style="width:15.981cm;height:6.668cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002A40000011AA4BEDFB1.png" /></p>
+<p>当 IE 加载此页面时，它首先会显示三个信息窗口：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C200000077F09A77D4.png" width="194" height="119" style="display:inline-block; margin:4px;width:5.133cm;height:3.149cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C200000077F09A77D4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C100000076C652CBA1.png" width="193" height="118" style="display:inline-block; margin:4px;width:5.106cm;height:3.122cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C100000076C652CBA1.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C100000075460B483D.png" width="193" height="117" style="display:inline-block; margin:4px;width:5.106cm;height:3.096cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C100000075460B483D.png" /></td></tr></table>
+
+<p>然后才显示最终页面：</p>
+<p><img src="images/10000000000001F90000005B68D2F44C.png" width="505" height="91" style="width:13.361cm;height:2.408cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001F90000005B68D2F44C.png" /></p>
+<p><a id="refheading1872132734444"></a>
+<a id="toc535044784"></a></p>
+<h2 id="26-wsh">2.6. <span style="color: #4f81bd">WSH 帮助</span></h2>
+<p>WSH 附带了一个帮助系统，通常位于“C:\Program Files\Microsoft Windows Script\ScriptDocs”文件夹中。对于 WSH 5.6 版本，帮助文件名为“SCRIPT56.CHM”。只需双击该文件即可访问帮助。在桌面上创建一个该文件的快捷方式会非常方便。</p>
+<p>启动后，您将看到如下界面：</p>
+<p><img src="images/10000000000000F1000000B609492925.png" width="241" height="182" style="width:6.376cm;height:4.815cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000F1000000B609492925.png" /></p>
+<p>该帮助文档包含 WSH 容器以及 VBScript 和 JavaScript 语言的相关说明。无论是初学者还是经验丰富的程序员，这都是不可或缺的工具。您可以通过以下几种方式使用此帮助：</p>
+<ul>
+  <li>如果您还不确定要查找什么，只是想浏览可用内容，可以使用上方的<i>“目录</i>”选项卡。例如，您可以查看 VBScript 的相关内容：
+  </li>
+</ul>
+
+<p><img src="images/10000000000001DA0000020FBC4A7ED8.png" width="474" height="527" style="width:12.541cm;height:13.944cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001DA0000020FBC4A7ED8.png" /></p>
+<p>在 VBScript 帮助中，您会发现许多本文档未包含的信息。</p>
+<ul>
+  <li>您可以搜索具体内容，例如如何使用 VBScript 的 <i>MsgBox</i> 函数。此时，请<i>使用“</i>搜索”选项卡：
+  </li>
+</ul>
+
+<p><img src="images/10000000000000EA00000156DCCA294C.png" width="234" height="342" style="width:6.191cm;height:9.049cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000EA00000156DCCA294C.png" /></p>
+<p>帮助文档会显示所有与搜索词相关的主题。通常，最先建议的主题相关性最高。本例中正是如此，最先建议的主题就是正确的。只需双击该主题即可查看相关信息：</p>
+<p><img src="images/10000000000002FC000000C168A18C2C.png" width="604" height="153" style="width:15.981cm;height:4.038cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002FC000000C168A18C2C.png" /></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 <strong>Serge Tahé</strong> 编写，根据
+<em>知识共享 署名-非商业性使用-
+ShareAlike 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
