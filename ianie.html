@@ -18,7 +18,7 @@
         <link rel="prev" href="index.html">
       
       
-        <link rel="next" href="vbscript-hiinghangiaen.html">
+        <link rel="next" href="vbscripteuninguaning.html">
       
       
         
@@ -56,6 +56,8 @@
     
     
       <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -340,14 +342,14 @@
   
   
     <li class="md-nav__item">
-      <a href="vbscript-hiinghangiaen.html" class="md-nav__link">
+      <a href="vbscripteuninguaning.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. VBSCRIPT 执行上下文
+    2. VBSCRIPT的运行环境
   
 
     
@@ -367,14 +369,14 @@
   
   
     <li class="md-nav__item">
-      <a href="vbscript-ianhengihu.html" class="md-nav__link">
+      <a href="ianhengihu-vbscript.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. VBScript 编程基础
+    3. 编程基础 VBSCRIPT
   
 
     
@@ -421,14 +423,14 @@
   
   
     <li class="md-nav__item">
-      <a href="anhueuoheng.html" class="md-nav__link">
+      <a href="anhuuuoheng.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. 函数和过程
+    5. 函数与过程
   
 
     
@@ -486,16 +488,16 @@
 
 
 <h1 id="1">1. <span style="color: #365f91">简介</span></h1>
-<p>本文档的PDF版本可在此处获取 |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQCj_6Lq9NlhT6rdA8rOFblLAZdfIj7MD5ccbXgnH5dIKFc?e=fBQ4n2">HERE</a>|。</p>
-<p>本文档旨在介绍 VBScript 语言的基础知识，并展示其在各个领域的应用示例。VBScript 是一种适用于 Windows 的脚本语言，可在多种环境中运行，例如</p>
+<p>本文档的 PDF 版本已发布 |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQCj_6Lq9NlhT6rdA8rOFblLAZdfIj7MD5ccbXgnH5dIKFc?e=2gkxGe">HERE</a>|。</p>
+<p>本文旨在介绍 VBScript 语言的基础知识，并提供其在不同领域的应用示例。VBScript 是一种 Windows 脚本语言。它可在各种容器中运行，例如</p>
 <ul>
-<li><em>Windows Scripting Host</em>（用于直接在 Windows 中使用，特别是编写系统管理脚本）</li>
-<li><em>Internet Explorer</em>。它被用于 HTML 页面中，为页面增添了仅靠 HTML 无法实现的交互性。</li>
-<li><em>Internet Information Server</em> (IIS)——微软在 NT/2000 系统上的 Web 服务器，以及其在 Win9x 系统上的对应版本 <em>Personal Web Server</em> (PWS)。在此情况下，VBScript 用于服务器端 Web 编程，微软将这项技术称为 ASP（<em>Active Server Pages</em>）。</li>
+<li><em>Windows Scripting Host</em>，可在 Windows 系统下直接使用，特别是用于编写系统管理脚本</li>
+<li><em>Internet Explorer</em>。此时，它被用于 HTML 网页中，为网页带来仅靠 HTML 语言无法实现的交互性。</li>
+<li><em>Internet Information Server</em>（IIS，即微软在 Windows 2000 上的 Web 服务器）及其在 Win9x 上的等效版本 <em>Personal Web Server</em>。 在此情况下，vbscript被用于进行Web服务器端编程，微软将该技术称为ASP（<em>Active Server Pages</em>）。</li>
 </ul>
-<p>此外，由于 VBScript 是源自 Visual Basic for Windows 的语言，它既可作为学习该语言（Windows 环境中使用最广泛的语言之一）的入门途径，也可作为学习 VB <em>应用程序</em>版本（即 <strong>VBA</strong>，Visual Basic for Applications）的入门途径。例如，VBA 广泛应用于整个 Microsoft Office 套件中，特别是在 Excel 中。因此，VBScript 成为通往广泛 Windows 应用程序开发领域的门户。</p>
-<p>尽管 VBScript 具备一些面向对象的特性，但它本身并非面向对象的语言。例如，继承的概念并不存在。然而，它可以利用其运行容器提供的对象，以及更广泛地说，Windows 系统上可用的 ActiveX 组件。 正是这一特性赋予了 VBScript 强大的功能；虽然该语言本身功能相当有限，但得益于可用的对象，它能够与 Perl、JavaScript 和 Python 等功能更丰富的脚本语言相媲美。这是一种易于学习和使用的语言，并为使用 Visual Basic for Windows 铺平了道路，因为它直接源自该语言。</p>
-<p><strong>本文档并非算法课程</strong>。读者应已掌握编程基础。阅读时需主动思考。 使用本文档的最佳方式，或许是在您的计算机上亲自测试此处提供的示例。WSH 容器通常作为 Windows 系统的标准组件包含其中。最新版本可在微软网站（http://www.microsoft.com）上免费获取。要查找 WSH 的确切下载网址，您可以通过网络搜索引擎搜索“Windows Scripting”这一关键词。在搜索结果中，您应该能找到 WSH 的下载链接。</p>
+<p>此外，由于 VBSCRIPT 是从 Windows 版 Visual Basic 衍生而来的语言， 因此它既可作为Windows领域最广泛使用的语言之一（Visual Basic）的入门，也可作为VB的Application版本（即VBA，Visual Basic for Applications）的入门。 例如，VBA被广泛应用于微软Office套件中，尤其是Excel。因此，VBSCRIPT是进入广阔的Windows应用程序开发领域的切入点。</p>
+<p>尽管 VBScript 具有一定的面向对象特征，但它并非一种面向对象的语言。 例如，它并不存在继承的概念。不过，它可以利用其运行容器提供的对象，以及更普遍地利用 Windows 系统上可用的 ActiveX 组件。 正是这一特性赋予了 VBScript 强大的功能——该语言本身功能较为有限，但借助可用的对象，它能够与 Perl、JavaScript、Python 等功能更丰富的脚本语言相媲美。这是一种易于学习和使用、并为使用其直接衍生而来的 Windows 版 Visual Basic 铺平道路的语言。</p>
+<p><strong>本文档并非算法课程</strong>。读者应已掌握编程基础。阅读时需主动思考。 使用本文档的最佳方式，或许是在自己的计算机上亲自测试其中的示例。WSH容器通常作为Windows系统的标准组件提供。最新版本可从微软网站（http://www.microsoft.com）免费获取。 若要查找用于下载 WSH 的确切 URL 文件，可通过网络搜索引擎搜索“Windows Scripting”关键词。 在搜索结果中，应能找到用于下载 WSH 的 URL。</p>
 <p>Serge Tahé，2002年1月</p>
 
 

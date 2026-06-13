@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://stahe.github.io/zh-vbscript-janv-2002/uouhui.html">
       
       
-        <link rel="prev" href="vbscript-ianhengihu.html">
+        <link rel="prev" href="ianhengihu-vbscript.html">
       
       
-        <link rel="next" href="anhueuoheng.html">
+        <link rel="next" href="anhuuuoheng.html">
       
       
         
@@ -56,6 +56,8 @@
     
     
       <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -330,14 +332,14 @@
   
   
     <li class="md-nav__item">
-      <a href="vbscript-hiinghangiaen.html" class="md-nav__link">
+      <a href="vbscripteuninguaning.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. VBSCRIPT 执行上下文
+    2. VBSCRIPT的运行环境
   
 
     
@@ -357,14 +359,14 @@
   
   
     <li class="md-nav__item">
-      <a href="vbscript-ianhengihu.html" class="md-nav__link">
+      <a href="ianhengihu-vbscript.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. VBScript 编程基础
+    3. 编程基础 VBSCRIPT
   
 
     
@@ -447,7 +449,7 @@
   <a href="#41" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.1. 确定数据项的确切类型
+        4.1. 确定数据的精确类型
       
     </span>
   </a>
@@ -469,7 +471,7 @@
   <a href="#43" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.3. 处理运行时错误
+        4.3. 拦截运行时错误
       
     </span>
   </a>
@@ -480,7 +482,7 @@
   <a href="#44" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.4. 应用于税费计算程序
+        4.4. 应用于税款计算程序
       
     </span>
   </a>
@@ -502,14 +504,14 @@
   
   
     <li class="md-nav__item">
-      <a href="anhueuoheng.html" class="md-nav__link">
+      <a href="anhuuuoheng.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. 函数和过程
+    5. 函数与过程
   
 
     
@@ -566,55 +568,55 @@
 
 
 
-<p><a id="refheading1877332734444"></a>
-<a id="toc535044810"></a></p>
-<h1 id="4">4. <span style="color: #365f91"><strong>错误处理</strong></span></h1>
-<p>在编程中，有一条绝对规则：程序绝不能意外“崩溃”。程序执行过程中可能发生的所有错误都必须得到处理，并生成有意义的错误信息。</p>
-<p>如果回到前面讨论的税费示例，当用户输入任意数量的子女数时会发生什么？让我们来看这个示例：</p>
+<p><span id="toc535044810" name="toc535044810" class="odt-bookmark-anchor"></span>
+<span id="refheading1877332734444" name="refheading1877332734444" class="odt-bookmark-anchor"></span></p>
+<h1 id="4">4. <span style="color: #365f91">错误处理</span></h1>
+<p>在编程中有一条铁律：程序绝不能无故“崩溃”。程序运行过程中可能发生的任何错误都必须得到处理，并生成有意义的错误信息。</p>
+<p>如果我们回顾之前处理的税款示例，当用户在子女数量字段中输入任意内容时会发生什么？让我们来看这个示例：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>C:\&gt;cscript impots1.vbs o xyzt 200000
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>C:\impots1.vbs(33, 3) Erreur d&#39;exécution Microsoft VBScript: Type incompatible: &#39;cint&#39;
 </code></pre></div></td></tr></table></div>
-<p>这就是所谓的“野性崩溃”。语句 <span style="color: #000000">enfants=cint(wscript.arguments(1))</span> 导致了“崩溃<span style="color: #000000">”，因为 </span><em><span style="color: #000000">arguments(1)</span></em><span style="color: #000000"> 包含字符串“xyzt”。</span></p>
-<p>在使用性质不明的变体之前，必须先验证其确切的子类型。实现此目的有多种方法：</p>
+<p>这就是所谓的“意外崩溃”。在语句 <code>&lt;span style="color: #000000"&gt;children=cint(wscript.arguments(1))</code></span> 处发生了“崩溃<span style="color: #000000">”，因为 </span><em><span style="color: #000000">arguments(1)</span></em><span style="color: #000000"> 包含字符串“xyzt”。</span></p>
+<p>在使用性质不明的变量之前，必须先验证其确切的子类型。可以通过以下几种方式实现：</p>
 <ul>
-  <li>使用 <i>vartype </i>或 <i>typename</i> 函数测试变体中数据的实际类型
+  <li>使用函数 <i>vartype </i>或 <i>typename</i> 测试变量中数据的实际类型
   </li>
-  <li>使用正则表达式验证变体内容是否符合特定模式
+  <li>使用正则表达式验证变量内容是否符合特定模式
   </li>
-  <li>允许错误发生，然后进行拦截并处理
+  <li>允许错误发生，随后进行捕获并处理
   </li>
 </ul>
 
 <p>我们将探讨这些不同的方法。</p>
-<p><a id="refheading1877532734444"></a>
-<a id="toc535044811"></a></p>
-<h2 id="41">4.1. <span style="color: #4f81bd">确定数据项的确切类型</span></h2>
-<p>请记住<em>，vartype</em> 和 <em>varname</em> 函数可让您确定一段数据的确切类型。但这并不总是很有帮助。 例如，当我们读取键盘输入的数据<em>时，vartype</em> 和 typename 函数会告诉我们它是字符串，因为所有键盘输入的数据都被视为字符串。但这并不能告诉我们，例如，该字符串是否可以被视为一个有效的数字。因此，我们需要使用其他函数来获取此类信息：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>isNumeric(expression)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">如果表达式可作为数字使用，则返回 true</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>isDate(表达式)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">如果表达式可作为日期使用，则返回 true</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>isEmpty(var)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">如果变量 var 未被初始化，则返回 true</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>isNull(var)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">如果变量 var 包含无效数据，则返回 true</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>isArray(var)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">如果 var 是数组，则返回 true</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>isObject(var)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">如果 var 是对象，则返回 true</div></td></tr></table>
+<p><span id="toc535044811" name="toc535044811" class="odt-bookmark-anchor"></span>
+<span id="refheading1877532734444" name="refheading1877532734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="41">4.1. <span style="color: #4f81bd">确定数据的精确类型</span></h2>
+<p>需要提醒的是，函数 <em>vartype</em> 或 <em>varname</em> 可用于确定数据的精确类型。但这并不总能提供实质性帮助。 例如，当我们读取键盘输入的数据时，函数 <em>vartype</em> 和 <em>typename</em> 会告诉我们这是字符串，因为所有键盘输入的数据都被视为字符串。但这并不能告诉我们该字符串是否可以被视为有效的数字。 因此，我们需要使用其他函数来获取此类信息：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>isNumeric(表达式)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">如果表达式可作为数字使用，则返回 true</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>isDate(表达式)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">如果表达式可作为日期使用，则返回真</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>isEmpty(var)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">如果变量 var 未被初始化，则返回 true</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>isNull(var)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">如果变量 var 包含无效数据，则返回 true</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>isArray(var)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">如果 var 是数组，则返回 true</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>isObject(var)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">如果 var 是对象，则返回 true</div></td></tr></table>
 
-<p>以下示例会提示用户通过键盘输入数据，直到系统识别出该数据为数字：</p>
+<p>以下示例要求用户通过键盘输入数据，直到该数据被识别为数字：</p>
 <p><strong>程序</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">&#39; read data until it is recognized as a number</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">&#39; 读取数据直至被识别为数字</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">fini</span><span class="p">,</span><span class="w"> </span><span class="nv">nombre</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">&#39; loop until the data entered is correct</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1">&#39; the loop is controlled by a finite boolean, set to false at the start (= it&#39;s not finite)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">&#39; 在输入数据不正确时循环</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1">&#39; 循环由一个初始值为假的布尔变量控制（表示未结束）</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">fini</span><span class="o">=</span><span class="no">false</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">Do</span><span class="w"> </span><span class="k">While</span><span class="w"> </span><span class="ow">Not</span><span class="w"> </span><span class="n">fini</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="c1">&#39; we ask for the number</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">     </span><span class="c1">&#39; 请求输入数字</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="n">write</span><span class="w"> </span><span class="s2">&quot;Tapez un nombre : &quot;</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="c1">&#39; we read it</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">     </span><span class="c1">&#39; 读取该数值</span>
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="n">nombre</span><span class="o">=</span><span class="n">wscript</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readLine</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="c1">&#39; the type is necessarily string when read</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">     </span><span class="c1">&#39; 读取时类型必然为字符串</span>
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Type de la donnée lue : &quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nb">typename</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nb">vartype</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="c1">&#39; test the actual type of data read</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">     </span><span class="c1">&#39; 检测读取数据的实际类型</span>
 <a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="nb">isNumeric</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span><span class="w"> </span><span class="k">Then</span>
 <a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">        </span><span class="n">fini</span><span class="o">=</span><span class="no">true</span>
 <a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="k">Else</span>
@@ -622,10 +624,10 @@
 <a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">If</span>
 <a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="k">Loop</span>
 <a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="c1">&#39; confirmation</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="c1">&#39; 确认</span>
 <a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Merci pour le nombre &quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">nombre</span>
 <a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="c1">&#39; and end</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="c1">&#39; 结束</span>
 <a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">0</span>
 </code></pre></div>
 <p><strong>结果</strong></p>
@@ -641,41 +643,41 @@
 <a id="__codelineno-2-5" name="__codelineno-2-5"></a>Type de la donnée lue : String,8
 <a id="__codelineno-2-6" name="__codelineno-2-6"></a>Merci pour le nombre -12
 </code></pre></div></td></tr></table></div>
-<p><em>isNumeric</em> 函数无法告诉我们一个表达式是否为整数。要获取此信息，需要进行额外的测试。以下示例要求输入一个大于 0 的整数：</p>
+<p>函数 <em>isNumeric</em> 无法判断表达式是否为整数。要获取此信息，需要进行额外测试。以下示例要求输入一个大于 0 的整数：</p>
 <p><strong>程序</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">&#39; read data until it is recognized as an integer &gt;0</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">&#39; 读取数据，直到该数据被识别为大于0的整数</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">fini</span><span class="p">,</span><span class="w"> </span><span class="nv">nombre</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">&#39; loop until the data entered is correct</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">&#39; the loop is controlled by a finite boolean, set to false at the start (= it&#39;s not finite)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">&#39; 只要输入的数据不正确，就循环</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">&#39; 循环由一个初始值为假的布尔变量控制（表示未结束）</span>
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">fini</span><span class="o">=</span><span class="no">false</span>
 <a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="k">Do</span><span class="w"> </span><span class="k">While</span><span class="w"> </span><span class="ow">Not</span><span class="w"> </span><span class="n">fini</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="c1">&#39; we ask for the number</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">     </span><span class="c1">&#39; 请求输入数字</span>
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="n">write</span><span class="w"> </span><span class="s2">&quot;Tapez un nombre entier &gt;0: &quot;</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="c1">&#39; we read it</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">     </span><span class="c1">&#39; 读取该数值</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="n">nombre</span><span class="o">=</span><span class="n">wscript</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readLine</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="c1">&#39; test the actual type of data read</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">     </span><span class="c1">&#39; 检测读取数据的实数类型</span>
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="nb">isNumeric</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span><span class="w"> </span><span class="k">Then</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="c1">&#39; is it a positive integer (number equal to its integer part)?</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">         </span><span class="c1">&#39; 是否为正整数（即数值等于其整数部分）？</span>
 <a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="k">If</span><span class="w"> </span><span class="p">(</span><span class="n">nombre</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">nombre</span><span class="p">))</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="ow">And</span><span class="w"> </span><span class="n">nombre</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
 <a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">            </span><span class="n">fini</span><span class="o">=</span><span class="no">true</span>
 <a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">If</span>
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">If</span>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="c1">&#39; possible error msg</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">     </span><span class="c1">&#39; 可能的错误信息</span>
 <a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="ow">Not</span><span class="w"> </span><span class="n">fini</span><span class="w"> </span><span class="k">Then</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Erreur, vous n&#39;avez pas tapé un nombre entier &gt;0. Recommencez svp...&quot;</span>
 <a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="k">Loop</span>
 <a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="c1">&#39; confirmation</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="c1">&#39; 确认</span>
 <a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Merci pour le nombre entier &gt;0 : &quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">nombre</span>
 <a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
-<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="c1">&#39; and end</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="c1">&#39; 结束</span>
 <a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">0</span>
 </code></pre></div>
-<p><strong><span style="color: #000000">结果</span></strong></p>
+<p><span style="color: #000000">结果</span></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">3</a></span>
@@ -692,43 +694,43 @@
 <a id="__codelineno-4-7" name="__codelineno-4-7"></a>Tapez un nombre entier &gt;0: 12
 <a id="__codelineno-4-8" name="__codelineno-4-8"></a>Merci pour le nombre entier &gt;0 : 12
 </code></pre></div></td></tr></table></div>
-<p><strong>评论：</strong></p>
+<p><strong>注释：</strong></p>
 <ul>
-  <li><i>int(number)</i> 返回一个数的整数部分。一个数等于其整数部分即为整数。
+  <li><i>int(nombre)</i> 返回一个数的整数部分。一个数等于其整数部分即为整数。
   </li>
-  <li>值得注意的是，我们不得不使用条件判断 <span style="color: #00007f">If </span><span style="color: #000000">(number - int(number)) = 0 </span><span style="color: #00007f">And </span><span style="color: #000000">number &gt;</span> 0，因为条件判断 <span style="color: #00007f">If </span><span style="color: #000000">number = int(number) </span><span style="color: #00007f">And </span><span style="color: #000000">number &gt; 0</span> 并未产生预期结果。它未能检测到正整数。具体原因留待读者自行探索。
+  <li>值得注意的是，我们不得不使用条件判断 <span style="color: #000000">If (数字 - int(数字)) = 0</span><span style="color: #00007f"> 且</span><span style="color: #000000"> 数字 &gt;</span> 0，因为条件判断 <span style="color: #00007f">If</span><span style="color: #000000"> 数字 = int(数字)</span><span style="color: #00007f"> 且</span><span style="color: #000000"> 数字 &gt; 0</span> 并未产生预期结果。它无法识别正整数。具体原因请读者自行探究。
   </li>
-  <li>条件判断 <span style="color: #00007f">If </span><span style="color: #000000">(number - int(number)) = 0</span> 并非完全可靠。让我们来看以下示例：
+  <li><span style="color: #00007f">If </span><span style="color: #000000">(数字 - int(数字)) = 0</span> 这一判断并非完全可靠。让我们来看以下运行示例：
   </li>
 </ul>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>输入一个大于 0 的整数：4.0000000000000000000000001
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Tapez un nombre entier &gt;0: 4,0000000000000000000000001
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>感谢您输入的大于0的整数：4.0000000000000000000000001
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Merci pour le nombre entier &gt;0 : 4,0000000000000000000000001
 </code></pre></div>
 </div></td></tr></table>
 
-<p>实数无法精确表示，只能近似表示。在此，运算 <em>number-int(number)</em> 返回了计算机精度下的 0。</p>
-<p><a id="refheading1877732734444"></a>
-<a id="toc535044812"></a></p>
+<p>实数并非以精确值表示，而是以近似值表示。在此，运算 <em>nombre-int(nombre)</em> 得出的结果为 0，其精度取决于计算机的计算能力。</p>
+<p><span id="toc535044812" name="toc535044812" class="odt-bookmark-anchor"></span>
+<span id="refheading1877732734444" name="refheading1877732734444" class="odt-bookmark-anchor"></span></p>
 <h2 id="42">4.2. <span style="color: #4f81bd">正则表达式</span></h2>
-<p>正则表达式允许我们验证字符串的格式。通过这种方式，我们可以验证表示日期的字符串是否符合 dd/mm/yy 格式。为此，我们使用一个模式并将字符串与该模式进行比较。因此，在此示例中，d、m 和 y 必须是数字。 因此<strong>，</strong>有效日期格式的模式为 <strong>&quot;\d\d/\d\d/\d\d&quot;</strong>，其中符号 <strong>\d</strong> 表示一个数字。模式中可使用的符号如下（微软文档）：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>字符</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>描述</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">将后续字符指定为特殊字符或字面量。例如，“n”对应字符“n”。“\n”对应换行符。字符序列“\\”对应“\”，而“\(&quot; 对应“(”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>^</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配输入的开头。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>$</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配输入的结尾。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>*</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配前一个字符零次或多次。因此，“zo*”匹配“z”或“zoo”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>+</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配前一个字符一次或多次。因此，“zo+”匹配“zoo”，但不匹配“z”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>?</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配前一个字符零次或一次。例如，&quot;a?ve?&quot; 匹配 &quot;lever&quot; 中的 &quot;ve&quot;。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>.</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配除换行符以外的任意单个字符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>(pattern)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">搜索<i>该模式</i>并存储匹配结果。可以通过 Item <b>[0]...[n] </b>从生成的 <b>Matches</b> 集合中检索匹配的子字符串。若要查找括号 ( ) 内的字符，请使用 &quot;\(&quot; 或 &quot;\)&quot;。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>x|y</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配 <i>x </i>或 <i>y</i> 中的任意一个。例如，“z|foot” 匹配 “z” 或 “foot”。“(z|f)oo” 匹配 “zoo” 或 “foo”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>{</b><i><b>n</b></i><b>}</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i>n</i> 是非负整数。匹配该字符出现 <i>n</i> 次。例如，&quot;o{2}&quot; 不匹配 &quot;Bob&quot; 中的 &quot;o&quot;，但匹配 &quot;fooooot&quot; 中的前两个 &quot;o&quot;。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>{</b><i><b>n</b></i><b>,}</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i>n</i> 是一个非负整数。匹配该字符至少 <i>n</i> 次。例如，&quot;o{2,}&quot; 不匹配 &quot;Bob&quot; 中的 &quot;o&quot;，但匹配 &quot;fooooot&quot; 中的所有 &quot;o&quot;。 &quot;o{1,}&quot; 等同于 &quot;o+&quot;，而 &quot;o{0,}&quot; 等同于 &quot;o*&quot;。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>{</b><i><b>n</b></i><b>,</b><i><b>m</b></i><b>}</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i>m </i>和 <i>n</i> 是非负整数。匹配该字符至少 <i>n</i> 次且至多 <i>m</i> 次。例如，“o{1,3}”匹配“foooooot”中的前三个“o”，而“o{0,1}”匹配“o?”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[</b><i><b>xyz</b></i><b>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">字符集。匹配指定字符中的任意一个。例如，&quot;[abc]&quot; 匹配 &quot;plat&quot; 中的 &quot;a&quot;。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[</b><i><b>^xyz</b></i><b>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">反向字符集。匹配未列出的任何字符。例如，&quot;[^abc]&quot; 匹配 &quot;plat&quot; 中的 &quot;p&quot;。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[</b><i><b>a-z</b></i><b>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">字符范围。匹配指定范围内的任何字符。例如，[a-z] 匹配 &quot;a&quot; 到 &quot;z&quot; 之间的任何小写字母。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[</b><i><b>^m-z</b></i><b>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">负字符范围。匹配不在指定范围内的任何字符。例如，[^m-z] 匹配不在 &quot;m&quot; 和 &quot;z&quot; 之间的任何字符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\b</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配单词边界，即单词与空格之间的位置。例如，“er\b”匹配“lever”中的“er”，但不匹配“verb”中的“er”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\B</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配不代表单词的边界。例如，“en*t\B”匹配“bien entendu”中的“ent”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\d</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配代表数字的字符。等同于 [0-9]。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\D</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配不代表数字的字符。等同于 [^0-9]。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\f</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配换行符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\n</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配换行符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\r</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">等同于回车字符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\s</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配任何空白字符，包括空格、制表符、分页符等。等同于 &quot;[ \f\n\r\t\v]&quot;。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\S</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配任何非空白字符。等同于 &quot;[^ \f\n\r\t\v]&quot;。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\t</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配一个制表符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\v</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配垂直制表符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\w</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配任何代表单词的字符，包括下划线。等同于 &quot;[A-Za-z0-9_]&quot;。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\W</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配不代表单词的任何字符。等同于 &quot;[^A-Za-z0-9_]&quot;。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\num</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配 <i>num</i>，其中 <i>num </i>是正整数。指代已存储的匹配结果。例如，&quot;(.)\1&quot; 匹配两个连续的相同字符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\</b><i><b>n</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">匹配 <i>n</i>，其中 <i>n </i>是八进制转义值。八进制转义值必须由 1、2 或 3 位数字组成。 例如，&quot;\11&quot; 和 &quot;\011&quot; 都匹配一个制表符。&quot;\0011&quot; 等同于 &quot;\001&quot; &amp; &quot;1&quot;。八进制转义值不得超过 256。如果超过，表达式中仅考虑前两位数字。允许在正则表达式中使用 ASCII 码。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\</b><i><b>xn</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">对应于 <i>n</i>，其中 <i>n </i>是十六进制转义值。十六进制转义值必须由恰好两位数字组成。例如，“\x41”对应于“A”。“\x041”等同于“\x04”和“1”。允许在正则表达式中使用 ASCII 码。</div></td></tr></table>
+<p>正则表达式允许我们验证字符串的格式。因此，我们可以检查表示日期的字符串是否符合 dd/mm/yy 格式。为此，我们使用一个模式并将字符串与该模式进行比较。因此，在此示例中，j、m 和 a 必须是数字。 因此，有效的日期格式模式<strong>为“\d\d/\d\d/\d\d</strong>”，其中符号 <strong>\d</strong> 表示一个数字。模式中可使用的符号如下（微软文档）：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>字符</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>描述</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">将后续字符标记为特殊字符或字面字符。例如，“n”表示字符“n”。“\n”表示换行符。字符序列“\\”表示“\”，而“\(&quot;表示“(”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>^</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">表示输入的开头。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>$</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">表示输入的结尾。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>*</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">表示前一个字符零次或多次出现。因此，“zo*”匹配“z”或“zoo”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>+</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配前一个字符一次或多次。因此，“zo+”匹配“zoo”，但不匹配“z”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>?</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配前一个字符零次或一次。例如，“a?ve?”匹配“lever”中的“ve”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>.</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配除换行符以外的任何单个字符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>(模式)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">搜索 <i>modèle</i> 并记录匹配结果。可以通过 Item <b>[0]...[n] </b>从获得的 <b>Matches</b> 集合中提取匹配的子字符串。 若要查找包含括号 ( ) 内的字符的匹配项，请使用 &quot;\(&quot; 或 &quot;\)&quot;。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>x|y</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配 <i>x</i> 或 <i>y</i>。例如，“z|foot”匹配“z”或“foot”。“(z|f)oo”匹配“zoo”或“foo”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>{</b><i><b>n</b></i><b>}</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i>n</i> 是一个非负整数。它精确匹配 <i>n</i> 倍的该字符。例如，“o{2}”不匹配“Bob,”中的“o”，而是匹配“fooooot”中的前两个“o”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>{</b><i><b>n</b></i><b>,}</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i>n</i> 是一个非负整数。匹配至少 <i>n</i> 倍的该字符。 例如，“o{2,}”不匹配“Bob”中的“o”，而是匹配“fooooot”中的所有“o”。“o{1,}”等同于“o+”，而“o{0,}”等同于“o*”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>{</b><i><b>n</b></i><b>,</b><i><b>m</b></i><b>}</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i>m </i>和 <i>n</i> 是非负整数。 表示该字符出现次数不少于 <i>n</i> 次，且不超过 <i>m</i> 次。例如，“o{1,3}”匹配“foooooot”中的前三个“o”，而“o{0,1}”等同于“o?”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>[xyz]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">字符集。匹配所列出的任意一个字符。例如，“[abc]”匹配“plat”中的“a”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>[^xyz]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">否定字符集。匹配所有未列出的字符。例如，“[^abc]”匹配“plat”中的“p”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>[a-z]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">字符范围。匹配指定字符序列中的任何字符。例如，“[a-z]”匹配“a”到“z”之间的所有小写字母。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>[^m-z]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">负字符集。匹配指定字符集中的所有非字符。例如，“[^m-z]”匹配“m”和“z”之间的所有非字符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\b</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配表示单词的边界，即单词与空格之间的位置。例如，“er\b”匹配“lever”中的“er”，但不匹配“verbe”中的“er”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\B</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配不代表单词的边界。“en*t\B”匹配“bien entendu”中的“ent”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\d</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">表示一个数字字符。等同于 [0-9]。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\D</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配不代表数字的字符。等同于 [^0-9]。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\f</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">对应于换行符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\n</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">表示换行符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\r</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">对应回车符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\s</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">表示任何空白字符，包括空格、制表符、分页符等。等同于“[ \f\n\r\t\v]”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\S</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配任何非空白字符。等同于“[^ \f\n\r\t\v]”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\t</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配一个制表符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\v</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配垂直制表符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\w</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配任何代表单词的字符，包括下划线。等同于“[A-Za-z0-9_]”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\W</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配任何不代表单词的字符。等同于“[^A-Za-z0-9_]”。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\num</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">匹配 <i>num</i>，其中 <i>num</i> 是一个正整数。指代存储的匹配项。例如，&quot;(.)\1&quot; 匹配两个连续的相同字符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\</b><i><b>n</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">对应于 <i>n</i>，其中 <i>n</i> 是一个八进制转义值。八进制转义值必须包含 1、2 或 3 个数字。例如，“\11”和“\011”都对应于一个制表符。 &quot;\0011&quot; 等同于 &quot;\001&quot; &amp; &quot;1&quot;。八进制转义值不得超过 256。如果超过，则表达式中仅考虑前两位数字。允许在正则表达式中使用 ASCII 代码。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\</b><i><b>xn</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">等同于 <i>n</i>，其中 <i>n</i> 是一个十六进制转义值。 十六进制转义值必须包含两个数字。例如，“\x41”对应“A”。“\x041”等同于“\x04”和“1”。允许在正则表达式中使用代码 ASCII。</div></td></tr></table>
 
-<p>模式中的元素可以出现一次或多次。让我们来看几个涉及 <strong>\d</strong> 符号的示例，该符号代表单个数字：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>模式</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>含义</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\d</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">一个数字</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\d?</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">0 或 1 个数字</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\d*</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">0 个或更多数字</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\d+</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">1 个或多个数字</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\d{2}</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">2个数字</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\d{3,}</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">至少 3 个数字</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>\d{5,7}</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">5 至 7 位数字</div></td></tr></table>
+<p>模板中的一个元素可以出现一次或多次。下面通过几个关于 <strong>\d</strong> 符号的示例来说明，该符号代表 1 个数字：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>模板</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>含义</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\d</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">一个数字</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\d?</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0 或 1 个数字</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\d*</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0 个或更多数字</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\d+</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">1 个或多个数字</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\d{2}</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">2个数字</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\d{3,}</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">至少 3 个数字</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>\d{5,7}</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">5 到 7 位数字</div></td></tr></table>
 
-<p>现在，让我们设想一个能够描述字符串预期格式的模型：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>目标字符串</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>模式</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">dd/mm/yy格式的日期</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">\d{2}/\d{2}/\d{2}</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">时长格式为 hh:mm:ss</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">\d{2}:\d{2}:\d{2}</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">一个无符号整数</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">\d+</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">一串空格，该序列可能为空</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">\s*</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">一个无符号整数，其前后可能有空格</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">\s*\d+\s*</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">一个整数，可能带符号，且前后可能有空格</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">\s*[+|-]?\s*\d+\s*</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">一个无符号实数，其前后可能有空格</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">\s*\d+(.\d*)?\s*</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">一个可能带符号且前后带有空格的实数</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">\s*[+|]?\s*\d+(.\d*)?\s*</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">包含单词“just”的字符串</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">\bjuste\b</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>现在设想一个能够描述字符串预期格式的模式：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>要查找的字符串</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>模式</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">日期格式为 dd/mm/yy</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">\d{2}/\d{2}/\d{2}</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">时长格式为 hh:mm:ss</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">\d{2}:\d{2}:\d{2}</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">一个无符号整数</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">\d+</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">一个可能为空的空格序列</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">\s*</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">一个无符号整数，其前后可能有空格</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">\s*\d+\s*</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">一个可能带符号且前后可能有空格的整数</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">\s*[+|-]?\s*\d+\s*</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">一个无符号实数，其前后可能有空格</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">\s*\d+(.\d*)?\s*</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">一个可能带符号且前后带有空格的实数</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">\s*[+|]?\s*\d+(.\d*)?\s*</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">包含单词“just”的字符串</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">\bjuste\b</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
-<p>您可以指定在字符串中的哪个位置搜索该模式：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>pattern</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>含义</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>^模式</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">模式位于字符串开头</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>pattern$</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">该模式结束字符串</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>^模式$</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">该模式同时作为字符串的开头和结尾</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>pattern</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">从字符串开头开始，在字符串的任意位置搜索该模式。</div></td></tr></table>
+<p>可以指定在字符串中搜索模式的位置：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>模式</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>含义</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>^模式</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">模式位于字符串开头</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>模式$</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">模式结束字符串</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>^模式$</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">模式开头和结尾</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>模式</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">从字符串开头开始，在整个字符串中搜索该模式。</div></td></tr></table>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>搜索字符串</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>模式</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">以感叹号结尾的字符串</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">!$</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">以句点结尾的字符串</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">\.$</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">以 // 序列开头的字符串</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">^//</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">由单个单词组成的字符串，其前后可选地带有空格</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">^\s*\w+\s*$</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">由两个单词组成的字符串，前后可选空格</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">^\s*\w+\s*\w+\s*$</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">包含单词 secret 的字符串</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">\bsecret\b</div></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>要搜索的字符串</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>模式</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">以感叹号结尾的字符串</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">!$</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">以句点结尾的字符串</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">\.$</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">以 // 序列开头的字符串</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">^//</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">仅包含一个单词（前后可能有空格）的字符串</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">^\s*\w+\s*$</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">一个字符串，包含两个单词，前后可能有空格</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">^\s*\w+\s*\w+\s*$</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">包含单词 secret 的字符串</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">\bsecret\b</div></td></tr></table>
 
-<p>模式的子模式可以被“提取”。因此，我们不仅可以验证一个字符串是否匹配特定模式，还可以从该字符串中提取对应于模式中用圆括号括起的子模式的元素。 例如，如果我们要解析一个包含 dd/mm/yy 格式日期的字符串，并希望提取该日期的 dd、mm 和 yy 部分，则应使用模式 (\d\d)/(\d\d)/(\d\d)。</p>
-<p>让我们通过这个示例来看看如何使用 VBScript 实现这一功能。</p>
+<p>模型的子集可以被“提取”。因此，我们不仅可以验证一个字符串是否符合特定模型，还可以从该字符串中提取出模型中用圆括号括起的子集对应的元素。 例如，如果要解析一个包含日期格式 dd/mm/yy 的字符串，并希望从中提取日期中的 dd、mm、yy 这三个元素，则应使用正则表达式 (\d\d)/(\d\d)/(\d\d)。</p>
+<p>让我们通过这个示例，看看如何使用 VBScript 进行操作。</p>
 <ul>
   <li>首先，我们需要创建一个 <b>RegExp</b>（正则表达式）对象
   </li>
@@ -737,21 +739,21 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>set modele=new regexp
 </code></pre></div>
 <ul>
-  <li>然后，我们将要测试的模式设置为
+  <li>然后设定待测试的模式
   </li>
 </ul>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>modele.pattern=&quot;(\d\d)/(\d\d)/(\d\d)&quot;
 </code></pre></div>
 <ul>
-  <li>您可能希望忽略大小写（默认情况下，它是区分大小写的）。在此处，这并不重要。
+  <li>可能需要设置不区分大小写（默认情况下是区分大小写的）。在此处，这并不重要。
   </li>
 </ul>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>modele.IgnoreCase=true
 </code></pre></div>
 <ul>
-  <li>您可能希望在字符串中多次搜索该模式（默认情况下不会这样做）
+  <li>可能需要对字符串中的模式进行多次搜索（默认不进行多次搜索）
   </li>
 </ul>
 
@@ -759,62 +761,62 @@
 </code></pre></div>
 <p>只有当所用的模式不涉及字符串的开头或结尾时，全局搜索才有意义。</p>
 <ul>
-  <li>然后，我们会在字符串中搜索该模式的所有匹配项：
+  <li>此时，系统将搜索字符串中所有与该模式匹配的内容：
   </li>
 </ul>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>set correspondances=modele.execute(chaine)
 </code></pre></div>
-<p><em>Reg</em>Exp 对象的 <em>execute</em> 方法会返回一个<strong>匹配</strong>对象的集合。该对象具有一个 <strong>value</strong> 属性，其值为与模式匹配的<em>字符串</em>元素。如果你已将 <em>pattern.global</em> 设置<em>为 true</em>，则可能存在多个匹配项。这就是为什么 <em>execute</em> 方法的结果是一个匹配项集合。</p>
+<p><em>execute</em> 对象的 <em>RegExp</em> 方法返回一个 <strong>match</strong> 类型的对象集合。该对象具有 <strong>value</strong> 属性，其值为 <em>chaine</em> 中与模式匹配的元素。 如果设置了 modele.global=true，则可能存在多个匹配项。因此，方法 <em>execute</em> 的返回结果是一个匹配项集合。</p>
 <ul>
-  <li>匹配项的数量由 <b>`matches.count</b>` 给出。如果该数值为 0，则表示未在任何位置找到该模式。第 i 个匹配项的值由 <i>`matches(i).value</i>` 给出。如果模式中包含括号内的子模式，那么 <i>`matches(i)`</i> 中对应于模式中第 j 个括号的元素即为 <b>`matches(i).submatches(j)</b>`。
+  <li>匹配项的数量由 <b>correspondances.count</b> 给出。如果该数值为 0，则表示该模型在任何地方均未被找到。 第 i 个匹配项的值由 <i>correspondances(i).value</i> 给出。如果模式包含括号内的子模式，则 <i>correspondances(i)</i> 中对应模式中第 j 个括号的元素即为 <b>correspondances(i).submatches(j)</b>。
   </li>
 </ul>
 
 <p>以下示例展示了上述内容：</p>
 <p><strong>程序</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">&#39; regular expression</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">&#39; 正则表达式</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1">&#39; we want to check that a string contains a date in dd/mm/yy format</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1">&#39; 需要验证字符串是否包含日期（格式为 dd/mm/yy）</span>
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span>
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">modele</span>
 <a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1">&#39; we define the</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1">&#39; 定义模式</span>
 <a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="k">Set</span><span class="w"> </span><span class="n">modele</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="nb">regexp</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="n">modele</span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;\b(\d\d)/(\d\d)/(\d\d)\b&quot;</span><span class="w">  </span><span class="c1">&#39; a date anywhere in the chain</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="n">modele</span><span class="p">.</span><span class="k">global</span><span class="o">=</span><span class="no">true</span><span class="w">                      </span><span class="c1">&#39; we will search for the model several times in the chain</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="n">modele</span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;\b(\d\d)/(\d\d)/(\d\d)\b&quot;</span><span class="w">  </span><span class="c1">&#39; une date n&#39;importe où dans la chaîne</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="n">modele</span><span class="p">.</span><span class="k">global</span><span class="o">=</span><span class="no">true</span><span class="w">                      </span><span class="c1">&#39; on recherchera le modèle plusieurs fois dans la chaîne</span>
 <a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1">&#39; the user specifies the string in which to search for the model</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1">&#39; 由用户提供待匹配的字符串</span>
 <a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">chaine</span><span class="p">,</span><span class="w"> </span><span class="nv">correspondances</span><span class="p">,</span><span class="w"> </span><span class="nv">i</span>
 <a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
 <a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="n">chaine</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="c1">&#39; loop as long as string&lt;&gt;&quot;end&quot;</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="c1">&#39; 循环处理，直到字符串不等于“end”</span>
 <a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="k">Do</span><span class="w"> </span><span class="k">While</span><span class="w"> </span><span class="no">true</span>
-<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="c1">&#39; the user is asked to type a text</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">     </span><span class="c1">&#39; 提示用户输入文本</span>
 <a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="n">writeLine</span><span class="w"> </span><span class="s2">&quot;Tapez un texte contenant des dates au format jj/mm/aa et fin pour arrêter : &quot;</span>
 <a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">    </span><span class="n">chaine</span><span class="o">=</span><span class="n">wscript</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readLine</span>
-<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">    </span><span class="c1">&#39; fini si chaine=fin</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">     </span><span class="c1">&#39; 若字符串=“end”则结束</span>
 <a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="n">chaine</span><span class="o">=</span><span class="s2">&quot;fin&quot;</span><span class="w"> </span><span class="k">Then</span><span class="w"> </span><span class="k">Exit</span><span class="w"> </span><span class="k">Do</span>
-<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">    </span><span class="c1">&#39; the string read is compared with the date template</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">     </span><span class="c1">&#39; 将读取的字符串与日期模板进行比对</span>
 <a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">    </span><span class="k">Set</span><span class="w"> </span><span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="n">chaine</span><span class="p">)</span>
-<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">    </span><span class="c1">&#39; was a match found</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">     </span><span class="c1">&#39; 是否找到匹配项</span>
 <a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
-<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="w">        </span><span class="c1">&#39; we have at least one match</span>
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="w">         </span><span class="c1">&#39; 至少有一个匹配项</span>
 <a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="w">        </span><span class="k">For</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">To</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">-</span><span class="mi">1</span>
-<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="w">            </span><span class="c1">&#39; the i correspondence is displayed</span>
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="w">             </span><span class="c1">&#39; 显示匹配项 i</span>
 <a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="w">            </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;J&#39;ai trouvé la date &quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">correspondances</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">value</span>
-<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="w">            </span><span class="c1">&#39; we retrieve the sub-elements of correspondence i</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="w">             </span><span class="c1">&#39; 获取匹配项 i 的子元素</span>
 <a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="w">            </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Les éléments de la date &quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot; sont (&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">correspondances</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="nb">submatches</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="n">_</span>
 <a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="w">            </span><span class="o">&amp;</span><span class="w"> </span><span class="n">correspondances</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="nb">submatches</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">correspondances</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="nb">submatches</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;)&quot;</span>
 <a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="w">        </span><span class="k">Next</span>
 <a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="w">    </span><span class="k">Else</span>
-<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="w">        </span><span class="c1">&#39; no correspondence</span>
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="w">         </span><span class="c1">&#39; 无匹配项</span>
 <a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="w">        </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Je n&#39;ai pas trouvé de date au format jj/mm/aa dans votre texte&quot;</span>
 <a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">If</span>
 <a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a><span class="k">Loop</span>
 <a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a>
-<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a><span class="c1">&#39; finish</span>
+<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a><span class="c1">&#39; 结束</span>
 <a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">0</span>
 </code></pre></div>
 <p><strong>结果</strong></p>
@@ -862,47 +864,47 @@
 <a id="__codelineno-12-21" name="__codelineno-12-21"></a>Tapez un texte contenant des dates au format jj/mm/aa et fin pour arrÛter :
 <a id="__codelineno-12-22" name="__codelineno-12-22"></a>fin
 </code></pre></div></td></tr></table></div>
-<p>使用正则表达式，验证键盘输入是否确实为正整数的程序可以编写如下：</p>
+<p>利用正则表达式，验证键盘输入是否为正整数的程序可以编写如下：</p>
 <p><strong>程序</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">&#39; read data until it is recognized as a number</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">&#39; 读取数据直至被识别为数字</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span>
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
 <a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">fini</span><span class="p">,</span><span class="w"> </span><span class="nv">nombre</span>
 <a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1">&#39; we define the model of a positive integer (which may be zero)</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1">&#39; 定义正整数（但可以为零）的模板</span>
 <a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">modele</span>
 <a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="k">Set</span><span class="w"> </span><span class="n">modele</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="nb">regexp</span>
 <a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="n">modele</span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;^\s*\d+\s*$&quot;</span>
 <a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="c1">&#39; loop until the data entered is correct</span>
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1">&#39; the loop is controlled by a finite boolean, set to false at the start (= it&#39;s not finite)</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="c1">&#39; 只要输入的数据不正确，就循环</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1">&#39; 循环由一个初始值为假的布尔变量控制（表示循环未结束）</span>
 <a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
 <a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="n">fini</span><span class="o">=</span><span class="no">false</span>
 <a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="k">Do</span><span class="w"> </span><span class="k">While</span><span class="w"> </span><span class="ow">Not</span><span class="w"> </span><span class="n">fini</span>
-<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">    </span><span class="c1">&#39; we ask for the number</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">     </span><span class="c1">&#39; 请求输入数字</span>
 <a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="n">write</span><span class="w"> </span><span class="s2">&quot;Tapez un nombre entier &gt;0: &quot;</span>
-<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">    </span><span class="c1">&#39; we read it</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">     </span><span class="c1">&#39; 读取该数值</span>
 <a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="w">    </span><span class="n">nombre</span><span class="o">=</span><span class="n">wscript</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readLine</span>
-<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="w">    </span><span class="c1">&#39; test the format of the data read</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="w">     </span><span class="c1">&#39; 验证读取数据的格式</span>
 <a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="w">    </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">correspondances</span>
 <a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="w">    </span><span class="k">Set</span><span class="w"> </span><span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
-<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="w">    </span><span class="c1">&#39; has the model been checked?</span>
+<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="w">     </span><span class="c1">&#39; 模型是否已通过验证？</span>
 <a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
-<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="w">        </span><span class="c1">&#39; it&#39;s an integer, but is it &gt;0?</span>
+<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="w">         </span><span class="c1">&#39; 这是一个整数，但它是否大于0？</span>
 <a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="w">        </span><span class="n">nombre</span><span class="o">=</span><span class="nb">cint</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
 <a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a><span class="w">        </span><span class="k">If</span><span class="w"> </span><span class="n">nombre</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
 <a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a><span class="w">            </span><span class="n">fini</span><span class="o">=</span><span class="no">true</span>
 <a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">If</span>
 <a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">If</span>
-<a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="w">    </span><span class="c1">&#39; possible error msg</span>
+<a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="w">     </span><span class="c1">&#39; 可能的错误信息</span>
 <a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="ow">Not</span><span class="w"> </span><span class="n">fini</span><span class="w"> </span><span class="k">Then</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Erreur, vous n&#39;avez pas tapé un nombre entier &gt;0. Recommencez svp...&quot;</span>
 <a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a><span class="k">Loop</span>
 <a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a>
-<a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a><span class="c1">&#39; confirmation</span>
+<a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a><span class="c1">&#39; 确认</span>
 <a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Merci pour le nombre entier &gt;0 : &quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">nombre</span>
 <a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a>
-<a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a><span class="c1">&#39; and end</span>
+<a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a><span class="c1">&#39; 结束</span>
 <a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">0</span>
 </code></pre></div>
 <p><strong>结果</strong></p>
@@ -926,52 +928,52 @@
 <a id="__codelineno-14-9" name="__codelineno-14-9"></a>Tapez un nombre entier &gt;0: 1
 <a id="__codelineno-14-10" name="__codelineno-14-10"></a>Merci pour le nombre entier &gt;0 : 1
 </code></pre></div></td></tr></table></div>
-<p>寻找能够验证字符串是否符合特定模式的正则表达式，有时确实是一项挑战。以下程序可供您练习。它会要求您输入一个模式和一个字符串，然后指出该字符串是否符合该模式。</p>
-<p><strong>节目</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">&#39; regular expression</span>
+<p>找到能够验证字符串是否符合特定模式的正则表达式，有时是一项真正的挑战。以下程序可用于练习。它需要一个模式和一个字符串，然后会指出该字符串是否符合该模式。</p>
+<p><strong>程序</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">&#39; 正则表达式</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1">&#39; we want to check that a chain corresponds to a model</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1">&#39; 需要验证字符串是否符合模式</span>
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span>
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1">&#39; we define the</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1">&#39; 定义模式</span>
 <a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">modele</span>
 <a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="k">Set</span><span class="w"> </span><span class="n">modele</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="nb">regexp</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="n">modele</span><span class="p">.</span><span class="k">global</span><span class="o">=</span><span class="no">true</span><span class="w">                      </span><span class="c1">&#39; we will search for the model several times in the chain</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="n">modele</span><span class="p">.</span><span class="k">global</span><span class="o">=</span><span class="no">true</span><span class="w">                      </span><span class="c1">&#39; on recherchera le modèle plusieurs fois dans la chaîne</span>
 <a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="c1">&#39; the user specifies the string in which to search for the model</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="c1">&#39; 由用户提供要搜索模式的字符串</span>
 <a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">chaine</span><span class="p">,</span><span class="w"> </span><span class="nv">correspondances</span><span class="p">,</span><span class="w"> </span><span class="nv">i</span>
 <a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
 <a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="k">Do</span><span class="w"> </span><span class="k">While</span><span class="w"> </span><span class="no">true</span>
-<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">    </span><span class="c1">&#39; the user is asked to type in a template</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">     </span><span class="c1">&#39; 要求用户输入正则表达式</span>
 <a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="n">write</span><span class="w"> </span><span class="s2">&quot;Tapez le modèle à tester et fin pour arrêter : &quot;</span>
 <a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">    </span><span class="n">modele</span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="n">wscript</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readLine</span>
-<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">    </span><span class="c1">&#39; finished?</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">     </span><span class="c1">&#39; 完成了吗？</span>
 <a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="n">modele</span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;fin&quot;</span><span class="w"> </span><span class="k">Then</span><span class="w"> </span><span class="k">Exit</span><span class="w"> </span><span class="k">Do</span>
-<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">        </span><span class="c1">&#39; the user is asked for the strings to be compared with the model</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">         </span><span class="c1">&#39; 要求用户输入与模板进行比对的字符串</span>
 <a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">        </span><span class="k">Do</span><span class="w"> </span><span class="k">While</span><span class="w"> </span><span class="no">true</span>
-<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">            </span><span class="c1">&#39; the user is asked to type in a template</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">             </span><span class="c1">&#39; 要求用户输入一个模式</span>
 <a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">            </span><span class="n">wscript</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="n">writeLine</span><span class="w"> </span><span class="s2">&quot;Tapez la chaîne à tester avec le modèle [&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">modele</span><span class="p">.</span><span class="n">pattern</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;] et fin pour arrêter : &quot;</span>
 <a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">            </span><span class="n">chaine</span><span class="o">=</span><span class="n">wscript</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readLine</span>
-<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">            </span><span class="c1">&#39; finished?</span>
+<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">             </span><span class="c1">&#39; 完成了吗？</span>
 <a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="w">            </span><span class="k">If</span><span class="w"> </span><span class="n">chaine</span><span class="o">=</span><span class="s2">&quot;fin&quot;</span><span class="w"> </span><span class="k">Then</span><span class="w"> </span><span class="k">Exit</span><span class="w"> </span><span class="k">Do</span>
-<a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="w">            </span><span class="c1">&#39; the string read is compared with the date template</span>
+<a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="w">             </span><span class="c1">&#39; 将读取的字符串与日期模板进行比较</span>
 <a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="w">            </span><span class="k">Set</span><span class="w"> </span><span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="n">chaine</span><span class="p">)</span>
-<a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="w">            </span><span class="c1">&#39; was a match found</span>
+<a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="w">             </span><span class="c1">&#39; 是否找到匹配项</span>
 <a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="w">            </span><span class="k">If</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
-<a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="w">                </span><span class="c1">&#39; we have at least one match</span>
+<a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="w">                 </span><span class="c1">&#39; 至少有一个匹配项</span>
 <a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a><span class="w">                </span><span class="k">For</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">To</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">-</span><span class="mi">1</span>
-<a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a><span class="w">                    </span><span class="c1">&#39; the i correspondence is displayed</span>
+<a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a><span class="w">                     </span><span class="c1">&#39; 显示匹配项 i</span>
 <a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a><span class="w">                    </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;J&#39;ai trouvé la correspondance &quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">correspondances</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">value</span>
 <a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a><span class="w">                </span><span class="k">Next</span>
 <a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a><span class="w">            </span><span class="k">Else</span>
-<a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a><span class="w">                </span><span class="c1">&#39; no correspondence</span>
+<a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a><span class="w">                 </span><span class="c1">&#39; 未找到匹配项</span>
 <a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a><span class="w">                </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Je n&#39;ai pas trouvé de correspondance&quot;</span>
 <a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a><span class="w">            </span><span class="k">End</span><span class="w"> </span><span class="k">If</span>
 <a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a><span class="w">    </span><span class="k">Loop</span>
 <a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a><span class="k">Loop</span>
 <a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a>
-<a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a><span class="c1">&#39; finish</span>
+<a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a><span class="c1">&#39; 完成</span>
 <a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">0</span>
 </code></pre></div>
 <p><strong>结果</strong></p>
@@ -1001,32 +1003,32 @@
 <a id="__codelineno-16-12" name="__codelineno-16-12"></a>145,678
 <a id="__codelineno-16-13" name="__codelineno-16-13"></a>J&#39;ai trouvé la correspondance [  145,678   ]
 </code></pre></div></td></tr></table></div>
-<p><a id="refheading1877932734444"></a>
-<a id="toc535044813"></a></p>
-<h2 id="43">4.3. <span style="color: #4f81bd">处理运行时错误</span></h2>
-<p>处理运行时错误的另一种方法是允许错误发生，收到错误通知后再进行处理。通常，当运行时发生错误时，WSH 会显示一条错误消息，程序随即停止。以下两条语句允许我们更改这种行为：</p>
+<p><span id="toc535044813" name="toc535044813" class="odt-bookmark-anchor"></span>
+<span id="refheading1877932734444" name="refheading1877932734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="43">4.3. <span style="color: #4f81bd">拦截运行时错误</span></h2>
+<p>处理运行时错误的另一种方法是允许错误发生，收到通知后再进行处理。通常，当运行时发生错误时，WSH 会显示一条错误消息并终止程序。以下两条语句可让我们修改这种行为：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>on error resume next
 </code></pre></div></td></tr></table></div>
-<p>该语句告知系统（WSH）我们将自行处理错误。在此语句之后，系统将直接忽略任何错误。</p>
+<p>该语句告知系统（WSH），我们将自行处理错误。执行此语句后，系统将直接忽略所有错误。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>on error goto 0
 </code></pre></div></td></tr></table></div>
-<p>该语句将我们带回正常的错误处理流程。</p>
-<p>当 <strong>on error resume next</strong> 语句生效时，我们必须自行处理可能发生的任何错误。<strong>Err</strong> 对象可协助我们完成此操作。该对象具有多种属性和方法，其中我们将重点关注以下两项：</p>
+<p>该语句将恢复正常的错误处理机制。</p>
+<p>当 <strong>on error resume next</strong> 语句生效时，我们必须自行处理可能出现的错误。<strong>Err</strong> 对象可协助我们完成此操作。该对象具有多种属性和方法，其中我们重点关注以下两项：</p>
 <ul>
   <li><b>number</b>：一个整数，表示最近发生的错误编号。0 表示“无错误”
   </li>
-  <li><b>description</b>：如果我们未执行 <b>on error resume next</b> 语句，系统本会显示的错误信息 
+  <li><b>description</b>：如果未执行 <b>on error resume next</b> 语句，系统本会显示的错误信息<b> </b>
   </li>
 </ul>
 
 <p>让我们来看以下示例：</p>
 <p><strong>程序</strong></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; unhandled error</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 未处理的错误</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">Option</span><span style="color:#000000"> </span><span style="color:#00007f">Explicit</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">Dim</span><span style="color:#000000"> nombre</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">nombre=cdbl(&quot;abcd&quot;)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">wscript.echo &quot;nombre=&quot; &amp; nombre</span></span>
 </code></pre></div>
@@ -1034,23 +1036,23 @@
 <p><strong>结果</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>C:\ err5.vbs(6, 1) Erreur d&#39;exécution Microsoft VBScript: Type incompatible: &#39;cdbl&#39;
 </code></pre></div></td></tr></table></div>
-<p>现在让我们处理这个错误：</p>
+<p>现在处理错误：</p>
 <p><strong>程序</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">&#39; managed error</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">&#39; 已处理的错误</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
 <a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span>
 <a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">nombre</span>
 <a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="c1">&#39; we manage mistakes ourselves</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="c1">&#39; 我们自行处理错误</span>
 <a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">Resume</span><span class="w"> </span><span class="k">Next</span>
 <a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="n">nombre</span><span class="o">=</span><span class="nb">cdbl</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="c1">&#39; was there a mistake?</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="c1">&#39; 是否发生错误？</span>
 <a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="k">If</span><span class="w"> </span><span class="nb">Err</span><span class="p">.</span><span class="n">number</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
 <a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;L&#39;erreur [&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nb">err</span><span class="p">.</span><span class="n">description</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;] s&#39;est produite&quot;</span>
 <a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">    </span><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">GoTo</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="k">End</span><span class="w"> </span><span class="k">If</span>
-<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="c1">&#39; no error - returns to normal operation</span>
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="c1">&#39; 无错误 - 恢复正常运行</span>
 <a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">GoTo</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;nombre=&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">nombre</span>
 <a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">0</span>
@@ -1058,46 +1060,46 @@
 <p><strong>结果</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>L&#39;erreur [Type incompatible] s&#39;est produite
 </code></pre></div></td></tr></table></div>
-<p>让我们使用这种新方法重写输入大于 0 的整数的程序：</p>
+<p>让我们用这种新方法重写输入大于0的整数的程序：</p>
 <p><strong>程序</strong></p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; read data until it is recognized as a number</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 读取数据直至其被识别为数字</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">Option</span><span style="color:#000000"> </span><span style="color:#00007f">Explicit</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">Dim</span><span style="color:#000000"> fini, nombre</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; loop until the data entered is correct</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; the loop is controlled by a finite boolean, set to false at the start (= it&#x27;s not finite)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 只要输入的数据不正确，就循环</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 循环由一个初始值为假的布尔变量控制（表示尚未结束）</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">fini=false</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">Do</span><span style="color:#000000"> </span><span style="color:#00007f">While</span><span style="color:#000000"> </span><span style="color:#00007f">Not</span><span style="color:#000000"> fini</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; we ask for the number</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 请求输入数字</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  wscript.stdout.write &quot;Tapez un nombre entier &gt;0: &quot;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; we read it</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 读取该数字</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  nombre=wscript.stdin.readLine</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; test the format of the data read</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 验证读取数据的格式</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">On</span><span style="color:#000000"> </span><span style="color:#00007f">Error</span><span style="color:#000000"> </span><span style="color:#00007f">Resume</span><span style="color:#000000"> </span><span style="color:#00007f">Next</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  nombre=cdbl(nombre)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">If</span><span style="color:#000000"> err.number=0 </span><span style="color:#00007f">Then</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; no error it&#x27;s a number</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; returns to normal error handling mode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&#x27; 无错误，为数字</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&#x27; 恢复到正常的错误处理模式</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#00007f">On</span><span style="color:#000000"> </span><span style="color:#00007f">Error</span><span style="color:#000000"> </span><span style="color:#00007f">GoTo</span><span style="color:#000000"> 0</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; is it an integer &gt;0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&#x27; 是否为大于0的整数</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#00007f">If</span><span style="color:#000000"> (nombre-int(nombre))=0 </span><span style="color:#00007f">And</span><span style="color:#000000"> nombre&gt;0 </span><span style="color:#00007f">Then</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">      fini=true</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#00007f">End</span><span style="color:#000000"> </span><span style="color:#00007f">If</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">End</span><span style="color:#000000"> </span><span style="color:#00007f">If</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; returns to normal error handling mode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 恢复到常规错误处理模式</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">On</span><span style="color:#000000"> </span><span style="color:#00007f">Error</span><span style="color:#000000"> </span><span style="color:#00007f">GoTo</span><span style="color:#000000"> 0</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; possible error msg</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 可能的错误消息</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">If</span><span style="color:#000000"> </span><span style="color:#00007f">Not</span><span style="color:#000000"> fini </span><span style="color:#00007f">Then</span><span style="color:#000000"> wscript.echo &quot;Erreur, vous n&#x27;avez pas tapé un nombre entier &gt;0. Recommencez svp...&quot;</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">Loop</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; confirmation</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 确认</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">wscript.echo &quot;Merci pour le nombre entier &gt;0 : &quot; &amp; nombre</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; and end</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 结束</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">wscript.quit 0</span></span>
 </code></pre></div>
 
@@ -1115,25 +1117,26 @@
 </code></pre></div>
 <p><strong>注释：</strong></p>
 <ul>
-  <li>有时这是唯一可用的方法。在这种情况下，请务必在可能引发错误的指令序列执行完毕后，立即恢复到正常的错误处理模式。
+  <li>有时这是唯一可用的方法。此时，一旦可能引发错误的指令序列执行完毕，切记要恢复到正常的错误处理模式。
   </li>
 </ul>
-<p><a id="refheading1878132734444"></a>
-<a id="toc535044814"></a></p>
-<h2 id="44">4.4. <span style="color: #4f81bd">应用于税费计算程序</span></h2>
-<p>我们将重新审视之前编写的税费计算程序，这次要验证传递给程序的参数是否有效：</p>
+
+<p><span id="toc535044814" name="toc535044814" class="odt-bookmark-anchor"></span>
+<span id="refheading1878132734444" name="refheading1878132734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="44">4.4. <span style="color: #4f81bd">应用于税款计算程序</span></h2>
+<p>我们重新使用已编写的税款计算程序，这次用于验证传递给程序的参数是否有效：</p>
 <p><strong>程序</strong></p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; calculating a taxpayer&#x27;s tax liability</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; the program must be called with three parameters: married children salary</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; married: character Y if married, N if unmarried</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; children: number of children</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; salary: annual salary without cents</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; no verification of data validity is performed, but we do</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; check that there are three of them</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; mandatory variable declaration</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 计算纳税人的税款</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 调用该程序时需提供三个参数：已婚 子女 工资</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 已婚：已婚时为字符 O，未婚时为 N</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 子女：子女数量</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 工资：年薪（不包含分）</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 不进行数据有效性验证，但</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 会验证是否确实有三个</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 变量必须声明</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">Option</span><span style="color:#000000"> </span><span style="color:#00007f">Explicit</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">Dim</span><span style="color:#000000"> syntaxe</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">syntaxe= _</span></span>
@@ -1141,33 +1144,33 @@
 <span class="odt-code-line"><span class="odt-code-line-content">    &quot;marié : caractère O si marié, N si non marié&quot; &amp; vbCRLF &amp; _</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    &quot;enfants : nombre d&#x27;enfants (entier &gt;=0)&quot; &amp; vbCRLF &amp; _</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    &quot;salaire : salaire annuel sans les centimes (entier &gt;=0)&quot;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; we check that there are 3 arguments</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 验证参数数量为3</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Dim</span><span style="color:#000000"> nbArguments</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  nbArguments=wscript.arguments.count</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">If</span><span style="color:#000000"> nbArguments&lt;&gt;3 </span><span style="color:#00007f">Then</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; error msg</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&#x27; 错误信息</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    wscript.echo syntaxe &amp; vbCRLF &amp; vbCRLF &amp; &quot;erreur : nombre d&#x27;arguments incorrect&quot;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; stop with error code 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&#x27; 以错误代码 1 终止</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    wscript.quit 1</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">End</span><span style="color:#000000"> </span><span style="color:#00007f">If</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000"></span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; retrieve arguments and check their validity</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; an argument is passed to the program without spaces in front and behind it</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">&#x27; use regular expressions to check data validity</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 获取参数并验证其有效性</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 参数在传递给程序时前后不带空格</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 将使用正则表达式验证数据有效性</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Dim</span><span style="color:#000000"> modele, correspondances</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Set</span><span style="color:#000000"> modele=new regexp</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; marital status must be among the characters oOnN</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 婚姻状况必须包含在指定字符范围内 oOnN</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  modele.pattern=&quot;^[oOnN]$&quot;</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Set</span><span style="color:#000000"> correspondances=modele.execute(wscript.arguments(0))</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">If</span><span style="color:#000000"> correspondances.count=0 </span><span style="color:#00007f">Then</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; error</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&#x27; 错误</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    wscript.echo syntaxe &amp; vbCRLF &amp; vbCRLF &amp; &quot;erreur : argument marie incorrect&quot;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; we leave</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&#x27; 退出</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    wscript.quit 2</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">End</span><span style="color:#000000"> </span><span style="color:#00007f">If</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; the value</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 获取值</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Dim</span><span style="color:#000000"> marie</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">If</span><span style="color:#000000"> lcase(wscript.arguments(0)) = &quot;o&quot;</span><span style="color:#00007f">Then</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    marie=true</span></span>
@@ -1175,33 +1178,33 @@
 <span class="odt-code-line"><span class="odt-code-line-content">    marie=false</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">End</span><span style="color:#000000"> </span><span style="color:#00007f">If</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000"></span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; children must be an integer &gt;=0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 子女数必须为大于等于0的整数</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  modele.pattern=&quot;^\d{1,2}$&quot;</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Set</span><span style="color:#000000"> correspondances=modele.execute(wscript.arguments(1))</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">If</span><span style="color:#000000"> correspondances.count=0 </span><span style="color:#00007f">Then</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; error</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&#x27; 错误</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    wscript.echo syntaxe &amp; vbCRLF &amp; vbCRLF &amp; &quot;erreur : argument enfants incorrect&quot;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; we leave</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&#x27; 退出</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    wscript.quit 3</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">End</span><span style="color:#000000"> </span><span style="color:#00007f">If</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; the value</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 获取值</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Dim</span><span style="color:#000000"> enfants</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  enfants=cint(wscript.arguments(1))</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; salary must be an integer &gt;=0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 工资必须是大于等于0的整数</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  modele.pattern=&quot;^\d{1,9}$&quot;</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Set</span><span style="color:#000000"> correspondances=modele.execute(wscript.arguments(2))</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">If</span><span style="color:#000000"> correspondances.count=0 </span><span style="color:#00007f">Then</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; error</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&#x27; 错误</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    wscript.echo syntaxe &amp; vbCRLF &amp; vbCRLF &amp; &quot;erreur : argument salaire incorrect&quot;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    &#x27; we leave</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&#x27; 退出</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    wscript.quit 4</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">End</span><span style="color:#000000"> </span><span style="color:#00007f">If</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; the value</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 获取值</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Dim</span><span style="color:#000000"> salaire</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  salaire=clng(wscript.arguments(2))</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000"></span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; we define the data needed to calculate the tax in 3 tables</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 在 3 个数组中定义计算税款所需的数据</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Dim</span><span style="color:#000000"> limites, coeffn, coeffr</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  limites=array(12620,13190,15640,24740,31810,39970,48360, _</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    55790,92970,127860,151250,172040,195000,0)</span></span>
@@ -1210,7 +1213,7 @@
 <span class="odt-code-line"><span class="odt-code-line-content">  coeffn=array(0,631,1290.5,2072.5,3309.5,4900,6898.5,9316.5, _</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    12106,16754.5,23147.5,30710,39312,49062)</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; the number of shares is calculated</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 计算份额数</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Dim</span><span style="color:#000000"> nbParts</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">If</span><span style="color:#000000"> marie=true </span><span style="color:#00007f">Then</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    nbParts=(enfants/2)+2</span></span>
@@ -1219,12 +1222,12 @@
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">End</span><span style="color:#000000"> </span><span style="color:#00007f">If</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">If</span><span style="color:#000000"> enfants&gt;=3 </span><span style="color:#00007f">Then</span><span style="color:#000000"> nbParts=nbParts+0.5</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000"></span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; calculate the family quota and taxable income</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 计算家庭分摊额和应税收入</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Dim</span><span style="color:#000000"> revenu, qf</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  revenu=0.72*salaire</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  qf=revenu/nbParts</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000"></span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; tax calculation</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 计算税额</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Dim</span><span style="color:#000000"> i, impot</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  i=0</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Do</span><span style="color:#000000"> </span><span style="color:#00007f">While</span><span style="color:#000000"> i&lt;ubound(limites) </span><span style="color:#00007f">And</span><span style="color:#000000"> qf&gt;limites(i)</span></span></span>
@@ -1232,15 +1235,14 @@
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Loop</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  impot=int(revenu*coeffr(i)-nbParts*coeffn(i))</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000"></span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; the result is displayed</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 显示结果</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  wscript.echo &quot;impôt=&quot; &amp; impot</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000"></span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  &#x27; leave without error</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">&#x27; 无错误退出</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  wscript.quit 0</span></span>
 </code></pre></div>
 
-<p><strong><span style="color: #000000">结果</span></strong></p>
-<p><span style="color: #000000"> </span></p>
+<p><span style="color: #000000">结果</span></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>C:\&gt;cscript impots2.vbs
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
 <a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>Syntaxe : pg marié enfants salaire

@@ -1,0 +1,1865 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="VBScript入门">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-vbscript-janv-2002/ianhengihu-vbscript.html">
+      
+      
+        <link rel="prev" href="vbscripteuninguaning.html">
+      
+      
+        <link rel="next" href="uouhui.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>3. 编程基础 VBSCRIPT - VBScript入门</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "VBScript入门";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-vbscript" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="VBScript入门" class="md-header__button md-logo" aria-label="VBScript入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VBScript入门
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. 编程基础 VBSCRIPT
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-vbscript-janv-2002" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="VBScript入门" class="md-nav__button md-logo" aria-label="VBScript入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VBScript入门
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-vbscript-janv-2002" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ianie.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vbscripteuninguaning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. VBSCRIPT的运行环境
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 编程基础 VBSCRIPT
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ianhengihu-vbscript.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 编程基础 VBSCRIPT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. 显示信息
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-e-vbscript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. E 在 VBScript 脚本中编写指令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-msgbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. 使用函数 msgBox 进行输出
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-vbscript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4. 在VBScript中可用的数据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5. L 变体类型的子类型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6. C 识别变体中包含的数据的确切类型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7. D 声明脚本使用的变量
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8. 的转换函数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9. L 读取键盘输入的数据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#310-s-inputbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.10. S 使用inputbox函数输入数据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#311-u" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.11. U 使用结构化对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.12. 为变量赋值
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.13. 表达式的求值
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#314-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.14. C语言 控制程序的执行
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.14. C语言 控制程序的执行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3141-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.14.1. E 执行条件操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3142-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.14.2. E 重复执行操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3143" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.14.3. 结束程序执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#315-l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.15. L 变体中的数据表
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#316-l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.16. L 数组变量
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#317-l-split-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.17. L split 和 join 函数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#318" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.18. 词典
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#319" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.19. 对数组或字典进行排序
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#320" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.20. 程序的参数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#321-impots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.21. 第一个应用：IMPOTS
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uouhui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 错误处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anhuuuoheng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 函数与过程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enenenian.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 文本文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="toc535044785" name="toc535044785" class="odt-bookmark-anchor"></span>
+<span id="refheading1872332734444" name="refheading1872332734444" class="odt-bookmark-anchor"></span></p>
+<h1 id="3-vbscript">3. <span style="color: #365f91"><strong><span style="color: #365f91">编程基础 VBSCRIPT</span></strong></span></h1>
+<p>在描述了 VBScript 脚本的可能运行环境之后，我们现在来探讨该语言本身。在接下来的内容中，我们将基于以下条件进行说明：</p>
+<ol>
+  <li>脚本的容器是 WSH
+  </li>
+  <li>脚本位于扩展名为 .vbs 的文件中
+  </li>
+</ol>
+
+<p>在介绍一个概念时，我们通常按照以下步骤进行：</p>
+<ul>
+  <li>如有必要，先介绍该概念
+  </li>
+  <li>展示一个示例程序及其运行结果
+  </li>
+  <li>如有必要，对结果和程序进行说明
+  </li>
+</ul>
+
+<p>VBScript 容器对脚本文本中的“大小写”不敏感。因此，无论是 <em>wscript.echo &quot;coucou&quot;</em> 还是 <em>WSCRIPT.ECHO &quot;coucou&quot;</em>，都可以随意书写。</p>
+<p>下文介绍的程序会在屏幕上进行大量输出，因此我们将再次介绍 wscript 对象的输出方法。</p>
+<p><span id="toc535044786" name="toc535044786" class="odt-bookmark-anchor"></span>
+<span id="refheading1872532734444" name="refheading1872532734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="31">3.1. <span style="color: #4f81bd">显示信息</span></h2>
+<p>我们之前已经使用过 <em>echo</em> 对象的 <em>wscript</em> 方法，但该对象还提供了其他用于屏幕输出的方法，如下面的脚本所示：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000018500000062E235339D.png" width="389" height="98" style="display:inline-block; margin:4px;width:10.292cm;height:2.593cm;" class="odt-zoomable" data-zoom-src="images/100000000000018500000062E235339D.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>un
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>deuxtrois
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>quatre
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>cinq
+</code></pre></div></td></tr></table></div>
+</div></td></tr></table>
+
+<p>请注意以下几点：</p>
+<ul>
+  <li>单引号后面的所有文本均被视为脚本注释，不会被 WSH 解释（第 1 行）。
+  </li>
+  <li> 方法 <i>echo</i> 写入其参数后跳转到下一行，方法 writeLine 也是如此（第 2 行和第 6 行）
+  </li>
+  <li>方法 <i>write</i> 写入其参数，但不换行（第 3 行）
+  </li>
+  <li>换行符由两个字符组成，即代码 ASCII 中的 13 和 10。 因此第4行由表达式 chr(13) &amp; chr(10) 表示，其中 chr(i) 是代码字符 ASCII i，&amp; 是字符串连接运算符。因此 &quot;chat&quot; &amp; &quot;eau&quot; 即为字符串 &quot;chateau&quot;。
+  </li>
+  <li>换行符可通过常量 vbCRLF 更简便地表示（第 5 行）
+  </li>
+</ul>
+
+<p><span id="refheading1872732734444" name="refheading1872732734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044787" name="toc535044787" class="odt-bookmark-anchor"></span></p>
+<h2 id="32-e-vbscript">3.2. <span style="color: #4f81bd">E <strong>在 VBScript 脚本中编写指令</strong></span></h2>
+<p>默认情况下，每行只写一条指令。不过，也可以在一行中写多条指令，只需用字符分隔即可：例如 <em>inst1:inst2:inst3</em>。 如果一行过长，可以将其拆分为若干部分。此时，指令的各个部分必须以两个字符（空格）_结尾。我们以之前的示例为例，重新编写指令：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000021D0000005123E5DAEC.png" width="541" height="81" style="display:inline-block; margin:4px;width:14.314cm;height:2.143cm;" class="odt-zoomable" data-zoom-src="images/100000000000021D0000005123E5DAEC.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>un
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>deuxtrois
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>quatre
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>cinq
+</code></pre></div></td></tr></table></div>
+</div></td></tr></table>
+
+<p><span id="toc535044788" name="toc535044788" class="odt-bookmark-anchor"></span>
+<span id="refheading1872932734444" name="refheading1872932734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="33-msgbox">3.3. <span style="color: #4f81bd">使用函数 msgBox 进行输出</span></h2>
+<p>虽然在本文档中，我们几乎完全使用 <em>wscript</em> 对象在屏幕上写入内容，但其实还有一种更复杂的函数，用于在窗口中显示信息。这就是 <em>msgbox</em> 函数，通常使用三个参数：</p>
+<p><strong>msgbox 消息、图标+按钮、标题</strong></p>
+<ul>
+  <li>message 是要显示的消息文本
+  </li>
+  <li>图标+按钮（可选）实际上是一个数字，用于指定要在消息窗口中放置的图标类型和按钮。该数字通常由两个数字相加而成：第一个数字决定图标，第二个数字决定按钮
+  </li>
+  <li>标题是显示在消息窗口标题栏中的文本
+  </li>
+</ul>
+
+<p>用于指定显示窗口图标和按钮的值如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>常量</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>值</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>描述</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbOKOnly</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">   0</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">仅显示按钮 <b>OK</b>。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbOKCancel</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">   1</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">显示 <b>OK </b>和<b>“取消”</b>按钮。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbAbortRetryIgnore</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">   2</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">显示<b>“放弃”</b>、<b>“重试</b>”和<b>“忽略</b>”按钮。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbYesNoCancel</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">   3</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">显示<b>“是”</b>、<b>“否</b>”和<b>“取消”</b>按钮。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbYesNo</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">   4</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">显示<b>“是</b>”和<b>“否”</b>按钮。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbRetryCancel</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">   5</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">显示<b>“重试</b>”和<b>“取消”</b>按钮。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbCritical</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">16</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">显示“严重错误”图标。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbQuestion</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">32</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">显示“请求警告”图标。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbExclamation</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">48</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">显示“警告消息”图标。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbInformation</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">64</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">显示“信息”图标。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbDefaultButton1</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">   0</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">第一个按钮是默认按钮。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbDefaultButton2</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"> 256</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">第二个按钮是默认按钮。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbDefaultButton3</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"> 512</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">第三个按钮是默认按钮。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbDefaultButton4</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"> 768</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">第四个按钮是默认按钮。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbApplicationModal</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">   0</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">模态应用程序；用户必须先回复消息，才能继续在当前应用程序中工作。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbSystemModal</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">4096</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">模态系统；所有应用程序将暂停，直到用户对消息作出响应。</div></td></tr></table>
+
+<p>以下是示例：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000024300000091EB465C82.png" width="579" height="145" style="display:inline-block; margin:4px;width:15.319cm;height:3.836cm;" class="odt-zoomable" data-zoom-src="images/100000000000024300000091EB465C82.png" /></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000006A000000612496E7EB.png" width="106" height="97" style="display:inline-block; margin:4px;width:2.805cm;height:2.566cm;" class="odt-zoomable" data-zoom-src="images/100000000000006A000000612496E7EB.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000006800000063BFE0B9B0.png" width="104" height="99" style="display:inline-block; margin:4px;width:2.752cm;height:2.619cm;" class="odt-zoomable" data-zoom-src="images/100000000000006800000063BFE0B9B0.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000084000000776EF25534.png" width="132" height="119" style="display:inline-block; margin:4px;width:3.493cm;height:3.149cm;" class="odt-zoomable" data-zoom-src="images/1000000000000084000000776EF25534.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000007E00000074CBC6883B.png" width="126" height="116" style="display:inline-block; margin:4px;width:3.334cm;height:3.069cm;" class="odt-zoomable" data-zoom-src="images/100000000000007E00000074CBC6883B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000007F00000075DA191345.png" width="127" height="117" style="display:inline-block; margin:4px;width:3.36cm;height:3.096cm;" class="odt-zoomable" data-zoom-src="images/100000000000007F00000075DA191345.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000007E00000075ADFEF8D7.png" width="126" height="117" style="display:inline-block; margin:4px;width:3.334cm;height:3.096cm;" class="odt-zoomable" data-zoom-src="images/100000000000007E00000075ADFEF8D7.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000000C000000075BE989999.png" width="192" height="117" style="display:inline-block; margin:4px;width:5.08cm;height:3.096cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C000000075BE989999.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;" colspan="3"><img src="images/100000000000017C000000768584D2B0.png" width="380" height="118" style="display:inline-block; margin:4px;width:10.054cm;height:3.122cm;" class="odt-zoomable" data-zoom-src="images/100000000000017C000000768584D2B0.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table></td></tr></table>
+
+<p>在某些情况下，会显示一个既作为信息窗口又作为输入窗口的窗口。如果提出一个问题，例如想知道用户是点击了按钮 <em>oui</em> 还是按钮 <em>non</em>。 函数 <em>msgBox</em> 返回一个结果，我们在前面的程序中尚未使用过。该结果是一个整数，表示用户用于关闭显示窗口的按钮：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>常量</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>值</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>所选按钮</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbOK</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">1</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">OK</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbCancel</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">2</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">取消</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbAbort</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">3</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">放弃</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbRetry</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">4</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">重试</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbIgnore</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">5</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">忽略</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbYes</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">6</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">是</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbNo</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">7</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">否</div></td></tr></table>
+
+<p>以下程序演示了如何使用函数 msgBox 的返回结果。程序将弹出一个带有“是”、“否”和“取消”按钮的窗口，共弹出 4 次。操作步骤如下：</p>
+<ol>
+  <li>点击“是”
+  </li>
+  <li>点击“否”
+  </li>
+  <li>点击“取消”
+  </li>
+  <li>不点击任何按钮直接关闭窗口。该程序表明，这相当于点击了“取消”按钮。
+  </li>
+</ol>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002570000007692BD1954.png" width="599" height="118" style="display:inline-block; margin:4px;width:15.849cm;height:3.122cm;" class="odt-zoomable" data-zoom-src="images/10000000000002570000007692BD1954.png" /></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000006B00000063EFCFCB32.png" width="107" height="99" style="display:inline-block; margin:4px;width:2.831cm;height:2.619cm;" class="odt-zoomable" data-zoom-src="images/100000000000006B00000063EFCFCB32.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000069000000632AA3981E.png" width="105" height="99" style="display:inline-block; margin:4px;width:2.778cm;height:2.619cm;" class="odt-zoomable" data-zoom-src="images/1000000000000069000000632AA3981E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000006A000000636DA25B2B.png" width="106" height="99" style="display:inline-block; margin:4px;width:2.805cm;height:2.619cm;" class="odt-zoomable" data-zoom-src="images/100000000000006A000000636DA25B2B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000006B000000658D6E56A8.png" width="107" height="101" style="display:inline-block; margin:4px;width:2.831cm;height:2.672cm;" class="odt-zoomable" data-zoom-src="images/100000000000006B000000658D6E56A8.png" /></td></tr></table></td></tr></table>
+
+<p><span id="toc535044789" name="toc535044789" class="odt-bookmark-anchor"></span>
+<span id="refheading1873132734444" name="refheading1873132734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="34-vbscript">3.4. <span style="color: #4f81bd">在VBScript中可用的数据</span></h2>
+<p>VBscript 仅支持一种数据类型：<strong>变体（Variant）</strong>。 Variant 的值可以是数字（4、10.2）、字符串（&quot;你好&quot;）、布尔值（true/false）、日期（#01/01/2002#）、对象的地址，或是将所有这些数据放在一个称为数组的结构中。</p>
+<p>让我们来看看以下程序及其结果：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002600000023B1DFE3C70.png" width="604" height="567" style="display:inline-block; margin:4px;width:15.981cm;height:15.007cm;" class="odt-zoomable" data-zoom-src="images/10000000000002600000023B1DFE3C70.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>4
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>i=4
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>10,2
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>r1=10,2
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>0,014
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>r2=0,014
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>c1=bonjour
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>01/10/02
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>d1=01/10/02
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>10/01/02
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>d2=10/01/02
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>-1
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>b1=Vrai
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>0
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>b2=Faux
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>v=4
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>v=10,2
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>v=bonjour
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>v=01/10/02
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>v=Vrai
+</code></pre></div>
+</div></td></tr></table>
+
+<p><strong>注释：</strong></p>
+<ul>
+  <li>某些编程语言（C、C++、Pascal、Java、C# 等）要求在使用变量之前必须先对其进行声明。这种声明包括指定变量的名称及其可容纳的数据类型（整数、实数、字符串、日期、布尔值等）。声明变量可以实现以下功能：
+    <ul>
+      <li>了解变量所需的内存空间——因为不同数据类型需要不同的内存空间
+      </li>
+      <li>验证程序的一致性。例如，若 <i>i </i>是整数，而 <i>c </i>是字符串，则将 <i>i</i> 与 <i>c</i> 相乘毫无意义。 如果变量 <i>i </i>和 <i>c </i>的类型已被程序员声明，那么负责在程序执行前对其进行分析的程序可能会报告此类不一致。
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>与大多数单数据类型的脚本语言（Perl、Python、Javascript 等）一样，VBScript 允许不声明变量。上例中就是如此。</p>
+<ul>
+  <li>请注意不同数据的语法
+    <ul>
+      <li>10.2，第10行（小数点而非逗号）。需要注意的是，屏幕上显示的是10.2。
+      </li>
+      <li>第13行中的1.4e-2（科学记数法）。显示结果为0.014
+      </li>
+      <li>[#01/10/2002#]（第26行）表示2002年1月10日。 因此，VBScript使用#mm/jj/aaaa#格式来表示日期jj，即mm月份的aaaa年
+      </li>
+      <li>第31行和第34行中的布尔值true和false（真/假）。如第32行和第35行所示，这两个值分别由整数-1和0表示。 当布尔值与字符串连接时，这些值会分别变为字符串“Vrai”和“Faux”，如第33行和第36行所示。顺便提一下，连接运算符 &amp; 不仅可以连接字符串，还可以连接其他内容。
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>由于变量 v 未指定类型，因此它可以依次存储不同类型的值。
+  </li>
+</ul>
+
+<p><span id="refheading1873332734444" name="refheading1873332734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044790" name="toc535044790" class="odt-bookmark-anchor"></span></p>
+<h2 id="35-l">3.5. <span style="color: #4f81bd"><strong>L</strong> <strong>变体类型的子类型</strong></span></h2>
+<p>官方文档对变体（Variant）可包含的不同数据类型有如下说明：</p>
+<p><em>除了简单的数字/字符串区分</em><strong><em>之外，Variant</em></strong> <em>还可以区分不同类型的数字信息。例如，某些数字信息代表日期或时间。当这些信息与其他日期或时间数据一起使用时，结果始终以日期或时间的形式表示。 您还可以使用其他类型的数字信息，从布尔值到大型浮点数。</em><strong><em>Variant</em></strong> <em>中可能包含的这些不同类别信息即为子类型。在大多数情况下，您只需将数据放入</em> <strong><em>Variant</em></strong> <em>中，它就会根据这些数据以最合适的方式进行处理。</em></p>
+<p><em>下表列出了</em> <strong><em>Variant</em></strong> <em>可能包含的各种子类型。</em></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>子类型</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>描述</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Empty</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Variant</b> 未初始化。对于数值变量，其值为零；对于字符串变量，其值为长度为零的字符串 (&quot;&quot;)。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Null</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Variant</b> 故意包含错误数据。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Boolean</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">包含 <a href="../../../../../../../st-2020/st-2020/cours/vbscript/vskeytrue.htm"><u><span style="color: #0563c1">True</span></u></a>（真）或 <a href="../../../../../../../st-2020/st-2020/cours/vbscript/vskeyfalse.htm"><u><span style="color: #0563c1">False</span></u></a>（假）。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>字节</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">包含 0 到 255 之间的整数。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Integer</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">包含 -32 768 到 32 767 之间的整数。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>货币</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">-922 337 203 685 477.5808 至 922 337 203 685 477.5807。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Long</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">包含一个介于 -2 147 483 648 到 2 147 483 647 之间的整数。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>单精度</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">包含一个单精度浮点数，负值范围为 -3,402823E38 至 -1,401298E-45； 正值范围为 1,401298E-45 至 3,402823E38。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>双精度</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">包含一个双精度浮点数，负值范围为 -1,79769313486232E308 至 -4,94065645841247E-324； 正值范围为 4,94065645841247E-324 至 1,79769313486232E308。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>日期（时间）</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">包含一个数字，表示 100 年 1 月 1 日至 9999 年 12 月 31 日之间的日期。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>字符串</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">包含一个长度可变的字符串，上限约为 20 亿个字符。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Object</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">包含一个对象。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Error</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">包含一个错误编号。</div></td></tr></table>
+
+<p><span id="refheading1873532734444" name="refheading1873532734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044791" name="toc535044791" class="odt-bookmark-anchor"></span></p>
+<h2 id="36-c">3.6. <span style="color: #4f81bd"><strong>C</strong> <strong>识别变体中包含的数据的确切类型</strong></span></h2>
+<p>变量类型的变量可以包含各种类型的数据。有时我们需要知道这些数据的确切性质。如果我们在程序中写入 produit=nombre1*nombre2，我们会假设 <em>nombre1</em> 和 <em>nombre2</em> 是两个数值数据。 但有时我们无法确定，因为这些值可能来自键盘输入、文件或任何外部来源。因此，我们需要验证 <em>nombre1</em> 和 <em>nombre2</em> 中数据的类型。 通过<em>函数</em> typename(var)，我们可以确定变量 <em>var</em> 中所含数据的类型。以下是示例：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000001D500000105A13C9E69.png" width="469" height="261" style="display:inline-block; margin:4px;width:12.409cm;height:6.906cm;" class="odt-zoomable" data-zoom-src="images/10000000000001D500000105A13C9E69.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>var=1,type=Integer
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>var=deux,type=String
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>var=Vrai,type=Boolean
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>var=4,5,type=Double
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>var=11/10/01,type=Date
+</code></pre></div>
+</div></td></tr></table>
+
+<p>另一个可能的函数是 <em>vartype(var)</em>，它返回一个数字，该数字代表变量 <em>var</em> 所包含的数据类型：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>常数</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>值</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>描述</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbEmpty</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">空（未初始化）</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbNull</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">1</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">空（无有效数据）</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbInteger</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">2</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">整数</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbLong</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">3</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">长整型</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbSingle</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">4</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">单精度浮点数</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbDouble</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">5</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">双精度浮点数</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbCurrency</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">6</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">货币</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbDate</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">7</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">日期</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbString</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">8</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">频道</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbObject</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">9</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">自动化设备</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbError</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">10</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">错误</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbBoolean</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">11</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">布尔值</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbVariant</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">12</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">变体（仅用于变体数组）</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbDataObject</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">13</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">非自动化对象</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbByte</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">17</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">字节</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>vbArray</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">8192</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">表</div></td></tr></table>
+
+<p><strong>注：</strong>这些常量由 VBScript 指定。因此，您可以在代码中的任何位置使用这些名称来代替实际值。</p>
+<p>以上信息来自 VBscript 的文档。该文档有时存在错误，可能是由于从 VB 的文档中复制粘贴所致。 VBScript 中的 <em>vartype</em> 函数仅实现了上述功能的一部分。</p>
+<p>针对 <em>vartype</em> 重写的上述程序产生以下结果：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000001E5000001072224CD0A.png" width="485" height="263" style="display:inline-block; margin:4px;width:12.832cm;height:6.959cm;" class="odt-zoomable" data-zoom-src="images/10000000000001E5000001072224CD0A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>var=1,type=2
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>var=deux,type=8
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>var=Vrai,type=11
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>var=4,5,type=5
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>var=11/10/01,type=7
+</code></pre></div>
+</div></td></tr></table>
+
+<p><span id="refheading1873732734444" name="refheading1873732734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044792" name="toc535044792" class="odt-bookmark-anchor"></span></p>
+<h2 id="37-d">3.7. <span style="color: #4f81bd"><strong>D</strong> <strong>声明脚本使用的变量</strong></span></h2>
+<p>我们曾指出，声明脚本使用的变量并非强制要求。在这种情况下，如果我们写：</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">1) somme=4</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">2) somme=</span><span style="font-weight:bold">smme</span><span style="color:#000000">+10</span></span></span>
+</code></pre></div>
+
+<p>如果第 2 行指令中出现输入错误，将 <em>smme</em> 误写为 smme，VBScript 不会报告任何错误。它会将 <em>smme</em> 视为一个新变量，并创建该变量，在第 2 行指令的上下文中将其初始化为 0 并加以使用。</p>
+<p>此类错误往往难以追踪。因此建议在脚本开头使用 <strong>option explicit</strong> 指令强制声明变量。此后，所有变量在首次使用前都必须通过 <strong>dim</strong> 语句进行声明： </p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">option explicit</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">dim somme</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">1) somme=4</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">2) somme=</span><span style="font-weight:bold">smme</span><span style="color:#000000">+10</span></span></span>
+</code></pre></div>
+
+<p>在此示例中，VBScript 会提示存在未声明的变量 smme，如 2) 所示，如下例所示：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000013100000070D6922D66.png" width="305" height="112" style="display:inline-block; margin:4px;width:8.07cm;height:2.963cm;" class="odt-zoomable" data-zoom-src="images/100000000000013100000070D6922D66.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">dim1</span><span class="p">.</span><span class="n">vbs</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">Erreur</span><span class="w"> </span><span class="n">d</span><span class="c1">&#39;exécution Microsoft</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w"> </span><span class="n">VBScript</span><span class="p">:</span><span class="w"> </span><span class="n">Variable</span><span class="w"> </span><span class="n">non</span><span class="w"> </span><span class="n">d</span><span class="err">éfinie: &#39;smme&#39;</span>
+</code></pre></div>
+</div></td></tr></table>
+
+<p>虽然文档中的简短示例中大多未声明变量，但一旦开始编写具有实际意义的脚本，我们就会强制声明它们。届时将系统地使用 <strong>Option explicit</strong> 指令。</p>
+<p><span id="toc535044793" name="toc535044793" class="odt-bookmark-anchor"></span>
+<span id="refheading1873932734444" name="refheading1873932734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="38">3.8. <span style="color: #4f81bd">的转换函数</span></h2>
+<p>VBScript会根据上下文将变量的数据转换为字符串、数字、布尔值等。 大多数情况下，这种转换运行良好，但有时也会带来一些意外，正如我们稍后将看到的。因此，我们可能希望“强制”变量的数据类型。VBScript 具有将表达式转换为各种数据类型的转换函数。以下是其中的一些：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Cint (表达式)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">将表达式转换为短整数（integer）</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Clng (表达式)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">将表达式转换为长整型（long）</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Cdbl (表达式)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">将表达式转换为双精度浮点数（double）</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Csng (表达式)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">将表达式转换为单精度实数 (single)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>Ccur (表达式)</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">将表达式转换为货币数据 (currency)</div></td></tr></table>
+
+<p>以下是一些示例：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000028A00000248B842EA4D.png" width="604" height="543" style="display:inline-block; margin:4px;width:15.981cm;height:14.358cm;" class="odt-zoomable" data-zoom-src="images/100000000000028A00000248B842EA4D.png" /></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">var=4,code type=8,nom type=String</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=4,code type=2,nom type=Integer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=1000000,code type=8,nom type=String</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=1000000,code type=3,nom type=Long</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=3,4e-5,code type=8,nom type=String</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=0,000034,code type=5,nom type=Double</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=3,4e-5,code type=8,nom type=String</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=0,000034,code type=4,nom type=Single</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=1000,45,code type=8,nom type=String</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=1000,45,code type=6,nom type=Currency</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=14,code type=2,nom type=Integer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=14,code type=8,nom type=String</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">var=1000,45,code type=5,nom type=Double</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=1000,code type=2,nom type=Integer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=1000,75,code type=5,nom type=Double</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">var=1001,code type=2,nom type=Integer</span></span>
+</code></pre></div></td></tr></table>
+
+<p><span id="refheading1874132734444" name="refheading1874132734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044794" name="toc535044794" class="odt-bookmark-anchor"></span></p>
+<h2 id="39-l">3.9. <span style="color: #4f81bd"><strong>L</strong> <strong>读取键盘输入的数据</strong></span></h2>
+<p>wscript 对象允许脚本获取键盘输入的数据。<em>wscript.stdin.readLine</em> 方法可读取通过键盘输入并按“回车”键确认的一行文本。读取到的这一行文本可赋值给一个变量。</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000013C0000004A7580C8B3.png" width="316" height="74" style="display:inline-block; margin:4px;width:8.361cm;height:1.958cm;" class="odt-zoomable" data-zoom-src="images/100000000000013C0000004A7580C8B3.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">Tapez votre nom : </span><span style="font-style:italic">st</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Bonjour st</span></span>
+</code></pre></div></td></tr></table>
+
+<p>注释：</p>
+<ul>
+  <li>在结果列的 [Tapez votre nom : st] 行中，<i>st </i>是用户输入的行。
+  </li>
+</ul>
+
+<p>即使键盘输入的文本是一个数字，它首先仍被视为字符串，如下例所示：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000001680000004C1B2D006F.png" width="360" height="76" style="display:inline-block; margin:4px;width:9.525cm;height:2.011cm;" class="odt-zoomable" data-zoom-src="images/10000000000001680000004C1B2D006F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>Tapez un nombre : 14
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>nombre lu=14,type=String
+</code></pre></div></td></tr></table></div>
+</div></td></tr></table>
+
+<p>如果该数字用于算术运算，VBscript 会自动将字符串转换为数字，但并非总是如此。让我们看看以下示例：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000188000000C40B47CABD.png" width="371" height="185" style="display:inline-block; margin:4px;width:9.816cm;height:4.907cm;" class="odt-zoomable" data-zoom-src="images/1000000000000188000000C40B47CABD.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>nombre1 : 3
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>nombre2 : 4
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>3+4=34
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>3-4=-1
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>3x4=12
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>3/4=0,75
+</code></pre></div></td></tr></table></div>
+</div></td></tr></table>
+
+<p>从结果中可以看出，脚本的第 8 行并未按预期运行，这是因为（遗憾的是）在 VBScript 中，运算符 + 有两种含义：两个数字的加法，或者两个字符串的连接（两个字符串被拼接在一起）。 我们之前提到，键盘输入的数字会被识别为字符串，而 VBScript 会根据需要将这些字符串转换为数字。对于只能涉及数字的 -、*、/ 运算，它处理得当；但对于同样可能涉及字符串的 + 运算符，它却未能正确处理。 在此，它默认用户是要进行字符串拼接。</p>
+<p>解决此问题的简便方法是在读取字符串时立即将其转换为数字，如下文对前文程序的改进所示：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000001E500000132E9912AA0.png" width="370" height="233" style="display:inline-block; margin:4px;width:9.79cm;height:6.177cm;" class="odt-zoomable" data-zoom-src="images/10000000000001E500000132E9912AA0.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>nombre1 : 3
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>nombre1=3,type=String
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>nombre1=3,type=Long
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>nombre2 : 4
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>nombre2=4,type=String
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>nombre2=4,type=Long
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>3+4=7
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>3-4=-1
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>3x4=12
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>3/4=0,75
+</code></pre></div></td></tr></table></div>
+</div></td></tr></table>
+
+<p><span id="refheading1874332734444" name="refheading1874332734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044795" name="toc535044795" class="odt-bookmark-anchor"></span></p>
+<h2 id="310-s-inputbox">3.10. <span style="color: #4f81bd"><strong>S</strong> <strong>使用inputbox函数输入数据</strong></span></h2>
+<p>有时我们可能希望在图形界面中输入数据，而不是通过键盘输入。此时可以使用函数 <em>inputBox</em>。该函数支持许多参数，其中只有前两个参数经常被使用：</p>
+<p><strong>reponse=inputBox(message,title)</strong></p>
+<ul>
+  <li><b>message</b>：向用户提出的问题
+  </li>
+  <li><b>标题</b>（可选）：您为输入窗口指定的标题
+  </li>
+  <li><b>reponse</b>：用户输入的文本。如果用户未作回答就关闭了窗口，<b>reponse</b> 则为空字符串。
+  </li>
+</ul>
+
+<p>以下是一个示例，用于询问某人的姓名和年龄。对于姓名，我们提供信息并执行 OK。对于年龄，我们也提供信息，但执行“取消”。</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000015400000058BDB51C54.png" width="340" height="88" style="display:inline-block; margin:4px;width:8.996cm;height:2.328cm;" class="odt-zoomable" data-zoom-src="images/100000000000015400000058BDB51C54.png" /></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000016A00000097C484981F.png" width="362" height="151" style="display:inline-block; margin:4px;width:9.578cm;height:3.995cm;" class="odt-zoomable" data-zoom-src="images/100000000000016A00000097C484981F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000008500000063A2EA4688.png" width="133" height="99" style="display:inline-block; margin:4px;width:3.519cm;height:2.619cm;" class="odt-zoomable" data-zoom-src="images/100000000000008500000063A2EA4688.png" /></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000001690000009815026986.png" width="361" height="152" style="display:inline-block; margin:4px;width:9.551cm;height:4.022cm;" class="odt-zoomable" data-zoom-src="images/10000000000001690000009815026986.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000006A000000648784CD3E.png" width="106" height="100" style="display:inline-block; margin:4px;width:2.805cm;height:2.646cm;" class="odt-zoomable" data-zoom-src="images/100000000000006A000000648784CD3E.png" /></td></tr></table></td></tr></table>
+
+<p><span id="refheading1874532734444" name="refheading1874532734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044796" name="toc535044796" class="odt-bookmark-anchor"></span></p>
+<h2 id="311-u">3.11. <span style="color: #4f81bd"><strong>U</strong> <strong>使用结构化对象</strong></span></h2>
+<p>使用VBScript可以创建具有方法和属性的对象。为了避免复杂化，我们这里将介绍一个仅具有属性而没有方法的对象。以一个人为例。他/她有许多特征属性：身高、体重、肤色、眼睛颜色、头发颜色……我们只选取其中两个：姓名和年龄。 在使用对象之前，必须先创建一个用于生成这些对象的“模具”。在 VBScript 中，这通过<strong>类</strong>来实现。类 <em>personne</em> 可以定义如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">class personne</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">    Dim</span><span style="color:#000000"> nom,age</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">End</span><span style="color:#000000"> class</span></span></span>
+</code></pre></div>
+
+<p>[Dim nom,age] 语句定义了 <em>personne</em> 类的两个属性。要创建 <em>personne</em> 类的实例，需编写如下代码：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>set personne1=new personne
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>set personne2=new personne
+</code></pre></div></td></tr></table></div>
+<p>为什么不写 </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>personne1=new personne
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>personne2=new personne
+</code></pre></div></td></tr></table></div>
+<p>因为变量不能直接包含对象，它只能包含对象的地址。当写下 <em>set personne1=new personne</em> 时，会发生以下事件序列：</p>
+<ol>
+  <li>创建了一个<i>名为 personne 的</i>对象。这意味着为其分配了内存。
+  </li>
+  <li>该对象 <i>personne</i> 的地址被赋值给变量 <i>personne1</i>
+  </li>
+</ol>
+
+<p>因此，对于变量 <em>personne1</em> 和 personne2，我们得到以下内存布局：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000497000000F514788662.png" width="588" height="122" style="display:inline-block; margin:4px;width:15.545cm;height:3.24cm;" class="odt-zoomable" data-zoom-src="images/1000000000000497000000F514788662.png" /></td></tr></table>
+
+<p>从语义上讲，我们可以将 <em>personne1</em> 视为 <em>personne</em> 的对象。 如果我们记得 <em>personne1</em> 实际上是对象 <em>personne</em> 的地址，而不是 <em>personne</em> 对象本身，那么这种不严谨的说法是可以接受的。</p>
+<p>我们曾提到，对象 <em>personne</em> 具有两个属性 <em>nom</em> 和 <em>age</em>。如何利用这些属性？正如前文所述，可通过 <em>objet.propriété</em> 这种表示法。因此</p>
+<p><em>personne1.nom</em> 表示人物 1 的姓名<em>，personne1.age</em> 表示其年龄。以下是一个简短的示例程序：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000001780000009C61977378.png" width="376" height="156" style="display:inline-block; margin:4px;width:9.948cm;height:4.128cm;" class="odt-zoomable" data-zoom-src="images/10000000000001780000009C61977378.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>p1=(dupont,18)
+</code></pre></div>
+</div></td></tr></table>
+
+<p>上述程序可修改如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000113000000E1B892A957.png" width="275" height="225" style="display:inline-block; margin:4px;width:7.276cm;height:5.953cm;" class="odt-zoomable" data-zoom-src="images/1000000000000113000000E1B892A957.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>nom=dupont
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>age=18
+</code></pre></div>
+</div></td></tr></table>
+
+<p>此处<em>我们</em>使用了 <em>with ... end with</em> 结构，该结构允许在表达式中“提取”对象名称。第 9 行-12 和 15-18 行中的 <code>with p1 ... end with</code> 结构，使得我们可以使用 <em><code>.nom*</code> 代替 <code>*p1.nom*</code>，并使用 </em><code>.age*</code> 代替 <code>*p1.age*</code>。 这有助于简化那些反复使用相同对象名称的指令编写。</p>
+<p><span id="toc535044797" name="toc535044797" class="odt-bookmark-anchor"></span>
+<span id="refheading1874732734444" name="refheading1874732734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="312">3.12. <span style="color: #4f81bd">为变量赋值</span></h2>
+<p>有两种语句可用于为变量赋值：</p>
+<ol>
+  <li>变量=表达式
+  </li>
+  <li>set 变量=表达式
+  </li>
+</ol>
+
+<p>形式 2 仅适用于结果为对象引用的表达式。对于所有其他类型的表达式，应使用形式 1。这两种形式的区别如下：</p>
+<ul>
+  <li>在语句 <i>variable=expression</i> 中，变量被赋予了一个值。如果 v1 和 v2 是两个变量，写 v1=v2 会将 v1 的值赋给 v2。因此，一个值被复制到了两个不同的位置。如果随后修改了 v2 的值，v1 的值则完全不受影响。
+  </li>
+</ul>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000023B0000008421180CC7.png" width="286" height="66" style="display:inline-block; margin:4px;width:7.555cm;height:1.746cm;" class="odt-zoomable" data-zoom-src="images/100000000000023B0000008421180CC7.png" /></td></tr></table>
+
+<ul>
+  <li>在语句 <i>set variable=expression </i>中，变量接收的值是某个对象的地址。如果 v1 和 v2 是两个变量，且 v2 是对象 obj2 的地址，则写入 set v1=v2 会将 v1 的值赋给 v2，即对象 obj2 的地址。 当脚本随后操作 v1 和 v2 时，被操作的并非 v1 和 v2 的“值”，而是 v1 和 v2 “指向”的对象，即此处的同一个对象。 我们说 v1 和 v2 是指向同一个对象的两个引用，通过 v1 或 v2 操作该对象没有任何区别。换句话说，修改 v2 引用的对象会同时修改 v1 引用的对象。
+  </li>
+</ul>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000003B0000000E90473EECF.png" width="472" height="116" style="display:inline-block; margin:4px;width:12.488cm;height:3.082cm;" class="odt-zoomable" data-zoom-src="images/10000000000003B0000000E90473EECF.png" /></td></tr></table>
+
+<p>以下是一个示例：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000020A000001614638114F.png" width="487" height="329" style="display:inline-block; margin:4px;width:12.878cm;height:8.708cm;" class="odt-zoomable" data-zoom-src="images/100000000000020A000001614638114F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>i=4
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>j=4
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>i=4
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>j=5
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>p1.nom=dupont
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>p1.age=18
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>p1.nom=dupont
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>p1.age=19
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>p2.nom=dupont
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>p2.age=19
+</code></pre></div></td></tr></table></div>
+</div></td></tr></table>
+
+<p><span id="toc535044798" name="toc535044798" class="odt-bookmark-anchor"></span>
+<span id="refheading1874932734444" name="refheading1874932734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="313">3.13. <span style="color: #4f81bd">表达式的求值</span></h2>
+<p>用于求值表达式的主要运算符如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>运算符类型</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>运算符</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>示例</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;" rowspan="4"><div style="margin:0 0 0.5em 0"><b>算术</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">+,-,*,/</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;" rowspan="2"><div style="margin:0 0 0.5em 0"><b>比较</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&lt;, &lt;=</div><div style="margin:0 0 0.5em 0">&gt;, &gt;=</div><div style="margin:0 0 0.5em 0">=,&lt;&gt;</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i>a&lt;&gt;b</i> 成立，当且仅当 a 不同于 b</div><div style="margin:0 0 0.5em 0"><i>a=b</i> 成立当且仅当 a 等于 b</div><div style="margin:0 0 0.5em 0">a 和 b 可以都是数字，也可以都是字符串。在后一种情况下，如果按字母顺序排列时 chaine1 在 chaine2 之前，则 chaine1&lt;chaine2。在字符串比较中，按字母顺序排列时大写字母优先于小写字母。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>逻辑</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">and, or, not, xor</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">此处的所有操作数均为布尔值。</div><div style="margin:0 0 0.5em 0">当 <i>bool1 或 bool2 </i>为真时，bool1 or bool2 为真</div><div style="margin:0 0 0.5em 0">当 <i>bool1 和 bool2</i> 均为真时，bool1 and bool2 为真</div><div style="margin:0 0 0.5em 0">当 bool1 为假时，<i>not </i>bool1 为真；反之亦然</div><div style="margin:0 0 0.5em 0">当布尔值 bool1 或 bool2 中仅有一个为真时，<i>bool1 xor </i>bool2 为真</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>字符串连接</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">&amp;, +</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"> 不建议使用 + 运算符来连接两个字符串，因为这可能会与两个数字的加法产生混淆。因此，应仅使用 &amp; 运算符。</div></td></tr></table>
+
+<p><span id="refheading1875132734444" name="refheading1875132734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044799" name="toc535044799" class="odt-bookmark-anchor"></span></p>
+<h2 id="314-c">3.14. <span style="color: #4f81bd"><strong>C语言</strong> <strong>控制程序的执行</strong></span></h2>
+<p><span id="refheading1875332734444" name="refheading1875332734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044800" name="toc535044800" class="odt-bookmark-anchor"></span></p>
+<h3 id="3141-e">3.14.1. <span style="color: #4f81bd"><strong>E</strong> <strong>执行条件操作</strong></span></h3>
+<p>用于根据条件真/假值执行操作的 VBScript 语句如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">if</span><span class="w"> </span>expression<span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span>action-vrai-1
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span>action-vrai-2
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span>..
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="k">else</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span>action-faux-1
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span>action-faux-2
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span>...
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>end<span class="w"> </span><span class="k">if</span>
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">首先评估表达式 <i>expression</i>。该表达式必须返回布尔值。如果其值为真，则执行 <i>then</i> 中的操作；否则，如果存在 <i>else</i>，则执行其中的操作。</div></td></tr></table>
+
+<p>下面是一个展示 if-then-else 不同变体的程序：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000001B8000000DA659D3AAB.png" width="440" height="218" style="display:inline-block; margin:4px;width:11.642cm;height:5.768cm;" class="odt-zoomable" data-zoom-src="images/10000000000001B8000000DA659D3AAB.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>3 est plus grand que 0
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>3 est plus grand que 2
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>i=4
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>4 est plus petit que 10
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>i=3
+</code></pre></div></td></tr></table></div>
+</div></td></tr></table>
+
+<p>注释：</p>
+<ul>
+  <li>在 VBScript 中，可以使用 `<i>instruction1:instruction2:...:instructionn</i>` 的形式，而不是每行写一条指令。例如，第 10 行就是利用了这一特性。
+  </li>
+</ul>
+
+<p><span id="refheading1875532734444" name="refheading1875532734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044801" name="toc535044801" class="odt-bookmark-anchor"></span></p>
+<h3 id="3142-e">3.14.2. <span style="color: #4f81bd"><strong>E</strong> <strong>重复执行操作</strong></span></h3>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>迭代次数已知的循环</b></div><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-bash">
+<span class="odt-code-line"><span class="odt-code-line-content">for i=idébut to ifin step ipas</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">actions</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">next</span></span>
+</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><ol>
+  <li>此处的变量 i 被称为循环变量。它可以取任意名称
+  </li>
+  <li>i 取初始值
+  </li>
+  <li>将 i 的值与 ifin 进行比较。如果 i &lt;= ifin，则执行 for...next 之间所包含的操作
+  </li>
+  <li>i 增加 ipas 的量（i=i+ipas）
+  </li>
+  <li>循环回到前面的第 3 步。经过有限次数的迭代后，i 的值将超过 ifin。脚本的执行将从 next 语句之后继续
+  </li>
+  <li>如果增量 ipas 为负数，则步骤 3 的条件将发生变化。仅当 i&gt;=ifin 时，才执行 for...next 中的操作。
+  </li>
+</ol>
+<div style="margin:0 0 0.5em 0">可随时使用 <b>exit for</b> 语句退出 for 循环。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>迭代次数未知的循环</b></div><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">do</span><span class="w"> </span><span class="k">while</span><span class="w"> </span>condition
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span>actions
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>loop
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><ol>
+  <li>评估条件表达式。如果为真，则执行 while...loop 中的操作
+  </li>
+  <li>已执行的操作可能已更改条件值。循环回到前面的步骤 1。
+  </li>
+  <li>当条件表达式变为假时，循环结束
+  </li>
+</ol>
+<div style="margin:0 0 0.5em 0">可随时使用 <b>exit do</b> 语句退出 do while 循环。</div></td></tr></table>
+
+<p>下面的程序说明了这些要点：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002440000019C731E707D.png" width="580" height="412" style="display:inline-block; margin:4px;width:15.346cm;height:10.901cm;" class="odt-zoomable" data-zoom-src="images/10000000000002440000019C731E707D.png" /></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>i=0,tableau(i)=10,somme=10
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>i=1,tableau(i)=20,somme=30
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>i=2,tableau(i)=30,somme=60
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>i=3,tableau(i)=40,somme=100
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>i=0,tableau(i)=10,somme=10
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>i=1,tableau(i)=20,somme=30
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>i=2,tableau(i)=30,somme=60
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>i=1
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>i=2
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>i=3
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>i=4
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>i=5
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>i=6
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>i=7
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>i=8
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>i=9
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>i=10
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>i=11
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>i=1
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>i=2
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>i=3
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>i=4
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>i=5
+<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>i=6
+</code></pre></div>
+</div></td></tr></table>
+
+<p><strong>注</strong>：在程序开发阶段，程序“死循环”的情况并不少见，c.a.d，即程序永远无法停止。通常，程序会执行一个无法验证退出条件的循环，例如以下示例：</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 无限循环</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">i=0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">Do</span><span style="color:#000000"> </span><span style="color:#00007f">While</span><span style="color:#000000"> 1=1</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  i=i+1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  wscript.echo i</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Loop</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 同类另一种</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">i=0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">Do</span><span style="color:#000000"> </span><span style="color:#00007f">While</span><span style="color:#000000"> true</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  i=i+1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  wscript.echo i</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Loop</span></span>
+</code></pre></div>
+
+<p>如果运行上述程序，第一个循环将永远不会自动停止。可以通过在键盘上输入 <strong>CTRL-C</strong>（同时按下 CTRL 和 C 键）来强制停止它。</p>
+<p><span id="toc535044802" name="toc535044802" class="odt-bookmark-anchor"></span>
+<span id="refheading1875732734444" name="refheading1875732734444" class="odt-bookmark-anchor"></span></p>
+<h3 id="3143">3.14.3. <span style="color: #4f81bd">结束程序执行</span></h3>
+<p>指令 <strong><em>wscript.quit n</em></strong> 通过返回等于 n 的错误代码来终止程序的执行。 在 DOS 环境下，可通过 if ERRORLEVEL n 语句检测该错误代码，若最后执行的程序返回的错误代码 &gt;=n，则该条件为真。请看以下程序及其结果：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000001450000004D41CC124F.png" width="325" height="77" style="display:inline-block; margin:4px;width:8.599cm;height:2.037cm;" class="odt-zoomable" data-zoom-src="images/10000000000001450000004D41CC124F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>début
+</code></pre></div>
+</div></td></tr></table>
+
+<p>程序执行完毕后，立即发出以下三个 DOS 命令：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span>
+<span class="normal"><a href="#__codelineno-19-6">6</a></span>
+<span class="normal"><a href="#__codelineno-19-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>C:\&gt;if ERRORLEVEL 5 echo 5
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>C:\&gt;if ERRORLEVEL 4 echo 4
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a>4
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a>C: &gt;if ERRORLEVEL 3 echo 3
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a>3
+</code></pre></div></td></tr></table></div>
+<p>命令 DOS 1 用于检测程序返回的错误代码是否 &gt;=5。如果是，则输出（echo）5；否则不输出任何内容。</p>
+<p>命令 DOS 3 检查程序返回的错误代码是否 &gt;=4。如果是，则输出 4；否则不输出。</p>
+<p>命令 DOS 5 用于检测程序返回的错误代码是否大于等于 3。如果是，则输出 3；否则不输出任何内容。</p>
+<p>从显示的结果可以推断，程序返回的错误代码是 4。</p>
+<p><span id="refheading1875932734444" name="refheading1875932734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044803" name="toc535044803" class="odt-bookmark-anchor"></span></p>
+<h2 id="315-l">3.15. <span style="color: #4f81bd"><strong>L</strong> <strong>变体中的数据表</strong></span></h2>
+<p>变量 T 可以包含一组值。此时，我们称其为数组。数组 T 具有以下特性：</p>
+<ul>
+  <li>可以通过语法 <b>T(i)</b> 访问数组 T 的第 i 个元素，其中 i 是介于 0 和 n-1 之间的整数（称为索引），若 T 包含 n 个元素。
+  </li>
+  <li>可通过表达式 <b>ubound(T)</b> 获取数组 T 的最后一个元素的索引。此时，数组 T 的元素个数为 ubound(T)+1。该数值通常被称为数组的大小。
+  </li>
+  <li>变量 T 可以通过语法 <b>T=array()</b> 初始化为空数组，或通过语法 <b>T=array(元素0, 元素1, ...., 元素n)</b> 初始化为一组元素
+  </li>
+  <li>可以向已创建的数组 T 中添加元素。为此，使用语句 <b>redim preserve T(N)</b>，其中 N 是数组 T 中最后一个元素的新索引。该操作称为重定尺寸（redim）。关键字 <b>preserve</b> 表示在重定尺寸时，必须保留数组的当前内容。 若未使用该关键字，则 T 将被重新调整大小并清空其元素。
+  </li>
+  <li>数组 T 的元素 T(i) 属于变量类型，因此可以包含任意值，特别是另一个数组。在这种情况下，记法 <b>T(i)(j)</b> 表示数组 T(i) 的第 j 个元素。
+  </li>
+</ul>
+
+<p>下述程序演示了数组的这些特性：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000228000001575F89DF38.png" width="487" height="302" style="display:inline-block; margin:4px;width:12.878cm;height:8.003cm;" class="odt-zoomable" data-zoom-src="images/1000000000000228000001575F89DF38.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Le tableau t1 a 5 éléments
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>t1(0)=1
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>t1(1)=-4,5
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>t1(2)=deux
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>t1(3)=Vrai
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>t1(4)=10/01/02
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>t1=1:-4,5:deux:Vrai:10/01/02
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>t1(5)=10:20:30
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>t1(5)(1)=20
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>t1=1 ~ -4,5 ~ deux
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>t1=:::
+</code></pre></div>
+</div></td></tr></table>
+
+<p>注释</p>
+<ul>
+  <li>这里使用了一个名为 <b>join</b> 的函数，稍后会详细说明。
+  </li>
+</ul>
+
+<p><span id="refheading1876132734444" name="refheading1876132734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044804" name="toc535044804" class="odt-bookmark-anchor"></span></p>
+<h2 id="316-l">3.16. <span style="color: #4f81bd"><strong>L</strong> <strong>数组变量</strong></span></h2>
+<p>在 VBScript 中还有另一种使用数组的方法，即使用数组变量。与标量变量不同，此类变量必须通过 <strong>dim</strong> 语句进行声明。可以进行多种声明：</p>
+<ul>
+  <li><b>dim 数组(n)</b> 声明一个包含 n+1 个元素的静态数组，元素编号从 0 到 n。此类数组无法调整大小
+  </li>
+  <li><b>dim 数组()</b> 声明一个空的动态数组。使用时需通过 redim 语句调整其大小，其操作方式与包含数组的变量相同
+  </li>
+  <li><b>dim 数组(n,m)</b> 声明一个包含 (n+1)*(m+1) 个元素的二维数组。数组的第 (i,j) 个元素记为 <i>tableau(i,j)</i>。需注意其与 Variant 的区别：在 Variant 中，同一元素将记为 <i>tableau(i)(j)</i>。
+  </li>
+</ul>
+
+<p>为何存在这两种本质上非常相似的数组类型？VBScript文档对此未作说明，也未指出其中一种是否比另一种性能更优。后续示例中，我们将几乎完全使用Variant中的数组。 不过需要记住的是，VBscript 源自 Visual Basic 语言，而该语言本身包含类型化数据（整数、双精度、布尔值等）。在这种情况下，如果需要使用实数数组，数组变量（array）的性能将优于变量（variant）。 因此，我们通常会使用类似 <em>dim tableau(1000) as double</em> 的语句来声明一个实数数组，若数组为动态数组，则只需声明 <em>dim tableau() as double</em> 即可。</p>
+<p>以下是一个说明数组变量使用的示例：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000001E7000001FB07353B72.png" width="487" height="507" style="display:inline-block; margin:4px;width:12.885cm;height:13.414cm;" class="odt-zoomable" data-zoom-src="images/10000000000001E7000001FB07353B72.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Le tableau t1 a 5 éléments
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>t1(0)=1
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>t1(1)=-4,5
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>t1(2)=deux
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>t1(3)=Vrai
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>t1(4)=10/01/02
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>t1=1:-4,5:deux:Vrai:10/01/02
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>Le tableau t1 a 5 éléments
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>t2(0)=0
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>t2(1)(2)=30
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>t2=:::
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>t3(0,0)=0
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>t3(0,1)=1
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>t3(1,0)=10
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>t3(1,1)=11
+</code></pre></div>
+</div></td></tr></table>
+
+<p><span id="refheading1876332734444" name="refheading1876332734444" class="odt-bookmark-anchor"></span>
+<span id="toc535044805" name="toc535044805" class="odt-bookmark-anchor"></span></p>
+<h2 id="317-l-split-join">3.17. <span style="color: #4f81bd"><strong>L</strong> <strong>split 和 join 函数</strong></span></h2>
+<p>split 和 join 函数可用于将字符串转换为数组，反之亦然：</p>
+<ul>
+  <li>若 <b>T</b> 是一个<b>数组，car</b> 是一个字符串，则 <b>join(T,car)</b> 是一个由数组 T 的所有元素组合而成的字符串，每个元素与下一个元素之间以字符串 <b>car</b> 分隔。因此，join(array(1,2,3),&quot;abcd&quot;) 将生成字符串 &quot;1abcd2abcd3&quot;
+  </li>
+  <li>若 <b>C</b> 是一个由字符串 <b>car</b> 分隔的字段序列组成的字符串，则函数 <b>split(C,car)</b> 返回一个数组，其元素即字符串 C 的各个字段。因此 split(&quot;1abcd2abcd3&quot;,&quot;abcd&quot;) 将返回数组 (1,2,3)
+  </li>
+</ul>
+
+<p>以下是一个示例：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 数组转字符串及反向转换</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 数组 --&gt; 字符串</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">tableau=array(&quot;un&quot;,2,&quot;trois&quot;)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">chaine=join(tableau,&quot;,&quot;)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">wscript.echo chaine</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 字符串 → 数组</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">tableau2=split(chaine,&quot;,&quot;)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">For</span><span style="color:#000000"> i=0 </span><span style="color:#00007f">To</span><span style="color:#000000"> ubound(tableau2)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  wscript.echo tableau</span>2<span style="color:#000000">(i)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Next</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>un,2,trois
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>un
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>2
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>trois
+</code></pre></div>
+</div></td></tr></table>
+
+<p><span id="toc535044806" name="toc535044806" class="odt-bookmark-anchor"></span>
+<span id="refheading1876532734444" name="refheading1876532734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="318">3.18. <span style="color: #4f81bd">词典</span></h2>
+<p>当知道数组T中某个元素的索引i时，即可访问该元素。此时可通过记法T(i)来访问它。有些数组的元素不是通过索引，而是通过字符串来访问的。 此类数组的典型例子是字典。当我们在《拉鲁斯词典》或《小罗伯特词典》中查找某个单词的释义时，就是通过该单词来获取释义的。我们可以将这个字典表示为一个两列的数组：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>词1</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">描述1</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>词条2</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">描述2</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>词3</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">描述3</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>....</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>那么就可以这样写：</p>
+<p>字典(&quot;词1&quot;)=&quot;描述1&quot;</p>
+<p>字典(&quot;词2&quot;)=&quot;描述2&quot;</p>
+<p>...</p>
+<p>这与数组的运作方式非常相似，只不过数组的索引不是整数，而是字符串。这种类型的数组<strong>被称为字典</strong>（或关联数组、哈希表），而作为索引的字符串则被称为字典的<strong>键</strong>（keys）。 在计算机领域，字典的使用极为普遍。我们每个人都有一张印有编号的社会保障卡。这个编号能唯一地识别我们，并让我们能够访问与自己相关的信息。在“字典(‘键’)=‘信息’”的模型中，“键”即为社会保障号，“信息”则是社会保障系统计算机中存储的所有关于我们的信息。</p>
+<p>在 Windows 系统中，有一个名为“Scripting.Dictionary”的 ActiveX 对象，可用于创建和管理字典。ActiveX 对象是一种软件组件，它提供了一个接口，可供使用不同语言编写的程序调用，只要这些程序符合 ActiveX 对象的使用规范即可。 因此，Scripting.dictionary对象不仅可由VBScript使用，还可由Windows的各种编程语言使用，包括JavaScript、Perl、Python、C、C++、VB、VBA等。</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>1</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">通过以下语句创建一个 Scripting.Dictionary 对象</div><div style="margin:0 0 0.5em 0">    <b>set dico=wscript.CreateObject(&quot;Scripting.Dictionary&quot;)</b></div><div style="margin:0 0 0.5em 0">或者简写为</div><div style="margin:0 0 0.5em 0">    <b>set dico=CreateObject(&quot;Scripting.Dictionary&quot;)</b></div><div style="margin:0 0 0.5em 0"><i>CreateObject </i>是 WScript 对象的一个方法，用于创建 ActiveX 对象的实例。第 2 版表明 wscript 可以是一个隐式对象。 当某个方法无法“关联”到某个对象时，容器 WSH 会尝试将其关联到 wscript 对象。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>2</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">创建字典后，即可使用 add 方法向其中添加元素：</div><div style="margin:0 0 0.5em 0">    <b>dico.add &quot;键&quot;,值</b></div><div style="margin:0 0 0.5em 0">将在字典中创建一个与键“键”相关联的新条目。关联的值是一个包含任意数据的变体。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>3</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">要获取与给定键关联的值，需使用字典的 <b>item</b> 方法：</div><div style="margin:0 0 0.5em 0">    <b>var=dico.item(&quot;键&quot;)</b></div><div style="margin:0 0 0.5em 0">或    <b>set var=dico.item(&quot;键&quot;)</b>（如果该键关联的值是一个对象）。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>4</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">可以通过 <b>keys</b> 方法将字典中的所有键获取到一个可变数组中：</div><div style="margin:0 0 0.5em 0">    <b>keys=dico.keys</b></div><div style="margin:0 0 0.5em 0"><b>keys</b> 是一个可以遍历其元素的数组。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>5</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">可以通过 <b>items</b> 方法将字典中的所有值获取到一个可变数组中：</div><div style="margin:0 0 0.5em 0">    <b>值 = 字典.items</b></div><div style="margin:0 0 0.5em 0"><b>items</b> 是一个数组，可以遍历其元素。</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>6</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">可以使用 <b>exists</b> 方法检测键是否存在：</div><div style="margin:0 0 0.5em 0">    <b>dico.exists(&quot;键名&quot;)</b> 返回 true 表示字典中存在键 &quot;键名&quot;</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>7</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">可以使用 <b>remove</b> 方法从字典中删除一个条目（键+值）：</div><div style="margin:0 0 0.5em 0">    <b>dico.remove(&quot;键&quot;)</b> 会从字典中移除与键 &quot;键&quot; 关联的条目。     <b>dico.removeall</b> 删除所有键，c.a.d 清空字典。</div></td></tr></table>
+
+<p>以下程序利用了这些功能：</p>
+<p><strong>程序</strong></p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 字典的创建与使用</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">Set</span><span style="color:#000000"> dico=CreateObject(&quot;Scripting.Dictionary&quot;)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 字典填充</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">dico.add &quot;clé1&quot;,&quot;valeur1&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">dico.add &quot;clé2&quot;,&quot;valeur2&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">dico.add &quot;clé3&quot;,&quot;valeur3&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 元素数量</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">wscript.echo &quot;Le dictionnaire a &quot; &amp; dico.count &amp; &quot; éléments&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 键列表</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">wscript.echo &quot;liste des clés&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">cles=dico.keys</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">For</span><span style="color:#000000"> i=0 </span><span style="color:#00007f">To</span><span style="color:#000000"> ubound(cles)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  wscript.echo cles(i)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Next</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 值列表</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">wscript.echo &quot;liste des valeurs&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">valeurs=dico.items</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">For</span><span style="color:#000000"> i=0 </span><span style="color:#00007f">To</span><span style="color:#000000"> ubound(valeurs)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  wscript.echo valeurs(i)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Next</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 键值对列表</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">wscript.echo &quot;liste des clés et valeurs&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">cles=dico.keys</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">For</span><span style="color:#000000"> i=0 </span><span style="color:#00007f">To</span><span style="color:#000000"> ubound(cles)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  wscript.echo &quot;dico(&quot; &amp; cles(i) &amp; &quot;)=&quot; &amp; dico.item(cles(i))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Next</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 元素搜索</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 键1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">If</span><span style="color:#000000"> dico.exists(&quot;clé1&quot;) </span><span style="color:#00007f">Then</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    wscript.echo &quot;La clé clé1 existe dans le dictionnaire et la valeur associée est &quot; &amp; dico.item(&quot;clé1&quot;)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Else</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    wscript.echo &quot;La clé clé1  n&#x27;existe pas dans le dictionnaire&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">End</span><span style="color:#000000"> </span><span style="color:#00007f">If</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 键4</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">If</span><span style="color:#000000"> dico.exists(&quot;clé4&quot;) </span><span style="color:#00007f">Then</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    wscript.echo &quot;La clé clé4 existe dans le dictionnaire et la valeur associée est &quot; &amp; dico.item(&quot;clé4&quot;)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">Else</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    wscript.echo &quot;La clé clé4  n&#x27;existe pas dans le dictionnaire&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#00007f">End</span><span style="color:#000000"> </span><span style="color:#00007f">If</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 删除键 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">dico.remove(&quot;clé1&quot;)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 键和值列表</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">wscript.echo &quot;liste des clés et valeurs après suppression de clé1&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">cles=dico.keys</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">For</span><span style="color:#000000"> i=0 </span><span style="color:#00007f">To</span><span style="color:#000000"> ubound(cles)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  wscript.echo &quot;dico(&quot; &amp; cles(i) &amp; &quot;)=&quot; &amp; dico.item(cles(i))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Next</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 删除所有内容</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">dico.removeall</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 键值对列表</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">wscript.echo &quot;liste des clés et valeurs après suppression de tous les éléments&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">cles=dico.keys</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#00007f">For</span><span style="color:#000000"> i=0 </span><span style="color:#00007f">To</span><span style="color:#000000"> ubound(cles)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  wscript.echo &quot;dico(&quot; &amp; cles(i) &amp; &quot;)=&quot; &amp; dico.item(cles(i))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Next</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27; 结束</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">wscript.quit 0</span></span>
+</code></pre></div>
+
+<p><strong>结果</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Le dictionnaire a 3 éléments
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>liste des clés
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>clé1
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>clé2
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>clé3
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>liste des valeurs
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>valeur1
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>valeur2
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>valeur3
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>liste des clés et valeurs
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>dico(clé1)=valeur1
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>dico(clé2)=valeur2
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>dico(clé3)=valeur3
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>La clé clé1 existe dans le dictionnaire et la valeur associée est valeur1
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>La clé clé4  n&#39;existe pas dans le dictionnaire
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>liste des clés et valeurs après suppression de clé1
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>dico(clé2)=valeur2
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a>dico(clé3)=valeur3
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a>liste des clés et valeurs après suppression de tous les éléments
+</code></pre></div>
+<p><span id="toc535044807" name="toc535044807" class="odt-bookmark-anchor"></span>
+<span id="refheading1876732734444" name="refheading1876732734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="319">3.19. <span style="color: #4f81bd">对数组或字典进行排序</span></h2>
+<p>通常需要按数组的值或字典的键的升序或降序对数组或字典进行排序。虽然大多数编程语言都提供了排序函数，但VBScript中似乎没有。这是一个缺陷。</p>
+<p><span id="toc535044808" name="toc535044808" class="odt-bookmark-anchor"></span>
+<span id="refheading1876932734444" name="refheading1876932734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="320">3.20. <span style="color: #4f81bd">程序的参数</span></h2>
+<p>可以通过传递参数来调用 VBScript 程序，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>cscript prog1.vbs arg1 arg2 .... argn
+</code></pre></div>
+<p>这允许用户向程序传递信息。程序如何获取这些信息？让我们看看以下程序：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>程序</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000001A90000009CBB72DF77.png" width="425" height="156" style="display:inline-block; margin:4px;width:11.245cm;height:4.128cm;" class="odt-zoomable" data-zoom-src="images/10000000000001A90000009CBB72DF77.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>C:\&gt;cscript arg1.vbs a b c
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>Il y a 3 arguments
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>a
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>b
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>c
+</code></pre></div>
+</div></td></tr></table>
+
+<p><strong>注释</strong></p>
+<ul>
+  <li><i>WScript.Arguments </i>是传递给脚本的参数集合
+  </li>
+  <li>集合 C 是一个具有
+    <ul>
+      <li>一个名为 <i>count</i> 的属性，该属性表示集合中的元素个数
+      </li>
+      <li>一个名为 <i>C(i)</i> 的方法，用于获取集合中的 i 元素
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><span id="toc535044809" name="toc535044809" class="odt-bookmark-anchor"></span>
+<span id="refheading1877132734444" name="refheading1877132734444" class="odt-bookmark-anchor"></span></p>
+<h2 id="321-impots">3.21. <span style="color: #4f81bd">第一个应用：IMPOTS</span></h2>
+<p>我们打算编写一个程序来计算纳税人的税款。我们考虑一个简化的情况，即纳税人只有工资需要申报：</p>
+<ul>
+  <li>计算该雇员的税额份额 <b>nbParts=nbEnfants/2 +1</b>（若未婚）， 已婚者则为 nbEnfants/2+2，其中 <i>nbEnfants</i> 表示其子女数。
+  </li>
+  <li>计算其应税收入 <b>R=0.</b>72*S，其中 S 为其年薪
+  </li>
+  <li>计算其家庭系数 <b>Q=R/N</b>
+  </li>
+</ul>
+
+<p>根据以下数据计算其应纳税额 I</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">12620.0</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">13190</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.05</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">631</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">15640</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.1</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">1290.5</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">24740</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.15</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">2072.5</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">31810</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.2</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">3309.5</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">39970</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.25</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">4900</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">48360</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.3</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">6898.5</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">55790</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.35</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">9316.5</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">92970</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.4</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">12106</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">127860</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.45</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">16754.5</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">151250</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.50</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">23147.5</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">172040</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.55</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">30710</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">195000</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.60</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">39312</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">0.65</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">49062</div></td></tr></table>
+
+<p>每行有 3 个字段。要计算税款 I，需查找满足 <em>QF&lt;=字段1</em> 的第一行。例如，若 QF=30000，则会找到该行 </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>    24740        0.15        2072.5
+</code></pre></div>
+<p>此时税额 I 等于 <strong>0.15*R - 2072.5*nbParts</strong>。 如果 QF 使得关系 <em>QF&lt;=field1</em> 从未成立，则使用最后一行中的系数。此处：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>    0                0.65        49062
+</code></pre></div>
+<p>由此得出的税额 I=0.65*R - 49062*nbParts。</p>
+<p>程序如下：</p>
+<p><strong>程序</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1">&#39; 计算纳税人的税款</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="c1">&#39; 调用该程序时需提供三个参数：已婚 子女 工资</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="c1">&#39; 已婚：已婚时为字符 O，未婚时为 N</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="c1">&#39; 子女：子女数量</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="c1">&#39; 工资：年薪（不包含分）</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="c1">&#39; 不进行数据有效性验证，但</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="c1">&#39; 会验证是否确实有三个</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="c1">&#39; 变量必须声明</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span>
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="c1">&#39; 验证参数数量为 3 个</span>
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">nbArguments</span>
+<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="n">nbArguments</span><span class="o">=</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">.</span><span class="n">count</span>
+<a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="k">If</span><span class="w"> </span><span class="n">nbArguments</span><span class="o">&lt;&gt;</span><span class="mi">3</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Syntaxe : pg marié enfants salaire&quot;</span>
+<a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;marié : caractère O si marié, N si non marié&quot;</span>
+<a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;enfants : nombre d&#39;enfants&quot;</span>
+<a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;salaire : salaire annuel sans les centimes&quot;</span>
+<a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a><span class="w">     </span><span class="c1">&#39; 以错误代码 1 终止</span>
+<a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a><span class="k">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a>
+<a id="__codelineno-28-25" name="__codelineno-28-25" href="#__codelineno-28-25"></a><span class="c1">&#39; 获取参数但不验证其有效性</span>
+<a id="__codelineno-28-26" name="__codelineno-28-26" href="#__codelineno-28-26"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">marie</span><span class="p">,</span><span class="w"> </span><span class="nv">enfants</span><span class="p">,</span><span class="w"> </span><span class="nv">salaire</span>
+<a id="__codelineno-28-27" name="__codelineno-28-27" href="#__codelineno-28-27"></a><span class="k">If</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;O&quot;</span><span class="w"> </span><span class="ow">Or</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-28-28" name="__codelineno-28-28" href="#__codelineno-28-28"></a><span class="w">    </span><span class="n">marie</span><span class="o">=</span><span class="no">true</span>
+<a id="__codelineno-28-29" name="__codelineno-28-29" href="#__codelineno-28-29"></a><span class="k">Else</span>
+<a id="__codelineno-28-30" name="__codelineno-28-30" href="#__codelineno-28-30"></a><span class="w">    </span><span class="n">marie</span><span class="o">=</span><span class="no">false</span>
+<a id="__codelineno-28-31" name="__codelineno-28-31" href="#__codelineno-28-31"></a><span class="k">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-28-32" name="__codelineno-28-32" href="#__codelineno-28-32"></a><span class="c1">&#39; children 是一个整数</span>
+<a id="__codelineno-28-33" name="__codelineno-28-33" href="#__codelineno-28-33"></a><span class="n">enfants</span><span class="o">=</span><span class="nb">cint</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-28-34" name="__codelineno-28-34" href="#__codelineno-28-34"></a><span class="c1">&#39; salaire 是一个长整型</span>
+<a id="__codelineno-28-35" name="__codelineno-28-35" href="#__codelineno-28-35"></a><span class="n">salaire</span><span class="o">=</span><span class="nb">clng</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-28-36" name="__codelineno-28-36" href="#__codelineno-28-36"></a>
+<a id="__codelineno-28-37" name="__codelineno-28-37" href="#__codelineno-28-37"></a><span class="c1">&#39; 在 3 个数组中定义计算税款所需的数据</span>
+<a id="__codelineno-28-38" name="__codelineno-28-38" href="#__codelineno-28-38"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">limites</span><span class="p">,</span><span class="w"> </span><span class="nv">coeffn</span><span class="p">,</span><span class="w"> </span><span class="nv">coeffr</span>
+<a id="__codelineno-28-39" name="__codelineno-28-39" href="#__codelineno-28-39"></a><span class="n">limites</span><span class="o">=</span><span class="nb">array</span><span class="p">(</span><span class="mi">12620</span><span class="p">,</span><span class="mi">13190</span><span class="p">,</span><span class="mi">15640</span><span class="p">,</span><span class="mi">24740</span><span class="p">,</span><span class="mi">31810</span><span class="p">,</span><span class="mi">39970</span><span class="p">,</span><span class="mi">48360</span><span class="p">,</span><span class="w"> </span><span class="n">_</span>
+<a id="__codelineno-28-40" name="__codelineno-28-40" href="#__codelineno-28-40"></a><span class="mi">55790</span><span class="p">,</span><span class="mi">92970</span><span class="p">,</span><span class="mi">127860</span><span class="p">,</span><span class="mi">151250</span><span class="p">,</span><span class="mi">172040</span><span class="p">,</span><span class="mi">195000</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-28-41" name="__codelineno-28-41" href="#__codelineno-28-41"></a><span class="n">coeffr</span><span class="o">=</span><span class="nb">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.35</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.45</span><span class="p">,</span><span class="w"> </span><span class="n">_</span>
+<a id="__codelineno-28-42" name="__codelineno-28-42" href="#__codelineno-28-42"></a><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.55</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.65</span><span class="p">)</span>
+<a id="__codelineno-28-43" name="__codelineno-28-43" href="#__codelineno-28-43"></a><span class="n">coeffn</span><span class="o">=</span><span class="nb">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">631</span><span class="p">,</span><span class="mf">1290.5</span><span class="p">,</span><span class="mf">2072.5</span><span class="p">,</span><span class="mf">3309.5</span><span class="p">,</span><span class="mi">4900</span><span class="p">,</span><span class="mf">6898.5</span><span class="p">,</span><span class="mf">9316.5</span><span class="p">,</span><span class="w"> </span><span class="n">_</span>
+<a id="__codelineno-28-44" name="__codelineno-28-44" href="#__codelineno-28-44"></a><span class="mi">12106</span><span class="p">,</span><span class="mf">16754.5</span><span class="p">,</span><span class="mf">23147.5</span><span class="p">,</span><span class="mi">30710</span><span class="p">,</span><span class="mi">39312</span><span class="p">,</span><span class="mi">49062</span><span class="p">)</span>
+<a id="__codelineno-28-45" name="__codelineno-28-45" href="#__codelineno-28-45"></a>
+<a id="__codelineno-28-46" name="__codelineno-28-46" href="#__codelineno-28-46"></a><span class="c1">&#39; 计算份额数</span>
+<a id="__codelineno-28-47" name="__codelineno-28-47" href="#__codelineno-28-47"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">nbParts</span>
+<a id="__codelineno-28-48" name="__codelineno-28-48" href="#__codelineno-28-48"></a><span class="k">If</span><span class="w"> </span><span class="n">marie</span><span class="o">=</span><span class="no">true</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-28-49" name="__codelineno-28-49" href="#__codelineno-28-49"></a><span class="w">    </span><span class="n">nbParts</span><span class="o">=</span><span class="p">(</span><span class="n">enfants</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span>
+<a id="__codelineno-28-50" name="__codelineno-28-50" href="#__codelineno-28-50"></a><span class="k">Else</span>
+<a id="__codelineno-28-51" name="__codelineno-28-51" href="#__codelineno-28-51"></a><span class="w">    </span><span class="n">nbParts</span><span class="o">=</span><span class="p">(</span><span class="n">enfants</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-28-52" name="__codelineno-28-52" href="#__codelineno-28-52"></a><span class="k">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-28-53" name="__codelineno-28-53" href="#__codelineno-28-53"></a><span class="k">If</span><span class="w"> </span><span class="n">enfants</span><span class="o">&gt;=</span><span class="mi">3</span><span class="w"> </span><span class="k">Then</span><span class="w"> </span><span class="n">nbParts</span><span class="o">=</span><span class="n">nbParts</span><span class="o">+</span><span class="mf">0.5</span>
+<a id="__codelineno-28-54" name="__codelineno-28-54" href="#__codelineno-28-54"></a>
+<a id="__codelineno-28-55" name="__codelineno-28-55" href="#__codelineno-28-55"></a><span class="c1">&#39; 计算家庭分摊额和应纳税所得额</span>
+<a id="__codelineno-28-56" name="__codelineno-28-56" href="#__codelineno-28-56"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">revenu</span><span class="p">,</span><span class="w"> </span><span class="nv">qf</span>
+<a id="__codelineno-28-57" name="__codelineno-28-57" href="#__codelineno-28-57"></a><span class="n">revenu</span><span class="o">=</span><span class="mf">0.72</span><span class="o">*</span><span class="n">salaire</span>
+<a id="__codelineno-28-58" name="__codelineno-28-58" href="#__codelineno-28-58"></a><span class="n">qf</span><span class="o">=</span><span class="n">revenu</span><span class="o">/</span><span class="n">nbParts</span>
+<a id="__codelineno-28-59" name="__codelineno-28-59" href="#__codelineno-28-59"></a>
+<a id="__codelineno-28-60" name="__codelineno-28-60" href="#__codelineno-28-60"></a><span class="c1">&#39; 计算税额</span>
+<a id="__codelineno-28-61" name="__codelineno-28-61" href="#__codelineno-28-61"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">impot</span>
+<a id="__codelineno-28-62" name="__codelineno-28-62" href="#__codelineno-28-62"></a><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<a id="__codelineno-28-63" name="__codelineno-28-63" href="#__codelineno-28-63"></a><span class="k">Do</span><span class="w"> </span><span class="k">While</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="nb">ubound</span><span class="p">(</span><span class="n">limites</span><span class="p">)</span><span class="w"> </span><span class="ow">And</span><span class="w"> </span><span class="n">qf</span><span class="o">&gt;</span><span class="n">limites</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-28-64" name="__codelineno-28-64" href="#__codelineno-28-64"></a><span class="w">    </span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-28-65" name="__codelineno-28-65" href="#__codelineno-28-65"></a><span class="k">Loop</span>
+<a id="__codelineno-28-66" name="__codelineno-28-66" href="#__codelineno-28-66"></a><span class="n">impot</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">revenu</span><span class="o">*</span><span class="n">coeffr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="n">nbParts</span><span class="o">*</span><span class="n">coeffn</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<a id="__codelineno-28-67" name="__codelineno-28-67" href="#__codelineno-28-67"></a>
+<a id="__codelineno-28-68" name="__codelineno-28-68" href="#__codelineno-28-68"></a><span class="c1">&#39; 显示结果</span>
+<a id="__codelineno-28-69" name="__codelineno-28-69" href="#__codelineno-28-69"></a><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;impôt=&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">impot</span>
+<a id="__codelineno-28-70" name="__codelineno-28-70" href="#__codelineno-28-70"></a>
+<a id="__codelineno-28-71" name="__codelineno-28-71" href="#__codelineno-28-71"></a><span class="c1">&#39; 无错误退出</span>
+<a id="__codelineno-28-72" name="__codelineno-28-72" href="#__codelineno-28-72"></a><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">0</span>
+</code></pre></div>
+<p><strong>结果</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-29-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-29-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-29-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-29-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-29-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-29-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-29-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-29-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-29-10">10</a></span>
+<span class="normal"><a href="#__codelineno-29-11">11</a></span>
+<span class="normal"><a href="#__codelineno-29-12">12</a></span>
+<span class="normal"><a href="#__codelineno-29-13">13</a></span>
+<span class="normal"><a href="#__codelineno-29-14">14</a></span>
+<span class="normal"><a href="#__codelineno-29-15">15</a></span>
+<span class="normal"><a href="#__codelineno-29-16">16</a></span>
+<span class="normal"><a href="#__codelineno-29-17">17</a></span>
+<span class="normal"><a href="#__codelineno-29-18">18</a></span>
+<span class="normal"><a href="#__codelineno-29-19">19</a></span>
+<span class="normal"><a href="#__codelineno-29-20">20</a></span>
+<span class="normal"><a href="#__codelineno-29-21">21</a></span>
+<span class="normal"><a href="#__codelineno-29-22">22</a></span>
+<span class="normal"><a href="#__codelineno-29-23">23</a></span>
+<span class="normal"><a href="#__codelineno-29-24">24</a></span>
+<span class="normal"><a href="#__codelineno-29-25">25</a></span>
+<span class="normal"><a href="#__codelineno-29-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>C:\&gt;cscript impots1.vbs o 2 200000
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>impôt=22504
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a>C:\&gt;cscript impots1.vbs o 2 20000
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a>impôt=0
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a>
+<a id="__codelineno-29-9" name="__codelineno-29-9"></a>C:\&gt;cscript impots1.vbs o 2 2000000
+<a id="__codelineno-29-10" name="__codelineno-29-10"></a>
+<a id="__codelineno-29-11" name="__codelineno-29-11"></a>impôt=746064
+<a id="__codelineno-29-12" name="__codelineno-29-12"></a>
+<a id="__codelineno-29-13" name="__codelineno-29-13"></a>C:\&gt;cscript impots1.vbs n 2 200000
+<a id="__codelineno-29-14" name="__codelineno-29-14"></a>
+<a id="__codelineno-29-15" name="__codelineno-29-15"></a>impôt=33388
+<a id="__codelineno-29-16" name="__codelineno-29-16"></a>
+<a id="__codelineno-29-17" name="__codelineno-29-17"></a>C:\&gt;cscript impots1.vbs n 3 200000
+<a id="__codelineno-29-18" name="__codelineno-29-18"></a>
+<a id="__codelineno-29-19" name="__codelineno-29-19"></a>impôt=22504
+<a id="__codelineno-29-20" name="__codelineno-29-20"></a>
+<a id="__codelineno-29-21" name="__codelineno-29-21"></a>C:\&gt;cscript impots1.vbs
+<a id="__codelineno-29-22" name="__codelineno-29-22"></a>
+<a id="__codelineno-29-23" name="__codelineno-29-23"></a>Syntaxe : pg marié enfants salaire
+<a id="__codelineno-29-24" name="__codelineno-29-24"></a>marié : caractère O si marié, N si non marié
+<a id="__codelineno-29-25" name="__codelineno-29-25"></a>enfants : nombre d&#39;enfants
+<a id="__codelineno-29-26" name="__codelineno-29-26"></a>salaire : salaire annuel sans les centimes
+</code></pre></div></td></tr></table></div>
+<p><strong>注释：</strong></p>
+<ul>
+  <li>该程序运用了前文所述的内容（变量声明、参数、类型转换、条件判断、循环、变体中的数组）
+  </li>
+  <li>它不验证数据的有效性，这在实际程序中是不正常的
+  </li>
+  <li>仅while循环存在难点。它试图确定数组limites中满足limites(i)&gt;qf的索引i，且i&lt;ubound(limites)（c.a.d中此处i&lt;13），因为数组limites的最后一个元素不具有实际意义。  该元素仅为使测试 <span style="color: #000000">[Do While i&lt;ubound(limites) And qf&gt;limites(i)]</span> 能对 i=13 进行而添加。此时的测试条件为 13&lt;13 且 qf&gt;limites(13)，因此（在 VBScript 中）必须确保 limites(13) 存在。 当退出 while 循环时，计算出的 i 的最后一个值可用于计算税额：<span style="color: #000000">[impot=int(revenu*coeffr(i)-nbParts*coeffn(i))]。</span>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 <strong>Serge Tahé</strong> 编写，根据
+<em>知识共享 署名-非商业性使用-
+ShareAlike 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
